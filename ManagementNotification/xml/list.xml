@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfAnyType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <anyType xsi:type="Notification">
+    <Date>2014-06-06T00:00:00</Date>
+    <Title>テスト通知1</Title>
+    <Body>テスト通知1内容</Body>
+  </anyType>
+  <anyType xsi:type="Notification">
+    <Date>2014-06-05T00:00:00</Date>
+    <Title>テスト通知2</Title>
+    <Body>テスト通知2内容</Body>
+  </anyType>
+</ArrayOfAnyType>

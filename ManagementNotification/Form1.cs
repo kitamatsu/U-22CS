@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ManagementNotification.test;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,9 @@ namespace ManagementNotification
         public Form1()
         {
             InitializeComponent();
+
+            //テスト用コード
+            //Main main = new Main();
         }
     }
 }
