@@ -40,5 +40,7 @@ namespace ManagementNotification.util
             serializer.Serialize(sw, list);
             sw.Close();
         }
+
+        
     }
 }
