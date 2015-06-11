@@ -10,7 +10,7 @@ namespace ManagementNotification.util
     {
         static public void DateDenotation()
         {
-            NotificationList.list
+            //NotificationList.list
         }
 
         static public void BodyDenotation()
