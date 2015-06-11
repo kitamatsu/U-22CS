@@ -22,11 +22,13 @@ namespace ManagementNotification.util
         }
 
         //Constructor
-        public Notification(DateTime date, String title, String body)
+        public Notification(int id, DateTime date, String title, String body, String cn)
         {
-            this.date = date;
-            this.title = title;
-            this.body = body;
+            this.Date = date;
+            this.Title = title;
+            this.Body = body;
+            this.NotificationID = id;
+            this.ChildName = cn;
         }
 
         //getter, setter
