@@ -8,7 +8,12 @@ namespace ManagementNotification.util
 {
     class ConfirmationDenotation
     {
-        public void a()
+        static public void DateDenotation()
+        {
+            NotificationList.list
+        }
+
+        static public void BodyDenotation()
         {
 
         }

@@ -84,8 +84,14 @@ namespace ManagementNotification.util
             }
         }
 
+        static public void deleteNotification(int selectId, Boolean deletePast)
+        {
+            
+            //list.Remove
+        }
+
         //指定したIDの通知を削除する
-        static public void removeList(int id)
+        static public void removeListByID(int id)
         {
             foreach(Notification li in list)
             {
