@@ -14,6 +14,8 @@ namespace ManagementNotification.test
         public Test()
         {
             NotificationList.ViewListToConsole();
+            NotificationList.removeList(2);
+            NotificationList.ViewListToConsole();
         }
     }
 }
