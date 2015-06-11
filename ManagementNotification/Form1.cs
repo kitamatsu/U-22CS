@@ -19,6 +19,9 @@ namespace ManagementNotification
 
             //テスト用コード
             Test act = new Test();
+            
         }
+
+        
     }
 }

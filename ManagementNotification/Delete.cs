@@ -12,7 +12,6 @@ namespace ManagementNotification.util
 {
     public partial class Delete : Form
     {
-        NotificationList NList = new NotificationList();
         public Delete()
         {
             InitializeComponent();
@@ -37,7 +36,8 @@ namespace ManagementNotification.util
             }
             else
             {
-                int selectId = int.Parse(dataGridView1.SelectedRows.ToString());
+                int selectRow = int.Parse(dataGridView1.SelectedRows.ToString());
+                int selectId = int.Parse(dataGridView1[0, selectRow].ToString());
 
                 //選択された日付以前のログを削除するか判定
                 Boolean deletePast;
@@ -51,7 +51,7 @@ namespace ManagementNotification.util
                     deletePast = true;
                 }
 
-                NList.deleteNotification(selectId, deletePast);
+                NotificationList.deleteNotification(selectId, deletePast);
             }
             
         }

@@ -75,7 +75,7 @@ namespace ManagementNotification.util
             }
         }
 
-        public void deleteNotification(int selectId, Boolean deletePast)
+        static public void deleteNotification(int selectId, Boolean deletePast)
         {
             
             //list.Remove
