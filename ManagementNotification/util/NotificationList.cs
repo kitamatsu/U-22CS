@@ -41,6 +41,9 @@ namespace ManagementNotification.util
             sw.Close();
         }
 
-        
+        public void deleteNotification(String selectDate, Boolean deletePast)
+        {
+            list.Remove
+        }
     }
 }
