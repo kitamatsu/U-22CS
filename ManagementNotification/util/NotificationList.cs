@@ -29,16 +29,25 @@ namespace ManagementNotification.util
             //保存元のファイル名    デバッグ先から階層を指定している
             string fileName = @"..\..\xml\list.xml";
 
-            //XmlSerializerオブジェクトを作成
-            System.Xml.Serialization.XmlSerializer serializer =
-                new System.Xml.Serialization.XmlSerializer(typeof(List<Notification>));
-            //読み込むファイルを開く
-            System.IO.StreamReader sr = new System.IO.StreamReader(
-                fileName, new System.Text.UTF8Encoding(false));
-            //XMLファイルから読み込み、逆シリアル化する
-            list = (List<Notification>)serializer.Deserialize(sr);
-            //ファイルを閉じる
-            sr.Close();
+            if (System.IO.File.Exists(fileName))
+            {
+                //XmlSerializerオブジェクトを作成
+                System.Xml.Serialization.XmlSerializer serializer =
+                    new System.Xml.Serialization.XmlSerializer(typeof(List<Notification>));
+                //読み込むファイルを開く
+                System.IO.StreamReader sr = new System.IO.StreamReader(
+                    fileName, new System.Text.UTF8Encoding(false));
+                //XMLファイルから読み込み、逆シリアル化する
+                list = (List<Notification>)serializer.Deserialize(sr);
+                //ファイルを閉じる
+                sr.Close();
+            }
+            else
+            {
+                Console.WriteLine("xmlが存在しません。");
+            }
+
+           
         }
 
         //ArrayListをxmlで保存するメソッド
