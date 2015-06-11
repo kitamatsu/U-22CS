@@ -21,21 +21,39 @@ namespace ManagementNotification.util
         private void button1_Click(object sender, EventArgs e)
         {
             //選択されているノードを取得する
-            String selectLog = treeView1.SelectedNode.Text;
-
-            //選択された日付以前のログを削除するか判定
-            Boolean deletePast;
-
-            if (radioButton1.Checked)
+            if (treeView1.SelectedNode.Equals(null) || treeView1.SelectedNode.Parent.Equals(null))
             {
-                deletePast = false;
+                MessageBox.Show("削除するログの日付を選択してください。",
+                                "エラー",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
+            else if(dataGridView1.SelectedCells.Equals(null))
+            {
+                MessageBox.Show("削除するログを選択してください。",
+                                "エラー",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
             }
             else
             {
-                deletePast = true;
-            }
+                int selectId = int.Parse(dataGridView1.SelectedRows.ToString());
 
-            NList.deleteNotification(selectLog, deletePast);
+                //選択された日付以前のログを削除するか判定
+                Boolean deletePast;
+
+                if (radioButton1.Checked)
+                {
+                    deletePast = false;
+                }
+                else
+                {
+                    deletePast = true;
+                }
+
+                NList.deleteNotification(selectId, deletePast);
+            }
+            
         }
     }
 }

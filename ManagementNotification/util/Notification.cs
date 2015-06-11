@@ -62,5 +62,10 @@ namespace ManagementNotification.util
             get { return childName; }
             set { childName = value; }
         }
+
+        public override string ToString()
+        {
+            return NotificationID + "-" + Date + "-" + Title + "-" + Body + "-" + ChildName;
+        }
     }
 }

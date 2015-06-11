@@ -32,11 +32,12 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.通知ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.body = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,10 +54,10 @@
             this.radioButton1.Checked = true;
             this.radioButton1.Location = new System.Drawing.Point(340, 23);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(160, 16);
+            this.radioButton1.Size = new System.Drawing.Size(126, 16);
             this.radioButton1.TabIndex = 1;
             this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "選択された日付のログを削除";
+            this.radioButton1.Text = "選択されたログを削除";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // radioButton2
@@ -67,13 +68,14 @@
             this.radioButton2.Size = new System.Drawing.Size(179, 16);
             this.radioButton2.TabIndex = 2;
             this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "選択された日付までのログを削除";
+            this.radioButton2.Text = "選択された日時までのログを削除";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.通知ID,
             this.time,
             this.title,
             this.body});
@@ -82,23 +84,6 @@
             this.dataGridView1.RowTemplate.Height = 21;
             this.dataGridView1.Size = new System.Drawing.Size(543, 350);
             this.dataGridView1.TabIndex = 4;
-            // 
-            // time
-            // 
-            this.time.HeaderText = "時間";
-            this.time.Name = "time";
-            // 
-            // title
-            // 
-            this.title.HeaderText = "タイトル";
-            this.title.Name = "title";
-            this.title.Width = 130;
-            // 
-            // body
-            // 
-            this.body.HeaderText = "本文";
-            this.body.Name = "body";
-            this.body.Width = 270;
             // 
             // button1
             // 
@@ -118,6 +103,30 @@
             this.button2.TabIndex = 6;
             this.button2.Text = "戻る";
             this.button2.UseVisualStyleBackColor = true;
+            // 
+            // 通知ID
+            // 
+            this.通知ID.HeaderText = "id";
+            this.通知ID.Name = "通知ID";
+            this.通知ID.Visible = false;
+            this.通知ID.Width = 20;
+            // 
+            // time
+            // 
+            this.time.HeaderText = "時間";
+            this.time.Name = "time";
+            // 
+            // title
+            // 
+            this.title.HeaderText = "タイトル";
+            this.title.Name = "title";
+            this.title.Width = 130;
+            // 
+            // body
+            // 
+            this.body.HeaderText = "本文";
+            this.body.Name = "body";
+            this.body.Width = 270;
             // 
             // Delete
             // 
@@ -144,10 +153,11 @@
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 通知ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn time;
         private System.Windows.Forms.DataGridViewTextBoxColumn title;
         private System.Windows.Forms.DataGridViewTextBoxColumn body;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
     }
 }
