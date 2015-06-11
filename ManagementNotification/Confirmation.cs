@@ -16,7 +16,5 @@ namespace ManagementNotification.util
         {
             InitializeComponent();
         }
-
-        
     }
 }

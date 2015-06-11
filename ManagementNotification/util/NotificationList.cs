@@ -96,5 +96,18 @@ namespace ManagementNotification.util
             }
             //list.Remove
         }
+
+        //指定したIDの通知を削除する
+        static public void removeListByID(int id)
+        {
+            foreach(Notification li in list)
+            {
+                if (li.NotificationID == id)
+                {
+                    list.Remove(li);
+                    return;
+                }
+            }
+        }
     }
 }
