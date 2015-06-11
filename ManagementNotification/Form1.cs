@@ -18,7 +18,7 @@ namespace ManagementNotification
             InitializeComponent();
 
             //テスト用コード
-            //Main main = new Main();
+            Test act = new Test();
         }
     }
 }

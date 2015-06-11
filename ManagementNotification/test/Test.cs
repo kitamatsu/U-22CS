@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace ManagementNotification.test
 {
-    class Main
+    class Test
     {
        
 
-        public Main()
+        public Test()
         {
             NotificationList ntlist = new NotificationList();
             ntlist.saveXML();

@@ -52,7 +52,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="test\Main.cs" />
+    <Compile Include="test\Test.cs" />
     <Compile Include="util\Notification.cs" />
     <Compile Include="util\NotificationList.cs" />
     <EmbeddedResource Include="Form1.resx">
