@@ -13,8 +13,7 @@ namespace ManagementNotification.test
 
         public Test()
         {
-            NotificationList ntlist = new NotificationList();
-            ntlist.saveXML();
+            NotificationList.ViewListToConsole();
         }
     }
 }

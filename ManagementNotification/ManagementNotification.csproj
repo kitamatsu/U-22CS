@@ -64,6 +64,7 @@
     <Compile Include="Delete.Designer.cs">
       <DependentUpon>Delete.cs</DependentUpon>
     </Compile>
+    <Compile Include="test\Test.cs" />
     <Compile Include="util\Notification.cs" />
     <Compile Include="util\NotificationList.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -98,7 +99,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="test\" />
     <Folder Include="xml\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
