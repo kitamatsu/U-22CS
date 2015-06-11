@@ -37,21 +37,28 @@ namespace ManagementNotification.util
             else
             {
                 int selectRow = int.Parse(dataGridView1.SelectedRows.ToString());
-                int selectId = int.Parse(dataGridView1[0, selectRow].ToString());
+                int[] selectId = null;
+                
+                selectId[0] = int.Parse(dataGridView1[0, selectRow].ToString());
+                int selectIdIndex = 1;      //selectId配列の添え字
 
-                //選択された日付以前のログを削除するか判定
-                Boolean deletePast;
 
-                if (radioButton1.Checked)
+                //選択された日時以前のログを削除する
+                if (radioButton2.Checked)
                 {
-                    deletePast = false;
-                }
-                else
-                {
-                    deletePast = true;
+                    for (int i = 0; dataGridView1.Rows.Count > i; i++)
+                    {
+                        int testDeleteId = int.Parse(dataGridView1[0, i].ToString());
+
+                        if(selectId[0] > testDeleteId){
+                            selectId[selectIdIndex] = testDeleteId;
+                            selectIdIndex++;
+                        }
+
+                    }
                 }
 
-                NotificationList.deleteNotification(selectId, deletePast);
+                NotificationList.removeListByID(selectId);
             }
             
         }
