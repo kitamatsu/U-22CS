@@ -8,21 +8,23 @@ using System.Threading.Tasks;
 namespace ManagementNotification.util
 {
     //全ての通知をlistで所持,保存するクラス
-    public class NotificationList
+    public static class NotificationList
     {
-        List<Notification> list = new List<Notification>();
+        public static List<Notification> list = new List<Notification>();
 
-        //constructor
-        public NotificationList()
+        static NotificationList()
+        {       
+            System.Console.WriteLine("静的コンストラクタ");
+            loadList();
+        }
+
+        static public void setList()
         {
-            //testAdd();
-            setList();
-            ViewListToConsole();
-            
+            //jsonからlistへセットする予定
         }
 
         //xmlからListに復元する
-        private void setList()
+        static public void loadList()
         {
             //保存元のファイル名    デバッグ先から階層を指定している
             string fileName = @"..\..\xml\list.xml";
@@ -36,11 +38,11 @@ namespace ManagementNotification.util
             //XMLファイルから読み込み、逆シリアル化する
             list = (List<Notification>)serializer.Deserialize(sr);
             //ファイルを閉じる
-            sr.Close();            
+            sr.Close();
         }
 
         //ArrayListをxmlで保存するメソッド
-        public void saveXML()
+        static public void saveXML()
         {
             //保存先のファイル名
             string fileName = @"..\..\xml\list.xml";
@@ -55,7 +57,7 @@ namespace ManagementNotification.util
         }
 
         //テストデータの追加
-        private void testAdd()
+        static public void testAdd()
         {
             //テストデータの入力
             Notification nt1 = new Notification(1, new DateTime(2014, 6, 6), "テスト通知1", "テスト通知1内容", "兄");
@@ -65,7 +67,7 @@ namespace ManagementNotification.util
         }
 
         //Listをコンソールに表示する
-        private void ViewListToConsole()
+        static public void ViewListToConsole()
         {
             foreach(Notification li in list)
             {
