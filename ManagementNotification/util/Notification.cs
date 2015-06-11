@@ -9,9 +9,11 @@ namespace ManagementNotification.util
     //通知を所持するクラス
     public class Notification
     {
+        private int notificationID { get; set; } //通知ID
         private DateTime date{ get; set; } //日付
         private String title { get; set; }  //タイトル
         private String body { get; set; }   //本文
+        private String childName { get; set; }  //子の管理名
 
         //引数なしConstructor
         public Notification()
@@ -28,6 +30,13 @@ namespace ManagementNotification.util
         }
 
         //getter, setter
+
+        public int NotificationID
+        {
+            get { return notificationID; }
+            set { notificationID = value; }
+        }
+
         public DateTime Date
         {
             get { return date; }
@@ -44,6 +53,12 @@ namespace ManagementNotification.util
         {
             get { return body; }
             set { body = value; }
+        }
+
+        public String ChildName
+        {
+            get { return childName; }
+            set { childName = value; }
         }
     }
 }
