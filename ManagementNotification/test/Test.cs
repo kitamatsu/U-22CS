@@ -13,8 +13,9 @@ namespace ManagementNotification.test
 
         public Test()
         {
+            int[] testList = { 1 };
             NotificationList.ViewListToConsole();
-            NotificationList.removeListByID(2);
+            NotificationList.removeListByID(testList);
             NotificationList.ViewListToConsole();
         }
     }

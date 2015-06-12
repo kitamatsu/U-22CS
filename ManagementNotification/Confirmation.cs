@@ -21,7 +21,7 @@ namespace ManagementNotification.util
 
         private void Confirmation_Load(object sender, EventArgs e)
         {
-            CD.DateDenotation(treeView1);
+            //CD.DateDenotation(treeView1);
         }
     }
 }
