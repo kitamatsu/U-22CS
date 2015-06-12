@@ -54,7 +54,6 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "設定";
             this.button1.UseVisualStyleBackColor = true;
-
             // 
             // button2
             // 
@@ -113,6 +112,7 @@
             this.Controls.Add(this.treeView1);
             this.Name = "Confirmation";
             this.Text = "保存内容確認";
+            this.Load += new System.EventHandler(this.Confirmation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

@@ -8,14 +8,19 @@ namespace ManagementNotification.util
 {
     class ConfirmationDenotation
     {
-        static public void DateDenotation()
+        static public void DateDenotation(TreeView view1)
         {
-            NotificationList.list
+            
         }
 
         static public void BodyDenotation()
         {
 
+        }
+
+        internal void DateDenotation(System.Windows.Forms.TreeView treeView1)
+        {
+            throw new NotImplementedException();
         }
     }
 }

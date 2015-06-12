@@ -12,9 +12,16 @@ namespace ManagementNotification.util
 {
     public partial class Confirmation : Form
     {
+        ConfirmationDenotation CD = new ConfirmationDenotation();
+
         public Confirmation()
         {
             InitializeComponent();
+        }
+
+        private void Confirmation_Load(object sender, EventArgs e)
+        {
+            CD.DateDenotation(treeView1);
         }
     }
 }
