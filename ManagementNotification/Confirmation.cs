@@ -12,7 +12,8 @@ namespace ManagementNotification.util
 {
     public partial class Confirmation : Form
     {
-        ConfirmationDenotation CD = new ConfirmationDenotation();
+        //ConfirmationDenotationクラスのインスタンス作成
+        //ConfirmationDenotation CD = new ConfirmationDenotation();
 
         public Confirmation()
         {
@@ -21,8 +22,9 @@ namespace ManagementNotification.util
 
         private void Confirmation_Load(object sender, EventArgs e)
         {
-            //CD.DateDenotation(treeView1);
-            CD.DateDenotation(View1);
+            //ツリー構造（管理名、日付）を表示するメソッドを呼び出す
+            ConfirmationDenotation.DateDenotation(treeView1);
+            //treeView1.Nodes.Add("aaa");
         }
     }
 }
