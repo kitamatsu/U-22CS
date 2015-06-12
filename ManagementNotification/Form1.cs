@@ -35,14 +35,14 @@ namespace ManagementNotification
         private void confirmation_Click(object sender, EventArgs e)
         {    
             con.Show();
-            this.Hide();
+            this.Visible = false;
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
             
             del.Show();
-            this.Hide();
+            this.Visible = false;
         }
 
         
