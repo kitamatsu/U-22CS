@@ -15,36 +15,33 @@ namespace ManagementNotification
     public partial class Form1 : Form
     {
         //画面
-        Confirmation con　= new Confirmation();
-        Delete del = new Delete();
+        Confirmation con;
+        Delete del;
 
         public Form1()
         {
             InitializeComponent();
-            Confirmation con = new Confirmation();
+            con = new Confirmation(this);
+            del = new Delete(this);
 
             //テスト用コード
-            Test act = new Test();
+            //Test act = new Test();
             
         }
 
-
         //画面遷移
-        //×押してもHide()で裏が生きてるから停止ボタンを忘れずに
-        //そのうちcontroller作る
         private void confirmation_Click(object sender, EventArgs e)
         {    
             con.Show();
-            this.Hide();
+            this.Visible = false;
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
             
             del.Show();
-            this.Hide();
+            this.Visible = false;
         }
-
-        
+            
     }
 }

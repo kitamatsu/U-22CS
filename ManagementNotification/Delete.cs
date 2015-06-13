@@ -12,9 +12,18 @@ namespace ManagementNotification.util
 {
     public partial class Delete : Form
     {
+        Form pre;
+
         public Delete()
         {
             InitializeComponent();
+        }
+
+        //前の画面を引数とするコンストラクタ
+        public Delete(Form form)
+        {
+            InitializeComponent();
+            pre = form;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -61,6 +70,19 @@ namespace ManagementNotification.util
                 NotificationList.removeListByID(selectId);
             }
             
+        }
+
+        private void Delete_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Console.Write("削除画面から終了");
+            Application.Exit();
+        }
+
+        //戻るボタンの処理
+        private void button2_Click(object sender, EventArgs e)
+        {
+            pre.Show();
+            this.Visible = false;
         }
     }
 }
