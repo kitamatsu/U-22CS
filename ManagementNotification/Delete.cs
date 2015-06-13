@@ -57,17 +57,8 @@ namespace ManagementNotification.util
         private void button1_Click(object sender, EventArgs e)
         {
             
-            try
-            {
                 //選択されているノードを取得する
-                if (!treeView1.SelectedNode.Text.EndsWith("日"))     //TreeViewの日にちが選択されていない場合
-                {
-                    MessageBox.Show("削除するログの日付を選択してください。",
-                                    "エラー",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Error);
-                }
-                else if (dataGridView1.SelectedCells.Equals(null))  //DataGridViewのログが選択されていない場合
+                if(dataGridView1.SelectedCells.Equals(null))  //DataGridViewのログが選択されていない場合
                 {
                     MessageBox.Show("削除するログを選択してください。",
                                     "エラー",
@@ -76,6 +67,8 @@ namespace ManagementNotification.util
                 }
                 else
                 {
+                    
+
                     int selectRow = dataGridView1.CurrentCell.RowIndex;
                     ArrayList selectId = new ArrayList();
                     int[] deleteId = null;
@@ -98,24 +91,34 @@ namespace ManagementNotification.util
                             }
 
                         }
-                        deleteId = new int[selectIdIndex];
-                        for (int i = 0; selectIdIndex > i; i++)
-                        {
-                            deleteId[i] = int.Parse(selectId[i].ToString());
-                        }
+                        
                     }
 
-                    NotificationList.removeListByID(deleteId);
-                    NotificationList.ViewListToConsole();
+                    deleteId = new int[selectIdIndex];
+                    for (int i = 0; selectIdIndex > i; i++)
+                    {
+                        deleteId[i] = int.Parse(selectId[i].ToString());
+                    }
+
+                    
+
+                    DialogResult result = MessageBox.Show("選択されたログを削除しますか？",
+                                    "ログの削除",
+                                    MessageBoxButtons.YesNo,
+                                    MessageBoxIcon.Exclamation,
+                                    MessageBoxDefaultButton.Button2);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        NotificationList.removeListByID(deleteId);
+                        NotificationList.ViewListToConsole();
+                    }
+
+                    
+
+
                 }
-            }
-            catch (NullReferenceException )
-            {
-                MessageBox.Show("削除するログの日付を選択してください。",
-                                    "エラー",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Error);
-            }
+            
             
             
         }
