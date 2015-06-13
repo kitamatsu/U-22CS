@@ -30,7 +30,7 @@ namespace ManagementNotification.util
             pre = form;
 
             //テストデータ
-            ConfirmationDenotation.DateDenotation(treeView1);
+            CD.DateDenotation(treeView1);
             dataGridView1.Rows.Add();
             dataGridView1.Rows.Add();
             int idx = dataGridView1.Rows.Count - 3;
