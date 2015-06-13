@@ -80,9 +80,14 @@ namespace ManagementNotification.util
 
                 if (result == DialogResult.OK)
                 {
+                    //DataGridViewから指定した通知IDのデータを削除する
                     dataGridView1.Rows.RemoveAt(e.RowIndex);
-                    //NotificationList.removeListByID(rowNum);
-                    
+
+                    //リストから指定した通知IDのデータを削除する
+                    NotificationList.removeListByID(rowNum);
+
+                    //コンソールにリスト内容を表示する
+                    NotificationList.ViewListToConsole();
                 }
 
                 // ヘッダ以外のセルか？
