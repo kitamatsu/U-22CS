@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections;
 
 namespace ManagementNotification.util
 {
@@ -31,17 +32,25 @@ namespace ManagementNotification.util
             //テストデータ
             ConfirmationDenotation.DateDenotation(treeView1);
             dataGridView1.Rows.Add();
-            int idx = dataGridView1.Rows.Count - 2;
+            dataGridView1.Rows.Add();
+            int idx = dataGridView1.Rows.Count - 3;
             dataGridView1.Rows[idx].Cells[0].Value = "1";
             dataGridView1.Rows[idx].Cells[1].Value = "1時2分3秒";
             dataGridView1.Rows[idx].Cells[2].Value = "LINE";
             dataGridView1.Rows[idx].Cells[3].Value = "テスト";
             
-            idx = dataGridView1.Rows.Count - 1;
+            idx = dataGridView1.Rows.Count - 2;
             dataGridView1.Rows[idx].Cells[0].Value = "2";
             dataGridView1.Rows[idx].Cells[1].Value = "4時5分6秒";
             dataGridView1.Rows[idx].Cells[2].Value = "Twitter";
             dataGridView1.Rows[idx].Cells[3].Value = "テスト2";
+            NotificationList.ViewListToConsole();
+
+            idx = dataGridView1.Rows.Count - 1;
+            dataGridView1.Rows[idx].Cells[0].Value = "3";
+            dataGridView1.Rows[idx].Cells[1].Value = "7時8分9秒";
+            dataGridView1.Rows[idx].Cells[2].Value = "アプリ";
+            dataGridView1.Rows[idx].Cells[3].Value = "テスト3";
             NotificationList.ViewListToConsole();
         }
 
@@ -68,9 +77,10 @@ namespace ManagementNotification.util
                 else
                 {
                     int selectRow = dataGridView1.CurrentCell.RowIndex;
-                    int[] selectId = new int[2];
+                    ArrayList selectId = new ArrayList();
+                    int[] deleteId = null;
 
-                    selectId[0] = int.Parse(dataGridView1[0, selectRow].Value.ToString());
+                    selectId.Add(dataGridView1[0, selectRow].Value.ToString());
                     int selectIdIndex = 1;      //selectId配列の添え字
 
 
@@ -81,16 +91,21 @@ namespace ManagementNotification.util
                         {
                             int testDeleteId = int.Parse(dataGridView1[0, i].Value.ToString());
 
-                            if (selectId[0] > testDeleteId)
+                            if (int.Parse(selectId[0].ToString()) > testDeleteId)
                             {
-                                selectId[selectIdIndex] = testDeleteId;
+                                selectId.Add(testDeleteId);
                                 selectIdIndex++;
                             }
 
                         }
+                        deleteId = new int[selectIdIndex];
+                        for (int i = 0; selectIdIndex > i; i++)
+                        {
+                            deleteId[i] = int.Parse(selectId[i].ToString());
+                        }
                     }
 
-                    NotificationList.removeListByID(selectId);
+                    NotificationList.removeListByID(deleteId);
                     NotificationList.ViewListToConsole();
                 }
             }

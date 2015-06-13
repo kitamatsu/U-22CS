@@ -97,7 +97,7 @@ namespace ManagementNotification.util
                     if (li.NotificationID == id[i])
                     {
                         list.Remove(li);
-                        return;
+                        break;
                     }
                 }
             }
