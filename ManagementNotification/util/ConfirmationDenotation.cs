@@ -41,7 +41,7 @@ namespace ManagementNotification.util
 
         public void BodyDenotation(DataGridView DGView1 )
         {
-            
+
         }
 
         public void selectLastNode(TreeView View1,DataGridView DGView1)
