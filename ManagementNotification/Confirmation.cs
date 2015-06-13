@@ -25,6 +25,9 @@ namespace ManagementNotification.util
         {
             InitializeComponent();
             pre = form;
+
+            //テスト中
+            //Console.Write(CD.differntNodeList().Count.ToString());
         }
 
         private void Confirmation_Load(object sender, EventArgs e)
@@ -48,15 +51,50 @@ namespace ManagementNotification.util
         {
             //日付が選択されたときDataGridViewに表示する
             CD.selectLastNode(treeView1, dataGridView1);
-
+            
         }
-
-        private void dataGridView_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
-        {        }
 
         private void CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            
+            
+        }
 
+        private void dataGridView_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            // 右ボタンのクリックか？
+            if (e.Button == MouseButtons.Right)
+            {
+                    
+                dataGridView1.ClearSelection();
+                dataGridView1.Rows[e.RowIndex].Selected = true;
+
+                //RowIndexは0からなので＋1する
+                int rowNum = e.RowIndex + 1;
+
+                //メッセージボックスに選択した行を削除するか表示
+                DialogResult result =   MessageBox.Show("行番号:　" + rowNum + "\r\n選択した行を削除します。",
+                                                        "削除",
+                                                        MessageBoxButtons.OKCancel,
+                                                        MessageBoxIcon.Exclamation);
+
+                if (result == DialogResult.OK)
+                {
+                    dataGridView1.Rows.RemoveAt(e.RowIndex);
+                    //NotificationList.removeListByID(rowNum);
+                    
+                }
+
+                // ヘッダ以外のセルか？
+                if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
+                {
+
+                    // 右クリックされたセル
+                    //DataGridViewCell cell = dataGridView1[e.ColumnIndex, e.RowIndex];
+                    // セルの選択状態を反転
+                    //cell.Selected = !cell.Selected;
+                }
+            }
         }
     }
 }

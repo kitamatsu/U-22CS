@@ -13,13 +13,11 @@ namespace ManagementNotification.util
 {
     class ConfirmationDenotation
     {
+        TreeNode root;
         TreeNode TNcN, TNy, TNm, TNd;
 
         public void DateDenotation(TreeView TView1)
         {
-            //String childName = NotificationList.list[0].ToString();
-            //TView1.Nodes.Add(childName);
-
             TView1.Nodes.Add(NotificationList.list[0].ToString());
 
             foreach (Notification li in NotificationList.list)
@@ -37,6 +35,56 @@ namespace ManagementNotification.util
                 TNy.Nodes.Add(TNm);
                 TNm.Nodes.Add(TNd);
             }
+        }
+
+        //リストからtreeを作成する
+        public TreeNode Node()
+        {
+            root = new TreeNode();
+
+            foreach(Notification li in NotificationList.list){
+         
+                if(true)
+                {
+                     if (root.Parent == null)
+                     {
+                    
+                     }
+                    else
+                    {
+                    //追加
+                    }
+                }
+               
+
+            }            
+
+            return null;
+        }
+
+        /**表示名で分けた複数のListを持つList
+        public List<List<Notification>> differntNodeList()
+        {
+            List<List<Notification>> diffList = new List<List<Notification>>();
+
+            foreach(Notification li )
+
+            return diffList;
+
+        }
+        **/
+
+        //兄弟nodeのチェック
+        public Boolean isNextNode(TreeNode node)
+        {
+            bool flag = false;
+
+            if(node.NextNode != null)
+            {
+                flag = true;
+            }
+
+            return flag;
         }
 
         public void BodyDenotation(DataGridView DGView1 )
