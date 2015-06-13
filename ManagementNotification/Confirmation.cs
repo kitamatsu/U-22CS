@@ -25,6 +25,9 @@ namespace ManagementNotification.util
         {
             InitializeComponent();
             pre = form;
+
+            //テスト中
+            //Console.Write(CD.differntNodeList().Count.ToString());
         }
 
         private void Confirmation_Load(object sender, EventArgs e)

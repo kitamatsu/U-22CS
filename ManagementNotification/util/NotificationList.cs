@@ -103,5 +103,48 @@ namespace ManagementNotification.util
             }
                 
         }
+
+        //指定したIDの通知を削除する
+        static public void removeListByID(int id)
+        {
+                foreach (Notification li in list)
+                {
+                    if (li.NotificationID == id)
+                    {
+                        list.Remove(li);
+                        return;
+                    }
+                }
+        }
+
+        //指定した表示名のlistを全て削除する
+        static public void allRemoveListByChildName(String cn)
+        {
+            foreach (Notification li in list)
+            {
+                if (li.ChildName == cn)
+                {
+                    list.Remove(li);
+                }
+            }
+        }
+
+        //表示名のリストを返す
+        static public List<String>  diffNameList()
+        {
+            List<String> strList = new List<string>();
+
+            foreach (Notification li in NotificationList.list)
+            {
+                strList.Add(li.ChildName);
+            }
+
+            System.Collections.Generic.HashSet<String> hs = new HashSet<string>(strList);
+            List<String> result = new List<String>(hs);
+
+            Console.WriteLine("diffNameList" + result.Count);
+            return result;
+        }
+        
     }
 }
