@@ -13,10 +13,8 @@ namespace ManagementNotification.util
     public partial class Confirmation : Form
     {
         //ConfirmationDenotationクラスのインスタンス作成
-        //ConfirmationDenotation CD = new ConfirmationDenotation();
-        Form pre;
-
         ConfirmationDenotation CD = new ConfirmationDenotation();
+        Form pre;
 
         public Confirmation()
         {
@@ -32,10 +30,8 @@ namespace ManagementNotification.util
         private void Confirmation_Load(object sender, EventArgs e)
         {
             //ツリー構造（管理名、日付）を表示するメソッドを呼び出す
-            ConfirmationDenotation.DateDenotation(treeView1);
-            //treeView1.Nodes.Add("aaa");
-            //CD.DateDenotation(treeView1);
-            //CD.DateDenotation(View1);
+            CD.DateDenotation(treeView1);
+
         }
 
         //closingはclose()が呼び出される
@@ -44,6 +40,13 @@ namespace ManagementNotification.util
         {
             Console.Write("確認画面から閉じます");
             Application.Exit();
+        }
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            //日付が選択されたときDataGridViewに表示する
+            CD.selectLastNode(treeView1, dataGridView1);
+            
         }
     }
 }
