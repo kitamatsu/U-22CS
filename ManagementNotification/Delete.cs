@@ -14,9 +14,12 @@ namespace ManagementNotification.util
     {
         Form pre;
 
+        ConfirmationDenotation CD = new ConfirmationDenotation();
+
         public Delete()
         {
             InitializeComponent();
+            
         }
 
         //前の画面を引数とするコンストラクタ
@@ -24,51 +27,81 @@ namespace ManagementNotification.util
         {
             InitializeComponent();
             pre = form;
+
+            //テストデータ
+            ConfirmationDenotation.DateDenotation(treeView1);
+            dataGridView1.Rows.Add();
+            int idx = dataGridView1.Rows.Count - 2;
+            dataGridView1.Rows[idx].Cells[0].Value = "1";
+            dataGridView1.Rows[idx].Cells[1].Value = "1時2分3秒";
+            dataGridView1.Rows[idx].Cells[2].Value = "LINE";
+            dataGridView1.Rows[idx].Cells[3].Value = "テスト";
+            
+            idx = dataGridView1.Rows.Count - 1;
+            dataGridView1.Rows[idx].Cells[0].Value = "2";
+            dataGridView1.Rows[idx].Cells[1].Value = "4時5分6秒";
+            dataGridView1.Rows[idx].Cells[2].Value = "Twitter";
+            dataGridView1.Rows[idx].Cells[3].Value = "テスト2";
+            NotificationList.ViewListToConsole();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //選択されているノードを取得する
-            if (treeView1.SelectedNode.Equals(null) || treeView1.SelectedNode.Parent.Equals(null))
+            
+            try
+            {
+                //選択されているノードを取得する
+                if (!treeView1.SelectedNode.Text.EndsWith("日"))     //TreeViewの日にちが選択されていない場合
+                {
+                    MessageBox.Show("削除するログの日付を選択してください。",
+                                    "エラー",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                }
+                else if (dataGridView1.SelectedCells.Equals(null))  //DataGridViewのログが選択されていない場合
+                {
+                    MessageBox.Show("削除するログを選択してください。",
+                                    "エラー",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                }
+                else
+                {
+                    int selectRow = dataGridView1.CurrentCell.RowIndex;
+                    int[] selectId = new int[2];
+
+                    selectId[0] = int.Parse(dataGridView1[0, selectRow].Value.ToString());
+                    int selectIdIndex = 1;      //selectId配列の添え字
+
+
+                    //選択された日時以前のログを削除する
+                    if (radioButton2.Checked)
+                    {
+                        for (int i = 0; dataGridView1.Rows.Count > i; i++)
+                        {
+                            int testDeleteId = int.Parse(dataGridView1[0, i].Value.ToString());
+
+                            if (selectId[0] > testDeleteId)
+                            {
+                                selectId[selectIdIndex] = testDeleteId;
+                                selectIdIndex++;
+                            }
+
+                        }
+                    }
+
+                    NotificationList.removeListByID(selectId);
+                    NotificationList.ViewListToConsole();
+                }
+            }
+            catch (NullReferenceException )
             {
                 MessageBox.Show("削除するログの日付を選択してください。",
-                                "エラー",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
+                                    "エラー",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
             }
-            else if(dataGridView1.SelectedCells.Equals(null))
-            {
-                MessageBox.Show("削除するログを選択してください。",
-                                "エラー",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
-            }
-            else
-            {
-                int selectRow = int.Parse(dataGridView1.SelectedRows.ToString());
-                int[] selectId = null;
-                
-                selectId[0] = int.Parse(dataGridView1[0, selectRow].ToString());
-                int selectIdIndex = 1;      //selectId配列の添え字
-
-
-                //選択された日時以前のログを削除する
-                if (radioButton2.Checked)
-                {
-                    for (int i = 0; dataGridView1.Rows.Count > i; i++)
-                    {
-                        int testDeleteId = int.Parse(dataGridView1[0, i].ToString());
-
-                        if(selectId[0] > testDeleteId){
-                            selectId[selectIdIndex] = testDeleteId;
-                            selectIdIndex++;
-                        }
-
-                    }
-                }
-
-                NotificationList.removeListByID(selectId);
-            }
+            
             
         }
 
