@@ -71,8 +71,10 @@ namespace ManagementNotification.util
             //テストデータの入力
             Notification nt1 = new Notification(1, new DateTime(2014, 6, 6), "テスト通知1", "テスト通知1内容", "兄");
             Notification nt2 = new Notification(2, new DateTime(2014, 6, 5), "テスト通知2", "テスト通知2内容", "弟");
+            Notification nt3 = new Notification(3, new DateTime(2014, 6, 16), "テスト通知3", "テスト通知3内容", "兄");
             list.Add(nt1);
             list.Add(nt2);
+            list.Add(nt3);
         }
 
         //Listをコンソールに表示する
@@ -90,18 +92,16 @@ namespace ManagementNotification.util
         {
             for (int i = 0; id.Length > i; i++)
             {
-                Console.WriteLine(id[i]);
                 foreach (Notification li in list)
                 {
                     if (li.NotificationID == id[i])
                     {
                         list.Remove(li);
-                        break;
+                        return;
                     }
                 }
             }
                 
         }
-
     }
 }

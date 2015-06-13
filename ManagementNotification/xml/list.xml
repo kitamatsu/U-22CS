@@ -14,4 +14,11 @@
     <Body>テスト通知2内容</Body>
     <ChildName>弟</ChildName>
   </Notification>
+  <Notification>
+    <NotificationID>3</NotificationID>
+    <Date>2014-06-16T00:00:00</Date>
+    <Title>テスト通知3</Title>
+    <Body>テスト通知3内容</Body>
+    <ChildName>兄</ChildName>
+  </Notification>
 </ArrayOfNotification>
