@@ -90,6 +90,7 @@ namespace ManagementNotification.util
         {
             for (int i = 0; id.Length > i; i++)
             {
+                Console.WriteLine(id[i]);
                 foreach (Notification li in list)
                 {
                     if (li.NotificationID == id[i])
