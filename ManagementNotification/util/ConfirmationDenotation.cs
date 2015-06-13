@@ -62,7 +62,7 @@ namespace ManagementNotification.util
             return null;
         }
 
-        //表示名で分けた複数のListを持つList
+        /**表示名で分けた複数のListを持つList
         public List<List<Notification>> differntNodeList()
         {
             List<List<Notification>> diffList = new List<List<Notification>>();
@@ -72,6 +72,7 @@ namespace ManagementNotification.util
             return diffList;
 
         }
+        **/
 
         //兄弟nodeのチェック
         public Boolean isNextNode(TreeNode node)
