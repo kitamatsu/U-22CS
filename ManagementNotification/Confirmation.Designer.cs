@@ -112,6 +112,7 @@
             this.Controls.Add(this.treeView1);
             this.Name = "Confirmation";
             this.Text = "保存内容確認";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Confirmation_FormClosed);
             this.Load += new System.EventHandler(this.Confirmation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
