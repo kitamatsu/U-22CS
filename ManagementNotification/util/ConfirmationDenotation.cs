@@ -62,17 +62,29 @@ namespace ManagementNotification.util
             return null;
         }
 
-        /**表示名で分けた複数のListを持つList
+        //表示名で分けた複数のListを持つList
         public List<List<Notification>> differntNodeList()
         {
             List<List<Notification>> diffList = new List<List<Notification>>();
 
-            foreach(Notification li )
+       
+                for(int i = 0; i < NotificationList.diffNameList().Count; i++)
+                {
+                    List<Notification> addList = new List<Notification>();
+                    foreach(Notification li in NotificationList.list)
+                    {
+                        if(li.ChildName == NotificationList.diffNameList()[i])
+                        {
+                            addList.Add(li);
+                        }
+                    }
+                    diffList.Add(addList);
+                }
+
 
             return diffList;
 
         }
-        **/
 
         //兄弟nodeのチェック
         public Boolean isNextNode(TreeNode node)

@@ -142,7 +142,7 @@ namespace ManagementNotification.util
             System.Collections.Generic.HashSet<String> hs = new HashSet<string>(strList);
             List<String> result = new List<String>(hs);
 
-            Console.WriteLine("diffNameList" + result.Count);
+            //Console.WriteLine("diffNameList" + result.Count);
             return result;
         }
         
