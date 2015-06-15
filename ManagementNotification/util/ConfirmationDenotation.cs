@@ -18,7 +18,7 @@ namespace ManagementNotification.util
 
         public void DateDenotation(TreeView TView1)
         {
-            TView1.Nodes.Add(NotificationList.list[0].ToString());
+            //TView1.Nodes.Add(NotificationList.list[0].ToString());
 
             foreach (Notification li in NotificationList.list)
             {
@@ -94,11 +94,10 @@ namespace ManagementNotification.util
 
         public void selectLastNode(TreeView View1,DataGridView DGView1)
         {
-
-            //DGView1.Rows.Add(1, "a", "a", "a");
+            
             if (View1.SelectedNode.LastNode == null)
             {
-                DGView1.Rows.Add(1,"a","a","a");
+                DGView1.Rows.Add(1, "a", "a", "a");
             }
         }
     }
