@@ -26,15 +26,15 @@ namespace ManagementNotification.util
         {
             InitializeComponent();
             pre = form;
-
-            //テスト中
-            //Console.Write(CD.differntNodeList().Count.ToString());
+            CD = new ConfirmationDenotation(treeView1);
         }
+
 
         private void Confirmation_Load(object sender, EventArgs e)
         {
             //ツリー構造（管理名、日付）を表示するメソッドを呼び出す
-            CD.DateDenotation(treeView1);
+            //CD.DateDenotation(treeView1);
+            //CD.SetNode(treeView1);
             //行を追加するオプションを非表示
             dataGridView1.AllowUserToAddRows = false;
            
@@ -59,7 +59,7 @@ namespace ManagementNotification.util
             // 右ボタンのクリックか？
             if (e.Button == MouseButtons.Right)
             {
-
+                    
                 //RD.deleteRow(dataGridView1, e.RowIndex);
 
                 dataGridView1.ClearSelection();
@@ -86,14 +86,14 @@ namespace ManagementNotification.util
                     //コンソールにリスト内容を表示する
                     NotificationList.ViewListToConsole();
                 }
-                
+
             }
         }
 
         private void treeView1_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
-            {
+                {
 
             }
         }
