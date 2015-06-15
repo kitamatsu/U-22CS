@@ -14,6 +14,7 @@ namespace ManagementNotification.util
     {
         //ConfirmationDenotationクラスのインスタンス作成
         ConfirmationDenotation CD = new ConfirmationDenotation();
+        RightDelete RD = new RightDelete();
         Form pre;
 
         public Confirmation()
@@ -51,13 +52,6 @@ namespace ManagementNotification.util
         {
             //日付が選択されたときDataGridViewに表示する
             CD.selectLastNode(treeView1, dataGridView1);
-            
-        }
-
-        private void CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            
-            
         }
 
         private void dataGridView_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
@@ -65,41 +59,42 @@ namespace ManagementNotification.util
             // 右ボタンのクリックか？
             if (e.Button == MouseButtons.Right)
             {
-                    
+
+                //RD.deleteRow(dataGridView1, e.RowIndex);
+
                 dataGridView1.ClearSelection();
                 dataGridView1.Rows[e.RowIndex].Selected = true;
 
                 //選択された行番号
-                int rownum = e.RowIndex + 1;
+                int selectRow = e.RowIndex + 1;
 
                 //メッセージボックスに選択した行を削除するか表示
-                DialogResult result = MessageBox.Show("行番号:　" + rownum + "\r\n選択した行を削除します。",
+                DialogResult result = MessageBox.Show("行番号:　" + selectRow + "\r\n選択した行を削除します。",
                                                         "削除",
                                                         MessageBoxButtons.OKCancel,
                                                         MessageBoxIcon.Exclamation);
 
                 if (result == DialogResult.OK)
                 {
-                    //DataGridViewから指定した通知IDのデータを削除する
+                    //DataGridViewから選択された行の通知IDのデータを削除する
                     dataGridView1.Rows.RemoveAt(e.RowIndex);
 
-                    //リストから選択された通知IDのデータを削除する
+                    //リストから選択された行の通知IDのデータを削除する
                     int idNum = (int)dataGridView1["NotificationID", e.RowIndex].Value;
                     NotificationList.removeListByID(idNum);
 
                     //コンソールにリスト内容を表示する
                     NotificationList.ViewListToConsole();
                 }
+                
+            }
+        }
 
-                // ヘッダ以外のセルか？
-                if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
-                {
+        private void treeView1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
 
-                    // 右クリックされたセル
-                    //DataGridViewCell cell = dataGridView1[e.ColumnIndex, e.RowIndex];
-                    // セルの選択状態を反転
-                    //cell.Selected = !cell.Selected;
-                }
             }
         }
     }
