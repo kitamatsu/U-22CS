@@ -13,12 +13,18 @@ namespace ManagementNotification.util
 {
     class ConfirmationDenotation
     {
-        TreeNode root;
+        TreeView root;
         TreeNode TNcN, TNy, TNm, TNd;
 
-        public void DateDenotation(TreeView TView1)
+        public ConfirmationDenotation(TreeView treeView)
         {
-            TView1.Nodes.Add(NotificationList.list[0].ToString());
+            root = treeView; 
+        }
+
+
+        public void DateDenotation()
+        {
+            root.Nodes.Add(NotificationList.list[0].ToString());
 
             foreach (Notification li in NotificationList.list)
             {
@@ -30,7 +36,7 @@ namespace ManagementNotification.util
                 this.TNd = new TreeNode(li.Date.Day.ToString() + "日");
                 
                 //TreeViewにNodeを追加
-                TView1.Nodes.Add(TNcN);
+                root.Nodes.Add(TNcN);
                 TNcN.Nodes.Add(TNy);
                 TNy.Nodes.Add(TNm);
                 TNm.Nodes.Add(TNd);
@@ -38,35 +44,49 @@ namespace ManagementNotification.util
         }
 
         //リストからtreeを作成する
-        public TreeNode Node()
+        public void SetNode()
         {
-            root = new TreeNode();
 
-            foreach(Notification li in NotificationList.list){
-         
-                if(true)
+            foreach(List<Notification> listCN in differntNodeListByCN() )
+            {
+                for (int i = 0; i < listCN.Count;  i++)
                 {
-                     if (root.Parent == null)
-                     {
-                    
-                     }
-                    else
+                    if (i == 0)
                     {
-                    //追加
+                        this.TNcN = new TreeNode(listCN[i].ChildName.ToString());
+                        root.Nodes.Add(TNcN);
+                        foreach(List<Notification> a in differntNodeListByTime(listCN, 0))
+                        {
+
+                        }
+
+
                     }
+                    root.Nodes.Add(TNcN);
                 }
-               
-
-            }            
-
-            return null;
+            }
         }
 
-        //表示名で分けた複数のListを持つList
-        public List<List<Notification>> differntNodeList()
+        public void addNodeYear()
+        {
+            foreach(List<Notification> list in differntNodeListByCN())
+            {
+                for (int i = 0; i < list.Count;  i++)
+                {
+                    if (i == 0)
+                    {
+                        this.TNy = new TreeNode(list[i].Date.Year.ToString());
+                        TNcN.Nodes.Add(TNy);
+                    }
+                    TNcN.Nodes.Add(TNy);
+                }
+            }
+        }
+
+        //表示名で分けた複数のListを持つListを返す
+        public List<List<Notification>> differntNodeListByCN()
         {
             List<List<Notification>> diffList = new List<List<Notification>>();
-
        
                 for(int i = 0; i < NotificationList.diffNameList().Count; i++)
                 {
@@ -80,11 +100,99 @@ namespace ManagementNotification.util
                     }
                     diffList.Add(addList);
                 }
-
-
             return diffList;
-
         }
+
+        //時間で分けた複数のListを持つListを返す
+        //0:年 1:月 2:日 3:時間 4:秒
+        public List<List<Notification>> differntNodeListByTime(List<Notification> parentList, int timeNum)
+        {
+            List<List<Notification>> diffList = new List<List<Notification>>();
+;
+
+            switch(timeNum)
+            {
+                case 0:
+                    for (int i = 0; i < NotificationList.diffNameList().Count; i++)
+                    {
+                        List<Notification> addList = new List<Notification>();
+                        foreach (Notification li in parentList)
+                        {
+                            if (li.Date.Year == NotificationList.diffNameListByTime(0)[i])
+                            {
+                                addList.Add(li);
+                            }
+                        }
+                        diffList.Add(addList);
+                    }
+                    break;
+
+                case 1:
+                    for (int i = 0; i < NotificationList.diffNameList().Count; i++)
+                    {
+                        List<Notification> addList = new List<Notification>();
+                        foreach (Notification li in parentList)
+                        {
+                            if (li.Date.Month == NotificationList.diffNameListByTime(1)[i])
+                            {
+                                addList.Add(li);
+                            }
+                        }
+                        diffList.Add(addList);
+                    }
+                    break;
+
+                case 2:
+                    for (int i = 0; i < NotificationList.diffNameList().Count; i++)
+                    {
+                        List<Notification> addList = new List<Notification>();
+                        foreach (Notification li in parentList)
+                        {
+                            if (li.Date.Day == NotificationList.diffNameListByTime(2)[i])
+                            {
+                                addList.Add(li);
+                            }
+                        }
+                        diffList.Add(addList);
+                    }
+                    break;
+
+                case 3:
+                    for (int i = 0; i < NotificationList.diffNameList().Count; i++)
+                    {
+                        List<Notification> addList = new List<Notification>();
+                        foreach (Notification li in parentList)
+                        {
+                            if (li.Date.Hour == NotificationList.diffNameListByTime(3)[i])
+                            {
+                                addList.Add(li);
+                            }
+                        }
+                        diffList.Add(addList);
+                    }
+                    break;
+                case 4:
+                    for (int i = 0; i < NotificationList.diffNameList().Count; i++)
+                    {
+                        List<Notification> addList = new List<Notification>();
+                        foreach (Notification li in parentList)
+                        {
+                            if (li.Date.Second == NotificationList.diffNameListByTime(4)[i])
+                            {
+                                addList.Add(li);
+                            }
+                        }
+                        diffList.Add(addList);
+                    }
+                    break;
+
+                default:
+                    Console.WriteLine("differntNodeListByTime: 正しい引数を入力してください");
+                    break;
+            }         
+            return diffList;
+        }
+
 
         //兄弟nodeのチェック
         public Boolean isNextNode(TreeNode node)

@@ -23,9 +23,6 @@ namespace ManagementNotification
             InitializeComponent();
             con = new Confirmation(this);
             del = new Delete(this);
-
-            //テスト用コード
-            //Test act = new Test();
             
         }
 
