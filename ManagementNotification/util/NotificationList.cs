@@ -72,9 +72,11 @@ namespace ManagementNotification.util
             Notification nt1 = new Notification(1, new DateTime(2014, 6, 6), "テスト通知1", "テスト通知1内容", "兄");
             Notification nt2 = new Notification(2, new DateTime(2014, 6, 5), "テスト通知2", "テスト通知2内容", "弟");
             Notification nt3 = new Notification(3, new DateTime(2014, 6, 16), "テスト通知3", "テスト通知3内容", "兄");
+            Notification nt4 = new Notification(4, new DateTime(2015, 3, 20), "テスト通知15", "テスト通知15内容", "弟");
             list.Add(nt1);
             list.Add(nt2);
             list.Add(nt3);
+            list.Add(nt4);
         }
 
         //Listをコンソールに表示する
