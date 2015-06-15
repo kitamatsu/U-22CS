@@ -15,7 +15,7 @@ namespace ManagementNotification.util
     {
         Form pre;
 
-        ConfirmationDenotation CD = new ConfirmationDenotation();
+        ConfirmationDenotation con;
 
         public Delete()
         {
@@ -30,9 +30,9 @@ namespace ManagementNotification.util
             pre = form;
 
             //テストデータ
-            ConfirmationDenotation con =  new ConfirmationDenotation();
+            con =  new ConfirmationDenotation(treeView1);
 
-            con.DateDenotation(treeView1);
+            con.DateDenotation();
             dataGridView1.Rows.Add();
             dataGridView1.Rows.Add();
             int idx = dataGridView1.Rows.Count - 3;
@@ -46,14 +46,12 @@ namespace ManagementNotification.util
             dataGridView1.Rows[idx].Cells[1].Value = "4時5分6秒";
             dataGridView1.Rows[idx].Cells[2].Value = "Twitter";
             dataGridView1.Rows[idx].Cells[3].Value = "テスト2";
-            NotificationList.ViewListToConsole();
 
             idx = dataGridView1.Rows.Count - 1;
             dataGridView1.Rows[idx].Cells[0].Value = "3";
             dataGridView1.Rows[idx].Cells[1].Value = "7時8分9秒";
             dataGridView1.Rows[idx].Cells[2].Value = "アプリ";
             dataGridView1.Rows[idx].Cells[3].Value = "テスト3";
-            NotificationList.ViewListToConsole();
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -15,7 +15,9 @@ namespace ManagementNotification.util
         static NotificationList()
         {       
             System.Console.WriteLine("静的コンストラクタ");
-            loadList();
+
+            testAdd();
+            //loadList();
         }
 
         static public void setList()
@@ -68,13 +70,18 @@ namespace ManagementNotification.util
         //テストデータの追加
         static public void testAdd()
         {
+            //listclear
+            list.Clear();
+
             //テストデータの入力
-            Notification nt1 = new Notification(1, new DateTime(2014, 6, 6), "テスト通知1", "テスト通知1内容", "兄");
+            Notification nt1 = new Notification(1, new DateTime(2014, 6, 6, 5, 30, 30), "テスト通知1", "テスト通知1内容", "兄");
             Notification nt2 = new Notification(2, new DateTime(2014, 6, 5), "テスト通知2", "テスト通知2内容", "弟");
             Notification nt3 = new Notification(3, new DateTime(2014, 6, 16), "テスト通知3", "テスト通知3内容", "兄");
+            Notification nt4 = new Notification(15, new DateTime(2015, 3, 20), "テスト通知15", "テスト通知15内容", "弟");
             list.Add(nt1);
             list.Add(nt2);
             list.Add(nt3);
+            list.Add(nt4);
         }
 
         //Listをコンソールに表示する
@@ -130,6 +137,7 @@ namespace ManagementNotification.util
         }
 
         //表示名のリストを返す
+        //タブりを消す
         static public List<String>  diffNameList()
         {
             List<String> strList = new List<string>();
@@ -142,7 +150,58 @@ namespace ManagementNotification.util
             System.Collections.Generic.HashSet<String> hs = new HashSet<string>(strList);
             List<String> result = new List<String>(hs);
 
-            Console.WriteLine("diffNameList" + result.Count);
+            //Console.WriteLine("diffNameList" + result.Count);
+            return result;
+        }
+
+        //時間のリストを返す
+        //ダブリを消す
+        //0:年 1:月 2:日 3:時 4:秒
+        static public List<int> diffNameListByTime(int timeNum)
+        {
+            List<int> timeList = new List<int>();
+
+            switch(timeNum)
+            {
+                case 0:
+                    foreach (Notification li in NotificationList.list)
+                    {    
+                        timeList.Add(li.Date.Year);
+                    }          
+                    break;
+                case 1:
+                    foreach (Notification li in NotificationList.list)
+                    {
+                        timeList.Add(li.Date.Month);
+                    } 
+                    break;
+                case 2:
+                    foreach (Notification li in NotificationList.list)
+                    {
+                        timeList.Add(li.Date.Day);
+                    } 
+                    break;
+                case 3:
+                    foreach (Notification li in NotificationList.list)
+                    {
+                        timeList.Add(li.Date.Hour);
+                    } 
+                    break;
+                case 4:
+                    foreach (Notification li in NotificationList.list)
+                    {
+                        timeList.Add(li.Date.Second);
+                    }
+                    break;
+                default:
+                    Console.WriteLine("diffNameListByTime: 正しい引数を入力してください");
+                    break;
+            }
+
+            System.Collections.Generic.HashSet<int> hs = new HashSet<int>(timeList);
+            List<int> result = new List<int>(hs);       
+                     
+            //Console.WriteLine("diffNameList" + result.Count);
             return result;
         }
         
