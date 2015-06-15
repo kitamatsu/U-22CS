@@ -110,7 +110,7 @@ namespace ManagementNotification.util
             //DGView1.Rows.Add(1, "a", "a", "a");
             if (View1.SelectedNode.LastNode == null)
             {
-                DGView1.Rows.Add(1,"a","a","a");
+                DGView1.Rows.Add(15,"a","a","a");
             }
         }
     }

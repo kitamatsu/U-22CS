@@ -69,20 +69,26 @@ namespace ManagementNotification.util
                 dataGridView1.ClearSelection();
                 dataGridView1.Rows[e.RowIndex].Selected = true;
 
-                //RowIndexは0からなので＋1する
-                int rowNum = e.RowIndex + 1;
+                //選択された行番号
+                int rownum = e.RowIndex + 1;
 
                 //メッセージボックスに選択した行を削除するか表示
-                DialogResult result =   MessageBox.Show("行番号:　" + rowNum + "\r\n選択した行を削除します。",
+                DialogResult result = MessageBox.Show("行番号:　" + rownum + "\r\n選択した行を削除します。",
                                                         "削除",
                                                         MessageBoxButtons.OKCancel,
                                                         MessageBoxIcon.Exclamation);
 
                 if (result == DialogResult.OK)
                 {
+                    //DataGridViewから指定した通知IDのデータを削除する
                     dataGridView1.Rows.RemoveAt(e.RowIndex);
-                    //NotificationList.removeListByID(rowNum);
+
+                    //リストから選択された通知IDのデータを削除する
+                    int idNum = (int)dataGridView1["NotificationID", e.RowIndex].Value;
+                    NotificationList.removeListByID(idNum);
                     
+                    //コンソールにリスト内容を表示する
+                    NotificationList.ViewListToConsole();
                 }
 
                 // ヘッダ以外のセルか？
