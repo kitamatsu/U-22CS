@@ -72,15 +72,12 @@ namespace ManagementNotification.util
             }
         }
 
-        private void treeView1_MouseDown(object sender, MouseEventArgs e)
+        private void treeView1_MouseDown(object sender, MouseEventArgs MouseEA)
         {
-            if (e.Button == MouseButtons.Right)
+            if (MouseEA.Button == MouseButtons.Right)
             {
-                treeView1.SelectedNode = treeView1.GetNodeAt(e.X, e.Y);
-                if (treeView1.SelectedNode != null)
-                {
-                    MessageBox.Show(treeView1.SelectedNode.Level.ToString());
-                }
+                RD.deleteNode(treeView1,MouseEA);
+
             }
         }
     }
