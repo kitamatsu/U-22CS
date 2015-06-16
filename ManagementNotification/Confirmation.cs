@@ -26,7 +26,8 @@ namespace ManagementNotification.util
         {
             InitializeComponent();
             pre = form;
-            CD = new ConfirmationDenotation(treeView1);
+            //CD = new ConfirmationDenotation(treeView1);
+            CD.DateDenotation(treeView1);
         }
 
 
