@@ -87,18 +87,16 @@ namespace ManagementNotification.util
             return flag;
         }
 
-        public void BodyDenotation(DataGridView DGView1 )
-        {
 
-        }
 
+        /*
+         *選択された日付と一致するデータを取得 
+         */
         public void selectLastNode(TreeView View1,DataGridView DGView1)
         {
 
             if (View1.SelectedNode.LastNode == null)
             {
-                //DGView1.Rows.Add(15,"a","a","a");
-
                 //ノードの文字を取得(管理者名、年、月、日)
                 String user = View1.SelectedNode.Parent.Parent.Parent.Text;
                 String year = View1.SelectedNode.Parent.Parent.Text;
@@ -121,8 +119,8 @@ namespace ManagementNotification.util
                     SsDay = "0" + SsDay;
                 }
 
-                /*検索用の文字列(年+月+日)を作成
-                 * 
+                /*
+                 * 検索用の文字列(年+月+日)を作成
                  * 
                  */
                 String date = SsYear +"/"+ SsMonth + "/" + SsDay + " 0:00:00";
@@ -132,11 +130,9 @@ namespace ManagementNotification.util
                 {
                     if (li.ChildName == user && li.Date.Date.ToString() == date)
                     {
-                        DGView1.Rows.Add(li.NotificationID, li.Date.Date, li.Title, li.Body);
+                        DGView1.Rows.Add(li.NotificationID, li.Date.TimeOfDay, li.Title, li.Body);
                     }
                 }
-
-                //DGView1.Rows.Add(111, SsYear, SsMonth, SsDay);
             }
         }
     }

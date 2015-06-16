@@ -9,6 +9,9 @@ namespace ManagementNotification.util
     class RightDelete
     {
 
+        /*
+         * 選択された行の削除
+         */
         public void deleteRow(DataGridView DGView1,int rowNum){
        
             DGView1.ClearSelection();
@@ -25,27 +28,17 @@ namespace ManagementNotification.util
 
             if (result == DialogResult.OK)
             {
-                //DataGridViewから指定した通知IDのデータを削除する
-                DGView1.Rows.RemoveAt(rowNum);
 
                 //リストから選択された通知IDのデータを削除する
                 int idNum = (int)DGView1["NotificationID", rowNum].Value;
                 NotificationList.removeListByID(idNum);
 
+                //DataGridViewから指定した通知IDのデータを削除する
+                DGView1.Rows.RemoveAt(rowNum);
+
                 //コンソールにリスト内容を表示する
-                NotificationList.ViewListToConsole();
+                //NotificationList.ViewListToConsole();
             }
-
-            /*ヘッダ以外のセルか？
-            if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
-            {
-
-                // 右クリックされたセル
-                //DataGridViewCell cell = dataGridView1[e.ColumnIndex, e.RowIndex];
-                // セルの選択状態を反転
-                //cell.Selected = !cell.Selected;
-            }
-             */
         }
     }
 }
