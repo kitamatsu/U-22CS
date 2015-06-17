@@ -75,9 +75,9 @@ namespace ManagementNotification.util
 
             //テストデータの入力
             Notification nt1 = new Notification(1, new DateTime(2014, 6, 6, 5, 30, 30), "テスト通知1", "テスト通知1内容", "兄");
-            Notification nt2 = new Notification(2, new DateTime(2014, 6, 5), "テスト通知2", "テスト通知2内容", "弟");
-            Notification nt3 = new Notification(3, new DateTime(2014, 6, 16), "テスト通知3", "テスト通知3内容", "兄");
-            Notification nt4 = new Notification(15, new DateTime(2015, 3, 20), "テスト通知15", "テスト通知15内容", "弟");
+            Notification nt2 = new Notification(2, new DateTime(2014, 6, 5, 11, 29, 45), "テスト通知2", "テスト通知2内容", "弟");
+            Notification nt3 = new Notification(3, new DateTime(2014, 6, 16, 21, 22, 30), "テスト通知3", "テスト通知3内容", "兄");
+            Notification nt4 = new Notification(15, new DateTime(2015, 3, 20, 17, 10, 30), "テスト通知15", "テスト通知15内容", "弟");
             list.Add(nt1);
             list.Add(nt2);
             list.Add(nt3);
@@ -135,6 +135,70 @@ namespace ManagementNotification.util
                 }
             }
         }
+
+        //指定した管理名のListを全て削除する
+        static public void allRemoveListByNode(String user)
+        {
+            for (int index = 0; index < list.Count; index++ )
+            {
+                if (list[index].ChildName == user)
+                {
+                    list.Remove(list[index]);
+                }
+            }
+        }
+
+        //指定した管理名の同じ年のListを全て削除する
+        static public void allRemoveListByNode(String user, String year)
+        {
+            for (int index = 0; index < list.Count; index++ )
+            {
+                if (list[index].ChildName == user && list[index].Date.Year.ToString() == year)
+                {
+                    list.Remove(list[index]);
+
+                }
+            }
+        }
+
+        //指定した管理名の同じ月のListを全て削除する
+        static public void allRemoveListByNode(String user, String year, String month)
+        {
+            for (int index = 0; index < list.Count; index++)
+            {
+                if (list[index].ChildName == user
+                    && list[index].Date.Year.ToString() == year
+                    && list[index].Date.Month.ToString() == month)
+                {
+                    list.Remove(list[index]);
+                }
+            }
+        }
+
+        //指定した管理名の同じ日のListを全て削除する
+        static public void allRemoveListByNode(String user, String year, String month, String day)
+        {
+            if (month.Length == 1)
+            {
+                month = "0" + month;
+            }
+
+            if (day.Length == 1)
+            {
+                day = "0" + day;
+            }
+
+            String date = year + "/" + month + "/" + day + " 0:00:00";
+
+            for (int index = 0; index < list.Count; index++ )
+            {
+                if (list[index].ChildName == user && list[index].Date.Date.ToString() == date)
+                {
+                    list.Remove(list[index]);
+                }
+            }
+        }
+
 
         //表示名のリストを返す
         //タブりを消す

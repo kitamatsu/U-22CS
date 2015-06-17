@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 namespace ManagementNotification.util
 {
     class RightDelete
@@ -38,6 +39,134 @@ namespace ManagementNotification.util
 
                 //コンソールにリスト内容を表示する
                 //NotificationList.ViewListToConsole();
+            }
+        }
+
+        /*
+         * 選択された項目のデータを削除
+         */ 
+        public void deleteNode(TreeView TView,MouseEventArgs e)
+        {
+            //マウスの位置にあるノードを取得
+            TView.SelectedNode = TView.GetNodeAt(e.X, e.Y);
+
+            if (TView.SelectedNode != null)
+            {
+
+                //管理名,年,月,日
+                String user, year, month, day, SsYear, SsMonth, SsDay;
+
+                switch (TView.SelectedNode.Level)
+                {
+                    case 0:
+
+                        //管理名を取得
+                        user = TView.SelectedNode.Text;
+
+                        DialogResult result = MessageBox.Show("管理名: " + user + "のデータを全て削除します。",
+                                                              "確認", 
+                                                               MessageBoxButtons.OKCancel,
+                                                               MessageBoxIcon.Exclamation);
+
+                        if (result == DialogResult.OK)
+                        {
+                            //リストから選択した管理名のデータをすべて削除
+                            NotificationList.allRemoveListByNode(user);
+
+                            /*
+                             * TreeViewから管理名Nodeを削除
+                             */   
+                        }
+
+                        break;
+
+                    case 1:
+
+                        //管理名、年を取得
+                        user = TView.SelectedNode.Parent.Text;
+                        year = TView.SelectedNode.Text;
+
+                        //年の文字を削除する
+                        SsYear = year.Substring(0, year.Length - 1);
+                        
+                        DialogResult result1 = MessageBox.Show("管理名: " + user + " " +  year +
+                                                                            "のデータを全て削除します。",
+                                                               "確認",
+                                                               MessageBoxButtons.OKCancel,
+                                                               MessageBoxIcon.Exclamation);
+                        if (result1 == DialogResult.OK)
+                        {
+                            //リストから選択した日付のデータをすべて削除
+                            NotificationList.allRemoveListByNode(user, SsYear);
+
+                            /*
+                             * TreeViewから年Nodeを削除
+                            */
+                        }
+
+                        break;
+
+                    case 2:
+                       
+                        //管理名、年、月を取得
+                        user = TView.SelectedNode.Parent.Parent.Text;
+                        year = TView.SelectedNode.Parent.Text;
+                        month = TView.SelectedNode.Text;
+
+                        //年、月の文字を削除する
+                        SsYear = year.Substring(0, year.Length - 1);
+                        SsMonth = month.Substring(0, month.Length - 1);
+                        
+
+                        DialogResult result2 = MessageBox.Show("管理名: " + user + " " +  year + " " + month +
+                                                                            "のデータを全て削除します。",
+                                                               "確認",
+                                                               MessageBoxButtons.OKCancel,
+                                                               MessageBoxIcon.Exclamation);
+                        if (result2 == DialogResult.OK)
+                        {
+                            //リストから選択した日付のデータをすべて削除
+                            NotificationList.allRemoveListByNode(user, SsYear, SsMonth);
+
+                            /*
+                             * TreeViewから年Nodeを削除
+                            */
+                        }
+
+                        break;
+
+                    case 3:
+
+                        //管理名、年、月、日
+                        user = TView.SelectedNode.Parent.Parent.Parent.Text;
+                        year = TView.SelectedNode.Parent.Parent.Text;
+                        month = TView.SelectedNode.Parent.Text;
+                        day = TView.SelectedNode.Text;
+
+                        //年、月、日の文字を削除する
+                        SsYear = year.Substring(0, year.Length - 1);
+                        SsMonth = month.Substring(0, month.Length - 1);
+                        SsDay = day.Substring(0, day.Length - 1);
+
+                        DialogResult result3 = MessageBox.Show("管理名: " + user + " " +  year + " " + month + " " + day +
+                                                                            "のデータを全て削除します。",
+                                                               "確認",
+                                                               MessageBoxButtons.OKCancel,
+                                                               MessageBoxIcon.Exclamation);
+                        if (result3 == DialogResult.OK)
+                        {
+                            //リストから選択した日付のデータをすべて削除
+                            NotificationList.allRemoveListByNode(user, SsYear, SsMonth, SsDay);
+
+                            /*
+                             * TreeViewから年Nodeを削除
+                            */
+                        }
+
+                        break;
+                }
+
+                NotificationList.ViewListToConsole();
             }
         }
     }
