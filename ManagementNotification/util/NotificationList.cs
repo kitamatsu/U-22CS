@@ -17,6 +17,7 @@ namespace ManagementNotification.util
             System.Console.WriteLine("静的コンストラクタ");
 
             testAdd();
+            ViewListToConsole();
             //loadList();
         }
 
@@ -78,10 +79,17 @@ namespace ManagementNotification.util
             Notification nt2 = new Notification(2, new DateTime(2014, 6, 5), "テスト通知2", "テスト通知2内容", "弟");
             Notification nt3 = new Notification(3, new DateTime(2014, 6, 16), "テスト通知3", "テスト通知3内容", "兄");
             Notification nt4 = new Notification(4, new DateTime(2015, 3, 20), "テスト通知15", "テスト通知15内容", "弟");
+            Notification nt5 = new Notification(5, new DateTime(2014, 7, 6, 5, 40, 43), "テスト通知4", "テスト通知4内容", "姉");
+            Notification nt6 = new Notification(6, new DateTime(2013, 7, 5, 6, 30, 20), "テスト通知5", "テスト通知5内容", "兄");
+            Notification nt7 = new Notification(7, new DateTime(2014, 6, 10, 6, 30, 20), "テスト通知5", "テスト通知5内容", "兄");
+            list.Add(nt6);
             list.Add(nt1);
             list.Add(nt2);
             list.Add(nt3);
             list.Add(nt4);
+            list.Add(nt5);
+            list.Add(nt7);
+            
         }
 
         //Listをコンソールに表示する
@@ -157,38 +165,38 @@ namespace ManagementNotification.util
         //時間のリストを返す
         //ダブリを消す
         //0:年 1:月 2:日 3:時 4:秒
-        static public List<int> diffNameListByTime(int timeNum)
+        static public List<int> diffNameListByTime(int timeNum, List<Notification> list)
         {
             List<int> timeList = new List<int>();
 
             switch(timeNum)
             {
                 case 0:
-                    foreach (Notification li in NotificationList.list)
+                    foreach (Notification li in list)
                     {    
                         timeList.Add(li.Date.Year);
                     }          
                     break;
                 case 1:
-                    foreach (Notification li in NotificationList.list)
+                    foreach (Notification li in list)
                     {
                         timeList.Add(li.Date.Month);
                     } 
                     break;
                 case 2:
-                    foreach (Notification li in NotificationList.list)
+                    foreach (Notification li in list)
                     {
                         timeList.Add(li.Date.Day);
                     } 
                     break;
                 case 3:
-                    foreach (Notification li in NotificationList.list)
+                    foreach (Notification li in list)
                     {
                         timeList.Add(li.Date.Hour);
                     } 
                     break;
                 case 4:
-                    foreach (Notification li in NotificationList.list)
+                    foreach (Notification li in list)
                     {
                         timeList.Add(li.Date.Second);
                     }
@@ -201,7 +209,7 @@ namespace ManagementNotification.util
             System.Collections.Generic.HashSet<int> hs = new HashSet<int>(timeList);
             List<int> result = new List<int>(hs);       
                      
-            //Console.WriteLine("diffNameList" + result.Count);
+            //Console.WriteLine("diffNameList " + timeNum + " : " + + result.Count);
             return result;
         }
         
