@@ -17,9 +17,9 @@ namespace ManagementNotification.util
         private TreeView root;
         private TreeNode TNcN, TNy, TNm, TNd;
 
-        public ConfirmationDenotation(TreeView treeView)
+        public ConfirmationDenotation(TreeView TView1)
         {
-            root = treeView;
+            root = TView1;
             createNodes();
         }
 
@@ -58,44 +58,7 @@ namespace ManagementNotification.util
                 }
             }
 
-            root.Sort();                             
-    
-        }
-
-
-        //リストからtreeを作成する
-        public void DateDenotation()
-        {
-            foreach (Notification li in NotificationList.list)
-            {
-
-                //管理名、年月日のノードを作成
-                this.TNcN = new TreeNode(li.ChildName.ToString());
-                this.TNy = new TreeNode(li.Date.Year.ToString() + "年");
-                this.TNm = new TreeNode(li.Date.Month.ToString() + "月");
-                this.TNd = new TreeNode(li.Date.Day.ToString() + "日");
-
-                //TreeViewにNodeを追加
-                root.Nodes.Add(TNcN);
-                TNcN.Nodes.Add(TNy);
-                TNy.Nodes.Add(TNm);
-                TNm.Nodes.Add(TNd);
-            }
-        }
-
-        public void BodyDenotation(DataGridView DGView1)
-        {
-
-        }
-
-        public void selectLastNode(TreeView View1, DataGridView DGView1)
-        {
-
-            //DGView1.Rows.Add(1, "a", "a", "a");
-            if (View1.SelectedNode.LastNode == null)
-            {
-                DGView1.Rows.Add(15, "a", "a", "a");
-            }
+            root.Sort();
         }
     }
 }
