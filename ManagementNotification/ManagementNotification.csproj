@@ -68,6 +68,8 @@
     <Compile Include="test\Test.cs" />
     <Compile Include="util\Notification.cs" />
     <Compile Include="util\NotificationList.cs" />
+    <Compile Include="util\RemoveListByNode.cs" />
+    <Compile Include="util\RightDelete.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

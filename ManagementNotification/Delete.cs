@@ -15,7 +15,7 @@ namespace ManagementNotification.util
     {
         Form pre;
 
-        ConfirmationDenotation con;
+        ConfirmationDenotation CD;
 
         public Delete()
         {
@@ -30,9 +30,8 @@ namespace ManagementNotification.util
             pre = form;
 
             //テストデータ
-            con =  new ConfirmationDenotation(treeView1);
+            CD =  new ConfirmationDenotation(treeView1);
 
-            con.DateDenotation();
             dataGridView1.Rows.Add();
             dataGridView1.Rows.Add();
             int idx = dataGridView1.Rows.Count - 3;
