@@ -9,6 +9,7 @@ namespace ManagementNotification.util
 {
     class RightDelete
     {
+        RemoveListByNode RLBN = new RemoveListByNode();
 
         /*
          * 選択された行の削除
@@ -45,7 +46,7 @@ namespace ManagementNotification.util
         /*
          * 選択された項目のデータを削除
          */ 
-        public void deleteNode(TreeView TView,MouseEventArgs e)
+        public void deleteNode(TreeView TView,DataGridView DGView,MouseEventArgs e)
         {
             //マウスの位置にあるノードを取得
             TView.SelectedNode = TView.GetNodeAt(e.X, e.Y);
@@ -71,7 +72,8 @@ namespace ManagementNotification.util
                         if (result == DialogResult.OK)
                         {
                             //リストから選択した管理名のデータをすべて削除
-                            NotificationList.allRemoveListByNode(user);
+                            
+                            RLBN.allRemoveListByNode(user,DGView);
 
                             /*
                              * TreeViewから管理名Nodeを削除
@@ -97,7 +99,7 @@ namespace ManagementNotification.util
                         if (result1 == DialogResult.OK)
                         {
                             //リストから選択した日付のデータをすべて削除
-                            NotificationList.allRemoveListByNode(user, SsYear);
+                            RLBN.allRemoveListByNode(user, SsYear,DGView);
 
                             /*
                              * TreeViewから年Nodeを削除
@@ -126,7 +128,7 @@ namespace ManagementNotification.util
                         if (result2 == DialogResult.OK)
                         {
                             //リストから選択した日付のデータをすべて削除
-                            NotificationList.allRemoveListByNode(user, SsYear, SsMonth);
+                            RLBN.allRemoveListByNode(user, SsYear, SsMonth,DGView);
 
                             /*
                              * TreeViewから年Nodeを削除
@@ -156,7 +158,7 @@ namespace ManagementNotification.util
                         if (result3 == DialogResult.OK)
                         {
                             //リストから選択した日付のデータをすべて削除
-                            NotificationList.allRemoveListByNode(user, SsYear, SsMonth, SsDay);
+                            RLBN.allRemoveListByNode(user, SsYear, SsMonth, SsDay,DGView);
 
                             /*
                              * TreeViewから年Nodeを削除

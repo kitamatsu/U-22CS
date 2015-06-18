@@ -52,12 +52,11 @@ namespace ManagementNotification.util
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
-                //日付が選択されたときDataGridViewに表示する
-                CD.selectLastNode(treeView1, dataGridView1);
+                
         }
 
         /*
-         * 選択行の削除
+         * 選択行の削除する
          */
         private void dataGridView_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -72,11 +71,20 @@ namespace ManagementNotification.util
             }
         }
 
+        /*
+         * TreeViewの項目からリストデータを削除する
+         */
         private void treeView1_MouseDown(object sender, MouseEventArgs MouseEA)
         {
+            if (MouseEA.Button == MouseButtons.Left)
+            {
+                //日付が選択されたときDataGridViewに表示する
+                CD.selectLastNode(treeView1, dataGridView1,MouseEA);
+            }
+
             if (MouseEA.Button == MouseButtons.Right)
             {
-                RD.deleteNode(treeView1,MouseEA);
+                RD.deleteNode(treeView1,dataGridView1,MouseEA);
 
             }
         }

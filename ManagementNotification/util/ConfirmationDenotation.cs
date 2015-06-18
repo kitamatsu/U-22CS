@@ -92,45 +92,57 @@ namespace ManagementNotification.util
         /*
          *選択された日付と一致するデータを取得 
          */
-        public void selectLastNode(TreeView View1,DataGridView DGView1)
+        public void selectLastNode(TreeView TView1,DataGridView DGView1,MouseEventArgs e)
         {
+            //マウスの位置にあるノードを取得
+            TView1.SelectedNode = TView1.GetNodeAt(e.X, e.Y);
 
-            if (View1.SelectedNode.LastNode == null)
+            if (TView1.SelectedNode != null)
             {
-                //ノードの文字を取得(管理者名、年、月、日)
-                String user = View1.SelectedNode.Parent.Parent.Parent.Text;
-                String year = View1.SelectedNode.Parent.Parent.Text;
-                String month = View1.SelectedNode.Parent.Text;
-                String day = View1.SelectedNode.Text;
-
-                //年、月、日の文字を削除
-                String SsYear = year.Substring(0, 4);
-                String SsMonth = month.Substring(0, month.Length - 1);
-                String SsDay = day.Substring(0, day.Length - 1);
-
-                //月、日が一文字の場合0を付ける
-                if (SsMonth.Length == 1)
+                if (TView1.SelectedNode.LastNode == null)
                 {
-                    SsMonth = "0" + SsMonth;
-                }
 
-                if (SsDay.Length == 1)
-                {
-                    SsDay = "0" + SsDay;
-                }
-
-                /*
-                 * 検索用の文字列(年+月+日)を作成
-                 * 
-                 */
-                String date = SsYear +"/"+ SsMonth + "/" + SsDay + " 0:00:00";
-
-                //選択された日付と一致するデータを検索、表示する
-                foreach (Notification li in NotificationList.list)
-                {
-                    if (li.ChildName == user && li.Date.Date.ToString() == date)
+                    //DataGridViewに保存内容が一行以上あれば削除
+                    if (DGView1.RowCount >= 1)
                     {
-                        DGView1.Rows.Add(li.NotificationID, li.Date.TimeOfDay, li.Title, li.Body);
+                        DGView1.Rows.Clear();
+                    }
+
+                    //ノードの文字を取得(管理者名、年、月、日)
+                    String user = TView1.SelectedNode.Parent.Parent.Parent.Text;
+                    String year = TView1.SelectedNode.Parent.Parent.Text;
+                    String month = TView1.SelectedNode.Parent.Text;
+                    String day = TView1.SelectedNode.Text;
+
+                    //年、月、日の文字を削除
+                    String SsYear = year.Substring(0, 4);
+                    String SsMonth = month.Substring(0, month.Length - 1);
+                    String SsDay = day.Substring(0, day.Length - 1);
+
+                    //月、日が一文字の場合0を付ける
+                    if (SsMonth.Length == 1)
+                    {
+                        SsMonth = "0" + SsMonth;
+                    }
+
+                    if (SsDay.Length == 1)
+                    {
+                        SsDay = "0" + SsDay;
+                    }
+
+                    /*
+                     * 検索用の文字列(年+月+日)を作成
+                     * 
+                     */
+                    String date = SsYear + "/" + SsMonth + "/" + SsDay + " 0:00:00";
+
+                    //選択された日付と一致する保存内容を検索、表示する
+                    foreach (Notification li in NotificationList.list)
+                    {
+                        if (li.ChildName == user && li.Date.Date.ToString() == date)
+                        {
+                            DGView1.Rows.Add(li.NotificationID, li.Date.TimeOfDay, li.Title, li.Body);
+                        }
                     }
                 }
             }
