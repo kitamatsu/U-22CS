@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,73 +14,59 @@ namespace ManagementNotification.util
 {
     class ConfirmationDenotation
     {
-        TreeNode root;
-        TreeNode TNcN, TNy, TNm, TNd;
+        private TreeView root;
+        private TreeNode TNcN, TNy, TNm, TNd;
 
-        public void DateDenotation(TreeView TView1)
+        public ConfirmationDenotation(TreeView TView1)
         {
-            //TView1.Nodes.Add(NotificationList.list[0].ToString());
-
-            foreach (Notification li in NotificationList.list)
-            {
-
-                //管理名、年月日のノードを作成
-                this.TNcN = new TreeNode(li.ChildName.ToString());
-                this.TNy = new TreeNode(li.Date.Year.ToString() + "年");
-                this.TNm = new TreeNode(li.Date.Month.ToString() + "月");
-                this.TNd = new TreeNode(li.Date.Day.ToString() + "日");
-                
-                //TreeViewにNodeを追加
-                TView1.Nodes.Add(TNcN);
-                TNcN.Nodes.Add(TNy);
-                TNy.Nodes.Add(TNm);
-                TNm.Nodes.Add(TNd);
-            }
+            root = TView1;
+            createNodes();
         }
 
-        //リストからtreeを作成する
-        public TreeNode Node()
+        //Treeを生成する
+        //誰も読まない、読めないだろうから細かいコメントはなし
+        public void createNodes()
         {
-            root = new TreeNode();
+            for (int i = 0; i < NotificationList.diffNameList().Count; i++)
+            {
+                Notification tree = NotificationList.list.Find(x => x.ChildName == NotificationList.diffNameList()[i]);
+                this.TNcN = new TreeNode(tree.ChildName.ToString());
+                root.Nodes.Add(TNcN);
 
-            foreach(Notification li in NotificationList.list){
-         
-                if(true)
+                List<Notification> nameOnly = NotificationList.list.FindAll(x => x.ChildName == this.TNcN.Text);
+                for (int j = 0; j < NotificationList.diffNameListByTime(0, nameOnly).Count; j++)
                 {
-                     if (root.Parent == null)
-                     {
-                    
-                     }
-                    else
+                    tree = nameOnly.Find(x => x.Date.Year == NotificationList.diffNameListByTime(0, nameOnly)[j]);
+                    this.TNy = new TreeNode(tree.getYear());
+                    TNcN.Nodes.Add(TNy);
+
+                    List<Notification> yearOnly = nameOnly.FindAll(x => x.getYear() == this.TNy.Text);
+                    for (int k = 0; k < NotificationList.diffNameListByTime(1, yearOnly).Count; k++)
                     {
-                    //追加
+                        tree = yearOnly.Find(x => x.Date.Month == NotificationList.diffNameListByTime(1, yearOnly)[k]);
+                        this.TNm = new TreeNode(tree.getMonth());
+                        TNy.Nodes.Add(TNm);
+
+                        List<Notification> monthOnly = yearOnly.FindAll(x => x.getMonth() == this.TNm.Text);
+                        for (int l = 0; l < NotificationList.diffNameListByTime(2, monthOnly).Count; l++)
+                        {
+                            tree = monthOnly.Find(x => x.Date.Day == NotificationList.diffNameListByTime(2, monthOnly)[l]);
+                            this.TNd = new TreeNode(tree.getDay());
+                            TNm.Nodes.Add(TNd);
+                        }
                     }
                 }
-               
+            }
 
-            }            
-
-            return null;
+            root.Sort();
         }
-
-        /**表示名で分けた複数のListを持つList
-        public List<List<Notification>> differntNodeList()
-        {
-            List<List<Notification>> diffList = new List<List<Notification>>();
-
-            foreach(Notification li )
-
-            return diffList;
-
-        }
-        **/
 
         //兄弟nodeのチェック
         public Boolean isNextNode(TreeNode node)
         {
             bool flag = false;
 
-            if(node.NextNode != null)
+            if (node.NextNode != null)
             {
                 flag = true;
             }
@@ -92,7 +79,7 @@ namespace ManagementNotification.util
         /*
          *選択された日付と一致するデータを取得 
          */
-        public void selectLastNode(TreeView TView1,DataGridView DGView1,MouseEventArgs e)
+        public void selectLastNode(TreeView TView1, DataGridView DGView1, MouseEventArgs e)
         {
             //マウスの位置にあるノードを取得
             TView1.SelectedNode = TView1.GetNodeAt(e.X, e.Y);
@@ -147,5 +134,7 @@ namespace ManagementNotification.util
                 }
             }
         }
+
+
     }
 }
