@@ -26,18 +26,16 @@ namespace ManagementNotification.util
         {
             InitializeComponent();
             pre = form;
-            CD = new ConfirmationDenotation();
+            CD = new ConfirmationDenotation(treeView1);
         }
 
 
         private void Confirmation_Load(object sender, EventArgs e)
         {
             //ツリー構造（管理名、日付）を表示するメソッドを呼び出す
-            CD.DateDenotation(treeView1);
-            //CD.SetNode(treeView1);
             //行を追加するオプションを非表示
             dataGridView1.AllowUserToAddRows = false;
-           
+
         }
 
         /*
@@ -52,7 +50,7 @@ namespace ManagementNotification.util
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
-                
+            
         }
 
         /*
@@ -70,20 +68,20 @@ namespace ManagementNotification.util
                 }
             }
         }
-
+                    
         /*
          * TreeViewの項目からリストデータを削除する
          */
         private void treeView1_MouseDown(object sender, MouseEventArgs MouseEA)
         {
             if (MouseEA.Button == MouseButtons.Left)
-            {
+                {
                 //日付が選択されたときDataGridViewに表示する
                 CD.selectLastNode(treeView1, dataGridView1,MouseEA);
-            }
+                }
 
             if (MouseEA.Button == MouseButtons.Right)
-            {
+                {
                 RD.deleteNode(treeView1,dataGridView1,MouseEA);
 
             }

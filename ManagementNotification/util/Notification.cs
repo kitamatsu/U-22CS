@@ -67,5 +67,20 @@ namespace ManagementNotification.util
         {
             return NotificationID + "-" + Date + "-" + Title + "-" + Body + "-" + ChildName;
         }
+
+        public String getYear()
+        {
+            return this.Date.Year.ToString() + "年";
+        }
+
+        public String getMonth()
+        {
+            return this.Date.Month.ToString() + "月";
+        }
+
+        public String getDay()
+        {
+            return this.Date.Day.ToString() + "日";
+        }
     }
 }
