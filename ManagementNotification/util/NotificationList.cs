@@ -82,6 +82,8 @@ namespace ManagementNotification.util
             Notification nt5 = new Notification(5, new DateTime(2014, 7, 6, 5, 40, 43), "テスト通知4", "テスト通知4内容", "姉");
             Notification nt6 = new Notification(6, new DateTime(2013, 7, 5, 6, 30, 20), "テスト通知5", "テスト通知5内容", "兄");
             Notification nt7 = new Notification(7, new DateTime(2014, 6, 10, 6, 30, 20), "テスト通知5", "テスト通知5内容", "兄");
+            Notification nt8 = new Notification(4, new DateTime(2015, 11, 20), "テスト通知8", "テスト通知8内容", "弟");
+            Notification nt9 = new Notification(4, new DateTime(2015, 2, 20), "テスト通知9", "テスト通知9内容", "弟");
             list.Add(nt6);
             list.Add(nt1);
             list.Add(nt2);
@@ -89,6 +91,8 @@ namespace ManagementNotification.util
             list.Add(nt4);
             list.Add(nt5);
             list.Add(nt7);
+            list.Add(nt8);
+            list.Add(nt9);
             
         }
 

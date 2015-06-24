@@ -58,7 +58,7 @@ namespace ManagementNotification.util
                 }
             }
 
-            root.Sort();
+            //sortTreeView(root);
         }
 
         //兄弟nodeのチェック
@@ -135,6 +135,117 @@ namespace ManagementNotification.util
             }
         }
 
+        //TreeViewのソート
+        public void sortTreeView()
+        {
+            
+            if (root.TopNode != null)
+            {
+                TreeNode checkNode = root.TopNode.FirstNode.FirstNode;
+                while (checkNode != null)
+                {
+                    sortTreeNode(checkNode);
+                    checkNode = changeCheckNode(checkNode);
+                }
 
+            }
+
+
+        }
+
+        private TreeNode changeCheckNode(TreeNode checkNode)
+        {
+            switch (checkNode.Level)
+            {
+                case 0:
+                    checkNode = checkNode.FirstNode.FirstNode;
+                    break;
+                case 1:
+                    if (checkNode.NextNode == null)
+                    {
+                        checkNode = checkNode.Parent.NextNode;
+                    }
+                    else
+                    {
+                        checkNode = checkNode.NextNode.FirstNode;
+                    }
+                    break;
+                case 2:
+                    if (checkNode.NextNode == null)
+                    {
+                        checkNode = checkNode.Parent;
+                    }
+                    else
+                    {
+                        checkNode = checkNode.NextNode;
+                    }
+                    break;
+            }
+            
+
+
+            return checkNode;
+        }
+
+        private void sortTreeNode(TreeNode changeNode)
+        {
+            ArrayList nodeList = new ArrayList();
+            ArrayList dateList = new ArrayList();
+
+            //年はソートしない
+            if (!changeNode.Level.Equals(0))
+            {
+                if (!changeNode.GetNodeCount(false).Equals(1))
+                {
+                    TreeNode sortNode = changeNode.FirstNode;
+                    for (int i = 0; sortNode != null; i++)
+                    {
+                        nodeList.Add(int.Parse(sortNode.Text.Substring(0, sortNode.Text.Length - 1)));
+
+                        if (changeNode.Level.Equals(1))
+                        {
+                            dateList.Add(getDateList(sortNode));
+                            Console.WriteLine(dateList[i]);
+                        }
+
+                        sortNode = sortNode.NextNode;
+                    }
+
+
+                    changeNode.Nodes.Clear();
+
+                    nodeList.Sort();
+
+                    for (int i = 0; nodeList.Count > i; i++)
+                    {
+                        TreeNode addNode = new TreeNode(nodeList[i].ToString());
+                        changeNode.Nodes.Add(addNode);
+                    }
+
+                }
+
+
+            }
+        }
+
+        private int[] getDateList(TreeNode monthNode)
+        {
+            ArrayList dateList = new ArrayList();
+
+            TreeNode dateNode = monthNode.FirstNode;
+            for (int i = 0; dateNode != null; i++)
+            {
+                dateList.Add(int.Parse(dateNode.Text.Substring(0, dateNode.Text.Length - 1)));
+
+                dateNode = dateNode.NextNode;
+            }
+
+            int[] date = new int[dateList.Count];
+            for (int i = 0; dateList.Count > i; i++)
+            {
+                date[i] = int.Parse(dateList[i].ToString());
+            }
+                return date;
+        }
     }
 }

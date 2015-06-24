@@ -26,7 +26,9 @@ namespace ManagementNotification.util
         {
             InitializeComponent();
             pre = form;
+            
             CD = new ConfirmationDenotation(treeView1);
+            
         }
 
 
@@ -35,6 +37,8 @@ namespace ManagementNotification.util
             //ツリー構造（管理名、日付）を表示するメソッドを呼び出す
             //行を追加するオプションを非表示
             dataGridView1.AllowUserToAddRows = false;
+
+            //CD.sortTreeView();
 
         }
 
@@ -65,6 +69,8 @@ namespace ManagementNotification.util
                 if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
                 {
                     RD.deleteRow(dataGridView1, e.RowIndex);
+                    treeView1.Nodes.Clear();
+                    CD.createNodes();
                 }
             }
         }
