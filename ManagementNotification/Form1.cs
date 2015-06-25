@@ -1,4 +1,5 @@
-﻿using ManagementNotification.test;
+﻿using ManagementNotification.db;
+using ManagementNotification.test;
 using ManagementNotification.util;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,8 @@ namespace ManagementNotification
             InitializeComponent();
             con = new Confirmation(this);
             del = new Delete(this);
+            DB db = new DB();
+            db.ConnectAndQuery();
             
         }
 

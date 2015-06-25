@@ -77,7 +77,9 @@ namespace ManagementNotification.util
 
                             /*
                              * TreeViewから管理名Nodeを削除
-                             */   
+                             */
+                            TView.Nodes.Clear();
+                            ConfirmationDenotation CD = new ConfirmationDenotation(TView);
                         }
 
                         break;
@@ -104,6 +106,8 @@ namespace ManagementNotification.util
                             /*
                              * TreeViewから年Nodeを削除
                             */
+                            TView.Nodes.Clear();
+                            ConfirmationDenotation CD = new ConfirmationDenotation(TView);
                         }
 
                         break;
@@ -133,6 +137,8 @@ namespace ManagementNotification.util
                             /*
                              * TreeViewから年Nodeを削除
                             */
+                            TView.Nodes.Clear();
+                            ConfirmationDenotation CD = new ConfirmationDenotation(TView);
                         }
 
                         break;
@@ -163,6 +169,9 @@ namespace ManagementNotification.util
                             /*
                              * TreeViewから年Nodeを削除
                             */
+                            TView.Nodes.Clear();
+                            ConfirmationDenotation CD = new ConfirmationDenotation(TView);
+                            
                         }
 
                         break;
