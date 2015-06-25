@@ -31,7 +31,7 @@ namespace ManagementNotification.db
             this.scsBuilder["Server"] = "tcp:mbvx6h4y1y.database.windows.net,1433";
             this.scsBuilder["User ID"] = "kj4@mbvx6h4y1y";  // @yourservername suffix sometimes.
             this.scsBuilder["Password"] = "Sp8z5n49";
-            this.scsBuilder["Database"] = "ManagementNotification";
+            this.scsBuilder["Database"] = "managementnotificationdb";
             // Leave these values as they are.
             this.scsBuilder["Trusted_Connection"] = false;
             this.scsBuilder["Integrated Security"] = false;
