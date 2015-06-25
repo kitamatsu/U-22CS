@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="db\Custom_SqlDatabaseTransientErrorDetectionStrategy.cs" />
     <Compile Include="db\DB.cs" />
     <Compile Include="util\ConfirmationDenotation.cs" />
     <Compile Include="Form1.cs">
