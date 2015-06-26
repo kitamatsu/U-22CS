@@ -26,7 +26,10 @@ namespace ManagementNotification.util
         {
             InitializeComponent();
             pre = form;
-            
+
+
+            //NotificationList.loadList();
+
             CD = new ConfirmationDenotation(treeView1);
             
         }
@@ -40,6 +43,7 @@ namespace ManagementNotification.util
 
             //CD.sortTreeView();
 
+
         }
 
         /*
@@ -49,6 +53,7 @@ namespace ManagementNotification.util
         private void Confirmation_FormClosed(object sender, FormClosedEventArgs e)
         {
             Console.Write("確認画面から閉じます");
+            NotificationList.saveXML();
             Application.Exit();
         }
 
