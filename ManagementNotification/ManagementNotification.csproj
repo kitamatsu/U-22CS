@@ -46,6 +46,18 @@
   <ItemGroup>
     <Compile Include="db\Custom_SqlDatabaseTransientErrorDetectionStrategy.cs" />
     <Compile Include="db\DB.cs" />
+    <Compile Include="AccountCertification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccountCertification.Designer.cs">
+      <DependentUpon>AccountCertification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AccountCreate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccountCreate.Designer.cs">
+      <DependentUpon>AccountCreate.cs</DependentUpon>
+    </Compile>
     <Compile Include="util\ConfirmationDenotation.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -72,6 +84,12 @@
     <Compile Include="util\NotificationList.cs" />
     <Compile Include="util\RemoveListByNode.cs" />
     <Compile Include="util\RightDelete.cs" />
+    <EmbeddedResource Include="AccountCertification.resx">
+      <DependentUpon>AccountCertification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AccountCreate.resx">
+      <DependentUpon>AccountCreate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
