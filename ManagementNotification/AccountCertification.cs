@@ -1,4 +1,5 @@
-﻿using ManagementNotification.util;
+﻿using ManagementNotification.db;
+using ManagementNotification.util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +22,8 @@ namespace ManagementNotification
             InitializeComponent();
             Con = new Confirmation(this);
             AC = new AccountCreate(this);
+            DB db = new DB();
+            db.ConnectAndQuery();
         }
 
         private void button2_Click(object sender, EventArgs e)
