@@ -154,12 +154,15 @@ namespace ManagementNotification.db
                 using (dbCommand = this.sqlConnection.CreateCommand())
                 {
                     dbCommand.CommandText =
-                        @"SELECT * from Account";
+                        @"INSERT INTO Account (userName, email, password) VALUES("+
+                        "N'ユーザ3',"+
+                        "N'test3@yahoo.co.jp',"+
+                        "N'pass3')";
 
                     // [C.2] Issue the query command through the connection.
                     using (dReader = dbCommand.ExecuteReader())
                     {
-                        // [C.3] Loop through all returned rows, writing the data to the console.
+                        /* [C.3] Loop through all returned rows, writing the data to the console.
                         while (dReader.Read())
                         {
                             sBuilder.Length = 0;
@@ -169,6 +172,7 @@ namespace ManagementNotification.db
 
                             Console.WriteLine(sBuilder.ToString());
                         }
+                         */
                     }
                 }
             }
@@ -178,5 +182,10 @@ namespace ManagementNotification.db
             }
             return;
         } // method IssueQueryCommand
+
+        void DBWriteConnection()
+        {
+
+        }
     } // class Program
 }
