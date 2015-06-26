@@ -154,7 +154,10 @@ namespace ManagementNotification.db
                 using (dbCommand = this.sqlConnection.CreateCommand())
                 {
                     dbCommand.CommandText =
-                        @"SELECT * from Account";
+                        @"select Notification.notificationId, Notification.date, Notification.title, 
+                                 Notification.body, Child.childName
+                          from   Notification inner join Child on Notification.childId = Child.childId
+                          where  Child.accountId = 1";
 
                     // [C.2] Issue the query command through the connection.
                     using (dReader = dbCommand.ExecuteReader())
@@ -166,6 +169,12 @@ namespace ManagementNotification.db
                             sBuilder.Append(dReader.GetInt32(0));
                             sBuilder.Append("\t");
                             sBuilder.Append(dReader.GetString(1));
+                            sBuilder.Append("\t");
+                            sBuilder.Append(dReader.GetString(2));
+                            sBuilder.Append("\t");
+                            sBuilder.Append(dReader.GetString(3));
+                            sBuilder.Append("\t");
+                            sBuilder.Append(dReader.GetString(4));
 
                             Console.WriteLine(sBuilder.ToString());
                         }
