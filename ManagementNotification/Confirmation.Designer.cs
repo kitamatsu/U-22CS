@@ -36,6 +36,7 @@
             this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.body = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,18 +51,18 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(430, 35);
+            this.button1.Location = new System.Drawing.Point(350, 35);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 23);
+            this.button1.Size = new System.Drawing.Size(130, 23);
             this.button1.TabIndex = 1;
             this.button1.Text = "設定";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(681, 35);
+            this.button2.Location = new System.Drawing.Point(730, 35);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 23);
+            this.button2.Size = new System.Drawing.Size(130, 23);
             this.button2.TabIndex = 2;
             this.button2.Text = "ログアウト";
             this.button2.UseVisualStyleBackColor = true;
@@ -104,11 +105,22 @@
             this.body.Name = "body";
             this.body.Width = 270;
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(540, 35);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(130, 23);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "削除した通知の再受信";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Confirmation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 461);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -132,5 +144,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn time;
         private System.Windows.Forms.DataGridViewTextBoxColumn title;
         private System.Windows.Forms.DataGridViewTextBoxColumn body;
+        private System.Windows.Forms.Button button3;
     }
 }

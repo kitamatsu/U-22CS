@@ -48,7 +48,7 @@ namespace ManagementNotification.util
 
             //CD.sortTreeView();
             DB db = new DB();
-            db.ConnectAndQuery();
+            db.ConnectAndQuery("test@yahoo.co.jp", 1);  //ログイン時に保存したメールアドレスを使用する、未送信通知の受信は1
 
             CD = new ConfirmationDenotation(treeView1);
 
@@ -104,6 +104,16 @@ namespace ManagementNotification.util
                 RD.deleteNode(treeView1,dataGridView1,MouseEA);
 
             }
+        }
+
+        //削除した通知の再送信
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DB db = new DB();
+            db.ConnectAndQuery("test@yahoo.co.jp", 2);
+
+            treeView1.Nodes.Clear();
+            CD = new ConfirmationDenotation(treeView1);
         }
     }
 }
