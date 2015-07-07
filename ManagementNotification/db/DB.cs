@@ -3,12 +3,17 @@ using X = System.Text;
 using D = System.Data;
 using C = System.Data.SqlClient;
 using T = System.Threading;
+using ManagementNotification.util;
+using System.Collections.Generic;
+using System.Collections;
 
 //ほぼコピペです。
 namespace ManagementNotification.db
 {
+    
     class DB
     {
+        
         // Fields, shared among methods.
         C.SqlConnection sqlConnection;
         C.SqlConnectionStringBuilder scsBuilder;
@@ -126,7 +131,10 @@ namespace ManagementNotification.db
                     // [B.2] Open a connection.
                     sqlConnection.Open();
                     // [B.3]
-                    this.IssueQueryCommand();
+                    //this.IssueQueryCommand();
+                    this.getNotification();
+                    //this.retransmition();
+
                 }
             }
             catch (Exception exc)
@@ -144,6 +152,17 @@ namespace ManagementNotification.db
         /// </summary>
         void IssueQueryCommand()
         {
+            
+
+
+
+            
+        } // method IssueQueryCommand
+
+
+        //データベースから通知を取得
+        public void getNotification()
+        {
             D.IDataReader dReader = null;
             D.IDbCommand dbCommand = null;
             X.StringBuilder sBuilder = new X.StringBuilder(512);
@@ -154,25 +173,43 @@ namespace ManagementNotification.db
                 using (dbCommand = this.sqlConnection.CreateCommand())
                 {
                     dbCommand.CommandText =
-                        @"INSERT INTO Account (userName, email, password) VALUES("+
-                        "N'ユーザ3',"+
-                        "N'test3@yahoo.co.jp',"+
-                        "N'pass3')";
+                        @"select Notification.notificationId, Notification.date, Notification.title, 
+                                 Notification.body, Child.childName
+                          from   Notification inner join Child on Notification.serialID = Child.serialID
+                          where  exists(select * from Transmit where accountId = 1 
+			                            and Notification.notificationId > Transmit.notificationId)";
 
                     // [C.2] Issue the query command through the connection.
                     using (dReader = dbCommand.ExecuteReader())
                     {
-                        /* [C.3] Loop through all returned rows, writing the data to the console.
+                        int maxNotificationId = 0;
+                        // [C.3] Loop through all returned rows, writing the data to the console.
                         while (dReader.Read())
                         {
-                            sBuilder.Length = 0;
-                            sBuilder.Append(dReader.GetInt32(0));
-                            sBuilder.Append("\t");
-                            sBuilder.Append(dReader.GetString(1));
+                            ArrayList notification = new ArrayList();
 
+                            sBuilder.Length = 0;
+                            notification.Add(sBuilder.Append(dReader.GetInt32(0)));
+                            sBuilder.Append("\t");
+                            notification.Add(sBuilder.Append(dReader.GetDateTime(1)));
+                            sBuilder.Append("\t");
+                            notification.Add(sBuilder.Append(dReader.GetString(2)));
+                            sBuilder.Append("\t");
+                            notification.Add(sBuilder.Append(dReader.GetString(3)));
+                            sBuilder.Append("\t");
+                            notification.Add(sBuilder.Append(dReader.GetString(4)));
+
+                            Notification nt = new Notification(dReader.GetInt32(0), dReader.GetDateTime(1), dReader.GetString(2),
+                                                               dReader.GetString(3), dReader.GetString(4));
+                            //list.Add(nt);
+                            NotificationList.list.Add(nt);
+                            maxNotificationId = nt.NotificationID;
                             Console.WriteLine(sBuilder.ToString());
                         }
-                         */
+
+                        dReader.Close();
+
+                        updateTransmit(maxNotificationId);
                     }
                 }
             }
@@ -181,11 +218,111 @@ namespace ManagementNotification.db
                 throw exc; // Let caller assess any exception.
             }
             return;
-        } // method IssueQueryCommand
+        }
+
+        //受信済みの通知をデータベースに記録
+        void updateTransmit(int receptionId)
+        {
+
+            D.IDbCommand dbCommand = null;
+
+            dbCommand = sqlConnection.CreateCommand();
+
+            // 実行する SQL コマンドを設定する
+            dbCommand.CommandText = @"update Transmit set notificationId = " + receptionId + " where accountId = 1";
+
+            //dbCommand.Connection = sqlConnection;
+
+
+            // SQL コマンドを実行し、影響を受けた行を返す
+            dbCommand.ExecuteNonQuery();
+
+
+
+            
+            return;
+        }
+
+        //削除した通知の再送信
+        void retransmition()
+        {
+            D.IDataReader dReader = null;
+            D.IDbCommand dbCommand = null;
+            X.StringBuilder sBuilder = new X.StringBuilder(512);
+
+            try
+            {
+                // [C.1] Use the connection to create a query command.
+                using (dbCommand = this.sqlConnection.CreateCommand())
+                {
+                    dbCommand.CommandText =
+                        @"select Notification.notificationId, Notification.date, Notification.title, 
+                                 Notification.body, Child.childName
+                          from   Notification inner join Child on Notification.serialID = Child.serialID
+                          where  exists(select * from Transmit where accountId = 1                      
+			                            and Notification.notificationId <= Transmit.notificationId)";
+
+                    // [C.2] Issue the query command through the connection.
+                    using (dReader = dbCommand.ExecuteReader())
+                    {
+                        // [C.3] Loop through all returned rows, writing the data to the console.
+                        while (dReader.Read())
+                        {
+                            
+                            ArrayList notification = new ArrayList();
+
+                            sBuilder.Length = 0;
+                            notification.Add(sBuilder.Append(dReader.GetInt32(0)));
+                            sBuilder.Append("\t");
+                            notification.Add(sBuilder.Append(dReader.GetDateTime(1)));
+                            sBuilder.Append("\t");
+                            notification.Add(sBuilder.Append(dReader.GetString(2)));
+                            sBuilder.Append("\t");
+                            notification.Add(sBuilder.Append(dReader.GetString(3)));
+                            sBuilder.Append("\t");
+                            notification.Add(sBuilder.Append(dReader.GetString(4)));
+
+                            Notification nt = new Notification(dReader.GetInt32(0), dReader.GetDateTime(1), dReader.GetString(2),
+                                                               dReader.GetString(3), dReader.GetString(4));
+                            
+                            Boolean exist = false;
+
+                            for (int i = 0; NotificationList.list.Count > i; i++)
+                            {
+                                if (NotificationList.list[i].NotificationID == nt.NotificationID)
+                                {
+                                    exist = true;
+                                    break;
+                                }
+                            }
+
+                            if (!exist)
+                            {
+                                NotificationList.list.Add(nt);
+                                Console.WriteLine(sBuilder.ToString());
+                            }
+                                //list.Add(nt);
+                                
+                        }
+
+                        dReader.Close();
+
+
+                    }
+                }
+            }
+            catch (Exception exc)
+            {
+                throw exc; // Let caller assess any exception.
+            }
+            return;
+        }
 
         void DBWriteConnection()
         {
 
         }
+
+        
     } // class Program
 }

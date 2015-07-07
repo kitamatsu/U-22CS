@@ -22,8 +22,8 @@ namespace ManagementNotification
             InitializeComponent();
             Con = new Confirmation(this);
             AC = new AccountCreate(this);
-            DB db = new DB();
-            db.ConnectAndQuery();
+            //DB db = new DB();
+            //db.ConnectAndQuery();
         }
 
         private void button2_Click(object sender, EventArgs e)

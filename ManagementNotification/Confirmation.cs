@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ManagementNotification.db;
 
 namespace ManagementNotification.util
 {
@@ -30,7 +31,9 @@ namespace ManagementNotification.util
 
             //NotificationList.loadList();
 
-            CD = new ConfirmationDenotation(treeView1);
+            
+
+            
             
         }
 
@@ -41,8 +44,13 @@ namespace ManagementNotification.util
             //行を追加するオプションを非表示
             dataGridView1.AllowUserToAddRows = false;
 
-            //CD.sortTreeView();
 
+
+            //CD.sortTreeView();
+            DB db = new DB();
+            db.ConnectAndQuery();
+
+            CD = new ConfirmationDenotation(treeView1);
 
         }
 

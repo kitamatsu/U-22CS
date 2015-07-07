@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ManagementNotification.db;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,10 @@ namespace ManagementNotification.util
 
             testAdd();
             ViewListToConsole();
-            //loadList();
+            loadList();
+
+            //DB db = new DB();
+            //db.ConnectAndQuery();
         }
 
         static public void setList()
@@ -75,24 +79,24 @@ namespace ManagementNotification.util
             list.Clear();
 
             //テストデータの入力
-            Notification nt1 = new Notification(1, new DateTime(2014, 6, 6, 5, 30, 30), "テスト通知1", "テスト通知1内容", "兄");
-            Notification nt2 = new Notification(2, new DateTime(2014, 6, 5), "テスト通知2", "テスト通知2内容", "弟");
-            Notification nt3 = new Notification(3, new DateTime(2014, 6, 16), "テスト通知3", "テスト通知3内容", "兄");
-            Notification nt4 = new Notification(4, new DateTime(2015, 3, 20), "テスト通知15", "テスト通知15内容", "弟");
-            Notification nt5 = new Notification(5, new DateTime(2014, 7, 6, 5, 40, 43), "テスト通知4", "テスト通知4内容", "姉");
-            Notification nt6 = new Notification(6, new DateTime(2013, 7, 5, 6, 30, 20), "テスト通知5", "テスト通知5内容", "兄");
-            Notification nt7 = new Notification(7, new DateTime(2014, 6, 10, 6, 30, 20), "テスト通知5", "テスト通知5内容", "兄");
-            Notification nt8 = new Notification(4, new DateTime(2015, 11, 20), "テスト通知8", "テスト通知8内容", "弟");
-            Notification nt9 = new Notification(4, new DateTime(2015, 2, 20), "テスト通知9", "テスト通知9内容", "弟");
-            list.Add(nt6);
-            list.Add(nt1);
-            list.Add(nt2);
-            list.Add(nt3);
-            list.Add(nt4);
-            list.Add(nt5);
-            list.Add(nt7);
-            list.Add(nt8);
-            list.Add(nt9);
+            //Notification nt1 = new Notification(1, new DateTime(2014, 6, 6, 5, 30, 30), "テスト通知1", "テスト通知1内容", "兄");
+            //Notification nt2 = new Notification(2, new DateTime(2014, 6, 5), "テスト通知2", "テスト通知2内容", "弟");
+            //Notification nt3 = new Notification(3, new DateTime(2014, 6, 16), "テスト通知3", "テスト通知3内容", "兄");
+            //Notification nt4 = new Notification(4, new DateTime(2015, 3, 20), "テスト通知15", "テスト通知15内容", "弟");
+            //Notification nt5 = new Notification(5, new DateTime(2014, 7, 6, 5, 40, 43), "テスト通知4", "テスト通知4内容", "姉");
+            //Notification nt6 = new Notification(6, new DateTime(2013, 7, 5, 6, 30, 20), "テスト通知5", "テスト通知5内容", "兄");
+            //Notification nt7 = new Notification(7, new DateTime(2014, 6, 10, 6, 30, 20), "テスト通知5", "テスト通知5内容", "兄");
+            //Notification nt8 = new Notification(4, new DateTime(2015, 11, 20), "テスト通知8", "テスト通知8内容", "弟");
+            //Notification nt9 = new Notification(4, new DateTime(2015, 2, 20), "テスト通知9", "テスト通知9内容", "弟");
+            //list.Add(nt6);
+            //list.Add(nt1);
+            //list.Add(nt2);
+            //list.Add(nt3);
+            //list.Add(nt4);
+            //list.Add(nt5);
+            //list.Add(nt7);
+            //list.Add(nt8);
+            //list.Add(nt9);
             
         }
 
