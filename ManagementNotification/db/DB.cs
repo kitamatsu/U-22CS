@@ -3,10 +3,10 @@ using X = System.Text;
 using D = System.Data;
 using C = System.Data.SqlClient;
 using T = System.Threading;
+using System.Windows.Forms;
 using ManagementNotification.util;
 using System.Collections.Generic;
 using System.Collections;
-using System.Windows.Forms;
 
 
 //ほぼコピペです。
@@ -334,6 +334,7 @@ namespace ManagementNotification.db
             
         } // method IssueQueryCommand
 
+        **/
 
         //データベースから通知を取得
         public void getNotification()
@@ -474,14 +475,21 @@ namespace ManagementNotification.db
                             if (!exist)
                             {
                                 NotificationList.list.Add(nt);
-                            Console.WriteLine(sBuilder.ToString());
-                        }
+                                Console.WriteLine(sBuilder.ToString());
+                            }
                                 //list.Add(nt);
-                                
-                        }
 
+                        }
                         dReader.Close();
 
+                    }
+                }
+            }
+            catch (C.SqlException exc)
+            {
+                throw exc;
+            }
+        }
 
 
         //アカウントをDBに追加
