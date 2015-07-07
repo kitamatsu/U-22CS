@@ -46,12 +46,13 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // userNameTB
             // 
             this.userNameTB.Location = new System.Drawing.Point(300, 86);
-            this.userNameTB.MaxLength = 10;
+            this.userNameTB.MaxLength = 16;
             this.userNameTB.Name = "userNameTB";
             this.userNameTB.Size = new System.Drawing.Size(219, 19);
             this.userNameTB.TabIndex = 0;
@@ -68,7 +69,7 @@
             // emailTB
             // 
             this.emailTB.Location = new System.Drawing.Point(300, 146);
-            this.emailTB.MaxLength = 10;
+            this.emailTB.MaxLength = 100;
             this.emailTB.Name = "emailTB";
             this.emailTB.Size = new System.Drawing.Size(219, 19);
             this.emailTB.TabIndex = 2;
@@ -76,18 +77,20 @@
             // passTB
             // 
             this.passTB.Location = new System.Drawing.Point(300, 204);
-            this.passTB.MaxLength = 10;
+            this.passTB.MaxLength = 32;
             this.passTB.Name = "passTB";
             this.passTB.Size = new System.Drawing.Size(219, 19);
             this.passTB.TabIndex = 3;
+            this.passTB.UseSystemPasswordChar = true;
             // 
             // passConfirmationTB
             // 
             this.passConfirmationTB.Location = new System.Drawing.Point(300, 263);
-            this.passConfirmationTB.MaxLength = 10;
+            this.passConfirmationTB.MaxLength = 32;
             this.passConfirmationTB.Name = "passConfirmationTB";
             this.passConfirmationTB.Size = new System.Drawing.Size(219, 19);
             this.passConfirmationTB.TabIndex = 4;
+            this.passConfirmationTB.UseSystemPasswordChar = true;
             // 
             // button1
             // 
@@ -212,11 +215,21 @@
             this.label12.TabIndex = 20;
             this.label12.Text = "<*必須>";
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(338, 112);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(150, 12);
+            this.label14.TabIndex = 21;
+            this.label14.Text = "16文字以内で設定してください";
+            // 
             // AccountCreate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(620, 376);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
@@ -262,5 +275,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label14;
     }
 }

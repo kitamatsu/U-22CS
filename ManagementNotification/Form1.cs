@@ -24,9 +24,6 @@ namespace ManagementNotification
             InitializeComponent();
             con = new Confirmation(this);
             del = new Delete(this);
-            //DB db = new DB();
-            //db.ConnectAndQuery();
-            
         }
 
         //画面遷移

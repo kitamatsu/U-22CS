@@ -16,25 +16,28 @@ namespace ManagementNotification
     {
         Confirmation Con;
         AccountCreate AC;
+        DB db;
 
         public AccountCertification()
         {
             InitializeComponent();
             Con = new Confirmation(this);
             AC = new AccountCreate(this);
-            //DB db = new DB();
-            //db.ConnectAndQuery();
-        }
+            db = new DB();
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Con.Show();
-            this.Visible = false;
+            listBox1.Text = "山口拓真";
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             AC.Show();
+            this.Visible = false;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Con.Show();
             this.Visible = false;
         }
     }

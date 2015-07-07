@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ManagementNotification.db;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,11 +14,11 @@ namespace ManagementNotification
     public partial class AccountCreate : Form
     {
         Form pre;
+        DB db = new DB();
 
         public AccountCreate()
         {
             InitializeComponent();
-            
         }
 
         public AccountCreate(Form form)
@@ -35,16 +36,33 @@ namespace ManagementNotification
                 passConfirmationTB.Text.Length < 1)
             {
                 label13.Text = "未入力項目があります";
+                label13.BackColor = Color.Red;
             }
             else if (passTB.Text != passConfirmationTB.Text)
             {
                 label13.Text = "パスワードが一致しません";
+                label13.BackColor = Color.Red;
             }
             else
             {
-                MessageBox.Show("入力完了");
+                DialogResult result = MessageBox.Show("入力内容で登録します。",
+                                                    "確認",
+                                                    MessageBoxButtons.OKCancel,
+                                                    MessageBoxIcon.Exclamation);
+
+                if (result == DialogResult.OK)
+                {
+                    //DBクラスのアカウント追加メソッドを呼び出す
+                    db.ConnectAndQuery(userNameTB.Text, emailTB.Text, passTB.Text);
+
+                    //Transmitテーブルにデータを追加
+                    db.ConnectAndQuery(userNameTB.Text, passTB.Text, 1);
+
+                    //アカウント認証画面に戻る
+                    pre.Show();
+                    this.Visible = false;
+                }
             }
-            
         }
     }
 }
