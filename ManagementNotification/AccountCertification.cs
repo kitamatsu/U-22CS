@@ -24,9 +24,6 @@ namespace ManagementNotification
             Con = new Confirmation(this);
             AC = new AccountCreate(this);
             db = new DB();
-
-            listBox1.Text = "山口拓真";
-            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -37,8 +34,22 @@ namespace ManagementNotification
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Con.Show();
-            this.Visible = false;
+            db.ConnectAndQuery(usernameTB.Text, passwordTB.Text, 2);
+
+        }
+
+        public void thisClose(int num)
+        {
+            if (num != 0)
+            {
+                //this.Close();
+                //Con.Show();
+            }
+            else if (num == 0)
+            {
+                label4.Text = "ユーザネーム,パスワードが一致しません。";
+                label4.BackColor = Color.Red;
+            }
         }
     }
 }

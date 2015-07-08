@@ -4,6 +4,7 @@ using D = System.Data;
 using C = System.Data.SqlClient;
 using T = System.Threading;
 using System.Windows.Forms;
+using ManagementNotification.util;
 
 
 //ほぼコピペです。
@@ -11,6 +12,10 @@ namespace ManagementNotification.db
 {
     class DB
     {
+        Confirmation con;
+        AccountCertification ac;
+        private Boolean flag = false;
+
         // Fields, shared among methods.
         C.SqlConnection sqlConnection;
         C.SqlConnectionStringBuilder scsBuilder;
@@ -24,6 +29,7 @@ namespace ManagementNotification.db
         /// 
 
         //////アカウント追加メソッド
+        //////////////////アカウント追加メソッド/////////////////////////
 
         public void ConnectAndQuery(String user,String email,String pass)
         {
@@ -146,8 +152,7 @@ namespace ManagementNotification.db
         } // method EstablishConnection
 
         /// <summary>
-        /// Transmit追加 EstablishConnection();
-        /// Open a connection, then call a method that issues a query.
+        /// Transmit追加 EstablishConnection();　
         /// </summary>
         void EstablishConnection(String UserName, String Pass)
         {
@@ -173,8 +178,8 @@ namespace ManagementNotification.db
             return;
         } // method EstablishConnection
 
-///////////ログイン認証//////////////
-//////////////////////アカウント追加メソッド//////////////////////////////////////////////////////////
+///////////ログイン認証、通知送信管理//////////////
+//////////////////////////////////////////////////////////////////////////////
         /// <summary>
         /// //
         /// </summary>
@@ -288,9 +293,7 @@ namespace ManagementNotification.db
         } // method ConnectAndQuery
 
 
-        /// <summary>
-        /// Open a connection, then call a method that issues a query.
-        /// </summary>
+        ///////ログインEstablishConnection///////
         void LoginEstablishConnection(String User, String Pass)
         {
             try
@@ -317,8 +320,6 @@ namespace ManagementNotification.db
 
         /**
          * 参考にIssueQueryCommand()は残してます
-         *
-         * 
          * 
         void IssueQueryCommand()
         {
@@ -364,40 +365,9 @@ namespace ManagementNotification.db
 
         /*
          * void addAccount(String username,String emai
-         */
+         */ 
 
-
-        /*SQLパラメータなしVer　これだと正常に動く
-        void add(String username,String email,String pass)
-        {
-            D.IDataReader dReader = null;
-            D.IDbCommand dbCommand = null;
-
-            try
-            {
-                // [C.1] Use the connection to create a query command.
-                using (dbCommand = this.sqlConnection.CreateCommand())
-                {
-
-                    dbCommand.CommandText = @"INSERT INTO Account (userName,email,password) VALUES " +
-                        "(N'" + username + "',N'" + email + "',N'" + pass + "')";
-
-                    //C.SqlCommand com = new C.SqlCommand(dbCommand.CommandText, sqlConnection);
-
-                    // [C.2] Issue the query command through the connection.
-                    dReader = dbCommand.ExecuteReader();
-                }
-            }
-            catch (Exception exc)
-            {
-                Console.WriteLine(exc.ToString());
-                throw exc; // Let caller assess any exception.
-            }
-            return;
-        }
-        */ 
-
-        //アカウントをDBに追加
+        ///////////////////////////////////////アカウントをDBに追加/////////////////////////////////////////
         void addAccount(String username,String email,String pass)
         {
             D.IDataReader dReader = null;
@@ -438,6 +408,7 @@ namespace ManagementNotification.db
             return;
         }
 
+        ///////////////////////////////////////通知送信管理へaccountId追加//////////////////////////////
         void addTransmit(String username,String pass)
         {
             D.IDataReader dReader = null;
@@ -491,14 +462,65 @@ namespace ManagementNotification.db
             return;
         }
 
+        ///////////////////////////////////////ログイン認証/////////////////////////////////////////
         void loginAccount(String username, String pass)
         {
-            //dbCommand.CommandText =
-             //           @"SELECT id FROM Account WHERE username = @userName and " +
-               //                                      "password = @Pass";
-            Console.WriteLine("ぼけ");
+            D.IDataReader dReader = null;
+            C.SqlCommand com = new C.SqlCommand();
+            con = new Confirmation();
+            ac = new AccountCertification();
+            int AccountID = 0;
+
+            try
+            {
+                // [C.1] Use the connection to create a query command.
+                using (com = this.sqlConnection.CreateCommand())
+                {
+
+                    com.CommandText = @"SELECT accountId FROM Account " +
+                                    "WHERE userName = @userName " +
+                                    "AND password = @Pass";
+
+                    com = new C.SqlCommand(com.CommandText, sqlConnection);
+
+                    try
+                    {
+                        AddSqlParameter(com, "@userName", D.SqlDbType.NChar, username);
+                        AddSqlParameter(com, "@Pass", D.SqlDbType.NChar, pass);
+
+                    }
+                    catch (C.SqlException exc)
+                    {
+                        throw exc;
+                    }
+
+                    using (dReader = com.ExecuteReader())
+                    {
+                        while (dReader.Read())
+                        {
+                            AccountID = dReader.GetInt32(0);
+                        }
+                    }
+
+                    if (AccountID != 0)
+                    {
+                        MessageBox.Show(AccountID.ToString());
+                    }
+                    else
+                    {
+                        MessageBox.Show(AccountID.ToString());
+                    }
+                }
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.ToString());
+                throw exc; // Let caller assess any exception.
+            }
+            return;
         }
 
+        ///////////////////////////////////////SQLパラメータの設定//////////////////////////////////
         public static void AddSqlParameter(
             C.SqlCommand com, string ParameterName,D.SqlDbType type, Object value)
         {
@@ -509,6 +531,8 @@ namespace ManagementNotification.db
             param.Value = value;
             com.Parameters.Add(param);
         }
+
+        
 
     } // class Program
 }
