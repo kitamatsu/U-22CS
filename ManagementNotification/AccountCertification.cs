@@ -42,8 +42,8 @@ namespace ManagementNotification
         {
             if (num != 0)
             {
-                //this.Close();
-                //Con.Show();
+                this.Close();
+                Con.Show();
             }
             else if (num == 0)
             {

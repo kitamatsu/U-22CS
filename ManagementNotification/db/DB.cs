@@ -15,10 +15,7 @@ namespace ManagementNotification.db
     
     class DB
     {
-        Confirmation con;
-        AccountCertification ac;
-        private Boolean flag = false;
-
+        
         // Fields, shared among methods.
         C.SqlConnection sqlConnection;
         C.SqlConnectionStringBuilder scsBuilder;
@@ -32,7 +29,6 @@ namespace ManagementNotification.db
         /// 
 
         //////アカウント追加メソッド
-        //////////////////アカウント追加メソッド/////////////////////////
 
         public void ConnectAndQuery(String user,String email,String pass)
         {
@@ -337,7 +333,9 @@ namespace ManagementNotification.db
         } // method ConnectAndQuery
 
 
-        ///////ログインEstablishConnection///////
+        /// <summary>
+        /// Open a connection, then call a method that issues a query.
+        /// </summary>
         void LoginEstablishConnection(String User, String Pass)
         {
             try
@@ -518,7 +516,7 @@ namespace ManagementNotification.db
                             maxNotificationId = nt.NotificationID;
                             Console.WriteLine(sBuilder.ToString());
                         }
-                         
+
                         dReader.Close();
 
                         updateTransmit(maxNotificationId);
@@ -551,57 +549,21 @@ namespace ManagementNotification.db
 
 
 
-
+            
             return;
         }
 
-        ///////////////////////////////////////アカウントをDBに追加/////////////////////////////////////////
-        void addAccount(String username,String email,String pass)
-        {
-             D.IDataReader dReader = null;
-            C.SqlCommand com = new C.SqlCommand();
-
-            try
-            {
-                com.CommandText = @"INSERT INTO Account (userName,email,password) " +
-                            "VALUES (@userName,@Email,@Pass)";
-
-                        
-                        dReader.Close();
-                    com = new C.SqlCommand(com.CommandText, sqlConnection);
-
-                    try
-                    {
-                        AddSqlParameter(com, "@userName", D.SqlDbType.NChar, username);
-                        AddSqlParameter(com, "@Email", D.SqlDbType.NChar, email);
-                        AddSqlParameter(com, "@Pass", D.SqlDbType.NChar, pass);
-                       
-                    }
-                    catch (C.SqlException exc)
-                    {
-                        throw exc;
-                    }
-
-                    // [C.2] Issue the query command through the connection.
-                    dReader = com.ExecuteReader();
-                }
-            }
-            catch (C.SqlException exc)
-            {
-                throw exc;
-            }
-
         //削除した通知の再送信
-        void retransmition(string email){
-        
+        void retransmition(string email)
+        {
             D.IDataReader dReader = null;
             D.IDbCommand dbCommand = null;
             X.StringBuilder sBuilder = new X.StringBuilder(512);
-            
 
-           
+            try
+            {
                 // [C.1] Use the connection to create a query command.
-                using (com = this.sqlConnection.CreateCommand())
+                using (dbCommand = this.sqlConnection.CreateCommand())
                 {
                     dbCommand.CommandText =
                         @"select Notification.notificationId, Notification.date, Notification.title, 
@@ -649,11 +611,61 @@ namespace ManagementNotification.db
                                 NotificationList.list.Add(nt);
                                 Console.WriteLine(sBuilder.ToString());
                             }
-                                //list.Add(nt);
-                    
+
+                        }
+                        dReader.Close();
+
+                    }
+                }
+            }
+            catch (C.SqlException exc)
+            {
+                throw exc;
+            }
         }
 
-        ///////////////////////////////////////通知送信管理へaccountId追加//////////////////////////////
+
+        //アカウントをDBに追加
+        void addAccount(String username,String email,String pass)
+        {
+            D.IDataReader dReader = null;
+            C.SqlCommand com = new C.SqlCommand();
+
+            try
+            {
+                // [C.1] Use the connection to create a query command.
+                using (com = this.sqlConnection.CreateCommand())
+                {
+
+                    com.CommandText = @"INSERT INTO Account (userName,email,password) " +
+                            "VALUES (@userName,@Email,@Pass)";
+                    
+                    com = new C.SqlCommand(com.CommandText, sqlConnection);
+
+                    try
+                    {
+                        AddSqlParameter(com, "@userName", D.SqlDbType.NChar, username);
+                        AddSqlParameter(com, "@Email", D.SqlDbType.NChar, email);
+                        AddSqlParameter(com, "@Pass", D.SqlDbType.NChar, pass);
+                       
+                    }
+                    catch (C.SqlException exc)
+                    {
+                        throw exc;
+                    }
+
+                    // [C.2] Issue the query command through the connection.
+                    dReader = com.ExecuteReader();
+                }
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.ToString());
+                throw exc; // Let caller assess any exception.
+            }
+            return;
+        }
+
         void addTransmit(String username,String pass)
         {
             D.IDataReader dReader = null;
@@ -670,14 +682,14 @@ namespace ManagementNotification.db
                     com.CommandText = @"SELECT accountId FROM Account " + 
                                     "WHERE userName = @userName " +
                                     "AND password = @Pass";
-                    
+
                     com = new C.SqlCommand(com.CommandText, sqlConnection);
 
                     try
                     {
                         AddSqlParameter(com, "@userName", D.SqlDbType.NChar, username);
                         AddSqlParameter(com, "@Pass", D.SqlDbType.NChar, pass);
-                       
+
                     }
                     catch (C.SqlException exc)
                     {
@@ -707,66 +719,14 @@ namespace ManagementNotification.db
             return;
         }
 
-        ///////////////////////////////////////ログイン認証/////////////////////////////////////////
         void loginAccount(String username, String pass)
         {
-            D.IDataReader dReader = null;
-            C.SqlCommand com = new C.SqlCommand();
-            con = new Confirmation();
-            ac = new AccountCertification();
-            int AccountID = 0;
-
-            try
-            {
-                // [C.1] Use the connection to create a query command.
-                using (com = this.sqlConnection.CreateCommand())
-                {
-
-                    com.CommandText = @"SELECT accountId FROM Account " + 
-                                    "WHERE userName = @userName " +
-                                    "AND password = @Pass";
-
-                    com = new C.SqlCommand(com.CommandText, sqlConnection);
-
-                    try
-                    {
-                        AddSqlParameter(com, "@userName", D.SqlDbType.NChar, username);
-                        AddSqlParameter(com, "@Pass", D.SqlDbType.NChar, pass);
-
-                    }
-                    catch (C.SqlException exc)
-                    {
-                        throw exc;
-                    }
-
-                    // [C.2] Issue the query command through the connection.
-                    using (dReader = com.ExecuteReader())
-                    {
-                        while (dReader.Read())
-                        {
-                            AccountID = dReader.GetInt32(0);
-                        }
-                    }
-
-                    if (AccountID != 0)
-                    {
-                        MessageBox.Show(AccountID.ToString());
-                    }
-                    else
-                    {
-                        MessageBox.Show(AccountID.ToString());
-                    }
-                }
-            }
-            catch (Exception exc)
-            {
-                Console.WriteLine(exc.ToString());
-                throw exc; // Let caller assess any exception.
-            }
-            return;
+            //dbCommand.CommandText =
+             //           @"SELECT id FROM Account WHERE username = @userName and " +
+               //                                      "password = @Pass";
+            Console.WriteLine("ぼけ");
         }
 
-        ///////////////////////////////////////SQLパラメータの設定//////////////////////////////////
         public static void AddSqlParameter(
             C.SqlCommand com, string ParameterName,D.SqlDbType type, Object value)
         {
