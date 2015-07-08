@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ManagementNotification.db;
 
 namespace ManagementNotification.util
 {
@@ -26,8 +27,13 @@ namespace ManagementNotification.util
         {
             InitializeComponent();
             pre = form;
+
+
+            //NotificationList.loadList();
+
             
-            CD = new ConfirmationDenotation(treeView1);
+
+            
             
         }
 
@@ -38,7 +44,13 @@ namespace ManagementNotification.util
             //行を追加するオプションを非表示
             dataGridView1.AllowUserToAddRows = false;
 
+
+
             //CD.sortTreeView();
+            DB db = new DB();
+            db.ConnectAndQuery("test@yahoo.co.jp", 1);  //ログイン時に保存したメールアドレスを使用する、未送信通知の受信は1
+
+            CD = new ConfirmationDenotation(treeView1);
 
         }
 
@@ -49,6 +61,7 @@ namespace ManagementNotification.util
         private void Confirmation_FormClosed(object sender, FormClosedEventArgs e)
         {
             Console.Write("確認画面から閉じます");
+            NotificationList.saveXML();
             Application.Exit();
         }
 
@@ -91,6 +104,16 @@ namespace ManagementNotification.util
                 RD.deleteNode(treeView1,dataGridView1,MouseEA);
 
             }
+        }
+
+        //削除した通知の再送信
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DB db = new DB();
+            db.ConnectAndQuery("test@yahoo.co.jp", 2);
+
+            treeView1.Nodes.Clear();
+            CD = new ConfirmationDenotation(treeView1);
         }
     }
 }

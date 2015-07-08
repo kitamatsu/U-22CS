@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfNotification xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Notification>
+    <NotificationID>6</NotificationID>
+    <Date>2013-07-05T06:30:20</Date>
+    <Title>テスト通知5</Title>
+    <Body>テスト通知5内容</Body>
+    <ChildName>兄</ChildName>
+  </Notification>
+  <Notification>
     <NotificationID>1</NotificationID>
-    <Date>2014-06-06T00:00:00</Date>
+    <Date>2014-06-06T05:30:30</Date>
     <Title>テスト通知1</Title>
     <Body>テスト通知1内容</Body>
     <ChildName>兄</ChildName>
@@ -15,17 +22,45 @@
     <ChildName>弟</ChildName>
   </Notification>
   <Notification>
-    <NotificationID>3</NotificationID>
+    <NotificationID>2</NotificationID>
     <Date>2014-06-16T00:00:00</Date>
     <Title>テスト通知3</Title>
     <Body>テスト通知3内容</Body>
     <ChildName>兄</ChildName>
   </Notification>
   <Notification>
-  <NotificationID>15</NotificationID>
-  <Date>2015-03-04T00:00:00</Date>
-  <Title>テスト通知15</Title>
-  <Body>テスト通知15内容</Body>
-  <ChildName>弟</ChildName>
+    <NotificationID>4</NotificationID>
+    <Date>2015-03-20T00:00:00</Date>
+    <Title>テスト通知15</Title>
+    <Body>テスト通知15内容</Body>
+    <ChildName>弟</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>2</NotificationID>
+    <Date>2014-07-06T05:40:43</Date>
+    <Title>テスト通知4</Title>
+    <Body>テスト通知4内容</Body>
+    <ChildName>姉</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>7</NotificationID>
+    <Date>2014-06-10T06:30:20</Date>
+    <Title>テスト通知5</Title>
+    <Body>テスト通知5内容</Body>
+    <ChildName>兄</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>4</NotificationID>
+    <Date>2015-11-20T00:00:00</Date>
+    <Title>テスト通知8</Title>
+    <Body>テスト通知8内容</Body>
+    <ChildName>弟</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>4</NotificationID>
+    <Date>2015-02-20T00:00:00</Date>
+    <Title>テスト通知9</Title>
+    <Body>テスト通知9内容</Body>
+    <ChildName>弟</ChildName>
   </Notification>
 </ArrayOfNotification>
