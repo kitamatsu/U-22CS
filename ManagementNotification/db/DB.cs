@@ -614,7 +614,6 @@ namespace ManagementNotification.db
                                 NotificationList.list.Add(nt);
                                 Console.WriteLine(sBuilder.ToString());
                             }
-                                //list.Add(nt);
 
                         }
                         dReader.Close();
