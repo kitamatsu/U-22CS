@@ -56,7 +56,7 @@ namespace ManagementNotification
                     db.ConnectAndQuery(userNameTB.Text, emailTB.Text, passTB.Text);
 
                     //Transmitテーブルにデータを追加
-                    db.ConnectAndQuery(userNameTB.Text, passTB.Text, 1);
+                    //db.TransmitConnectAndQuery(userNameTB.Text, passTB.Text);
 
                     //アカウント認証画面に戻る
                     pre.Show();

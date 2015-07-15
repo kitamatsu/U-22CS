@@ -23,15 +23,7 @@ namespace ManagementNotification.db
         C.SqlConnection sqlConnection;
         C.SqlConnectionStringBuilder scsBuilder;
 
-        /// <summary>
-        /// Prepares values for a connection. Then inside a loop, it calls a method
-        /// that opens a connection. The called method calls yet another method
-        /// that issues a query.
-        /// The loop reiterates only if a transient error is encountered.
-        /// </summary>
-        /// 
-
-        //////アカウント追加メソッド
+////////////////////アカウント追加メソッド/////////////////////////////////////////
 
         public void ConnectAndQuery(String user,String email,String pass)
         {
@@ -127,7 +119,6 @@ namespace ManagementNotification.db
 
         /// <summary>
         /// アカウント追加 EstablishConnection();
-        /// Open a connection, then call a method that issues a query.
         /// </summary>
         void EstablishConnection(String User,String Email,String Pass)
         {
@@ -153,10 +144,101 @@ namespace ManagementNotification.db
             return;
         } // method EstablishConnection
 
+
+////////////////////Transmit追加メソッド/////////////////////////////////////////
+
+        public void ConnectAndQuery(String user, String pass)
+        {
+            int connectionTimeoutSeconds = 30;  // Default of 15 seconds is too short over the Internet, sometimes.
+            int maxCountTriesConnectAndQuery = 3;  // You can adjust the various retry count values.
+            int secondsBetweenRetries = 4;  // Simple retry strategy.
+
+            // [A.1] Prepare the connection string to Azure SQL Database.
+            this.scsBuilder = new C.SqlConnectionStringBuilder();
+            // Change these values to your values.
+            this.scsBuilder["Server"] = "tcp:mbvx6h4y1y.database.windows.net,1433";
+            this.scsBuilder["User ID"] = "kj4@mbvx6h4y1y";  // @yourservername suffix sometimes.
+            this.scsBuilder["Password"] = "Sp8z5n49";
+            this.scsBuilder["Database"] = "managementnotificationdb";
+            // Leave these values as they are.
+            this.scsBuilder["Trusted_Connection"] = false;
+            this.scsBuilder["Integrated Security"] = false;
+            this.scsBuilder["Encrypt"] = true;
+            this.scsBuilder["Connection Timeout"] = connectionTimeoutSeconds;
+
+            //-------------------------------------------------------
+            // Preparations are complete.
+
+            for (int cc = 1; cc <= maxCountTriesConnectAndQuery; cc++)
+            {
+                try
+                {
+                    // [A.2] Connect, which proceeds to issue a query command.
+                    this.TransmitEstablishConnection(user, pass);
+
+                    // [A.3] All has gone well, so let the program end.
+                    break;
+                }
+                catch (C.SqlException sqlExc)
+                {
+                    bool isTransientError;
+
+                    // [A.4] Check whether sqlExc.Number is on the whitelist of transients.
+                    isTransientError = Custom_SqlDatabaseTransientErrorDetectionStrategy
+                        .IsTransientStatic(sqlExc);
+
+                    if (isTransientError == false)  // Is a persistent error...
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine(sqlExc.ToString());
+
+                        // [A.5] Either the connection attempt or the query command attempt suffered a persistent SqlException.
+                        // Break the loop, let the hopeless program end.
+                        break;
+                    }
+
+                    // [A.6] The SqlException identified a transient error from an attempt to issue a query command.
+                    // So let this method reloop and try again. However, we recommend that the new query
+                    // attempt should start at the beginning and establish a new connection.
+                    Console.WriteLine();
+                    Console.WriteLine("Transient error encountered.  SqlException.Number=={0}.  Program might retry by itself.", sqlExc.Number);
+                    Console.WriteLine("{0} = Attempts so far. Might retry.", cc);
+                    Console.WriteLine(sqlExc.Message);
+                }
+                catch (Exception exc)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Unexpected exception type caught in Main. Will terminate.");
+
+                    // [A.7] The program must end, so re-throw the unrecognized error.
+                    throw exc;
+                }
+
+                // [A.8] Throw an application exception if transient SqlExceptions caused us
+                // to exceed our self-imposed maximum count of retries.
+                if (cc > maxCountTriesConnectAndQuery)
+                {
+                    Console.WriteLine();
+                    string mesg = String.Format(
+                        "Transient errors suffered in too many retries ({0}). Will terminate.",
+                        cc - 1);
+                    Console.WriteLine(mesg);
+
+                    // [A.9] To end the program, throw a new exception of a different type.
+                    ApplicationException appExc = new ApplicationException(mesg);
+                    throw appExc;
+                }
+                // Else, can retry.
+
+                // A very simple retry strategy, a brief pause before looping.
+                T.Thread.Sleep(1000 * secondsBetweenRetries);
+            } // for cc
+            return;
+        } // method ConnectAndQuery
         /// <summary>
         /// Transmit追加 EstablishConnection();
         /// </summary>
-        void EstablishConnection(String UserName, String Pass)
+        void TransmitEstablishConnection(String UserName, String Pass)
         {
             try
             {
@@ -221,16 +303,11 @@ namespace ManagementNotification.db
             return;
         } // method EstablishConnection
 
-///////////ログイン認証//////////////
-//////////////////////アカウント追加メソッド//////////////////////////////////////////////////////////
-        /// <summary>
-        /// //
-        /// </summary>
-        /// <param name="user"></param>
-        /// <param name="pass"></param>
-        /// <param name="i">'1'はTransmit　'2'はLoginEstablishConnection</param>
-        public void ConnectAndQuery(String username,String password,int i)
+
+/////////////////ログイン認証///////////////////////////////////////////////////
+        public String LoginConnectAndQuery(String username,String password)
         {
+            String Email = "";
             int connectionTimeoutSeconds = 30;  // Default of 15 seconds is too short over the Internet, sometimes.
             int maxCountTriesConnectAndQuery = 3;  // You can adjust the various retry count values.
             int secondsBetweenRetries = 4;  // Simple retry strategy.
@@ -255,25 +332,8 @@ namespace ManagementNotification.db
             {
                 try
                 {
+                    Email = this.LoginEstablishConnection(username, password);
 
-                    switch (i)
-                    {
-                        case 1:
-                            // [A.2] Connect, which proceeds to issue a query command.
-                            this.EstablishConnection(username, password);
-                            break;
-
-                        case 2:
-                            this.LoginEstablishConnection(username, password);
-                            break;
-
-                        default:
-                            break;
-                    }
-                    
-
-                    // [A.3] All has gone well, so let the program end.
-                    break;
                 }
                 catch (C.SqlException sqlExc)
                 {
@@ -332,15 +392,18 @@ namespace ManagementNotification.db
                 // A very simple retry strategy, a brief pause before looping.
                 T.Thread.Sleep(1000 * secondsBetweenRetries);
             } // for cc
-            return;
+            return Email;
         } // method ConnectAndQuery
 
 
         /// <summary>
         /// Open a connection, then call a method that issues a query.
         /// </summary>
-        void LoginEstablishConnection(String User, String Pass)
+        String LoginEstablishConnection(String User, String Pass)
         {
+            //ログイン認証の結果を取得
+            String email = "";
+
             try
             {
                 // [B.1] The 'using' statement will .Dispose() the connection.
@@ -351,7 +414,7 @@ namespace ManagementNotification.db
                     // [B.2] Open a connection.
                     sqlConnection.Open();
                     // [B.3]
-                    this.loginAccount(User, Pass);
+                    email = this.loginAccount(User, Pass);
                 }
             }
             catch (Exception exc)
@@ -360,22 +423,8 @@ namespace ManagementNotification.db
                 // any error occurs during query command, even for a transient error.
                 throw exc;  // [B.5] Let caller assess any exception, SqlException or any kind.
             }
-            return;
+            return email;
         } // method EstablishConnection
-
-        /**
-         * 参考にIssueQueryCommand()は残してます
-         *
-        void IssueQueryCommand()
-        {
-            
-
-
-
-            
-        } // method IssueQueryCommand
-
-        **/
 
         //通知送信のコネクション
         public void ConnectAndQuery(string email, int i)
@@ -640,16 +689,16 @@ namespace ManagementNotification.db
                 using (com = this.sqlConnection.CreateCommand())
                 {
 
-                    com.CommandText = @"INSERT INTO Account (userName,email,password) " +
-                            "VALUES (@userName,@Email,@Pass)";
+                    com.CommandText = @"INSERT INTO mnMobile.accountMobile (complete,userName,email,password) " +
+                            "VALUES (0,@userName,@Email,@Pass)";
                     
                     com = new C.SqlCommand(com.CommandText, sqlConnection);
 
                     try
                     {
-                        AddSqlParameter(com, "@userName", D.SqlDbType.NChar, username);
-                        AddSqlParameter(com, "@Email", D.SqlDbType.NChar, email);
-                        AddSqlParameter(com, "@Pass", D.SqlDbType.NChar, pass);
+                        AddSqlParameter(com, "@userName", D.SqlDbType.NVarChar, username);
+                        AddSqlParameter(com, "@Email", D.SqlDbType.NVarChar, email);
+                        AddSqlParameter(com, "@Pass", D.SqlDbType.NVarChar, pass);
                        
                     }
                     catch (C.SqlException exc)
@@ -683,7 +732,7 @@ namespace ManagementNotification.db
                 using (com = this.sqlConnection.CreateCommand())
                 {
 
-                    com.CommandText = @"SELECT accountId FROM Account " + 
+                    com.CommandText = @"SELECT id FROM accountMobile " + 
                                     "WHERE userName = @userName " +
                                     "AND password = @Pass";
 
@@ -705,7 +754,7 @@ namespace ManagementNotification.db
                     {
                         while(dReader.Read())
                         {
-                            accountId = dReader.GetInt32(0);
+                            
                         }
                     }
 
@@ -724,13 +773,13 @@ namespace ManagementNotification.db
         }
 
 ///////////////////////////ログイン認証///////////////////////////////////////////////
-        void loginAccount(String username, String pass)
+        String loginAccount(String username, String pass)
         {
             D.IDataReader dReader = null;
             C.SqlCommand com = new C.SqlCommand();
             con = new Confirmation();
             ac = new AccountCertification();
-            int AccountID = 0;
+            String mail = "";
 
             try
             {
@@ -738,7 +787,7 @@ namespace ManagementNotification.db
                 using (com = this.sqlConnection.CreateCommand())
                 {
 
-                    com.CommandText = @"SELECT accountId FROM Account " +
+                    com.CommandText = @"SELECT email FROM mnMobile.accountMobile " +
                                     "WHERE userName = @userName " +
                                     "AND password = @Pass";
 
@@ -760,17 +809,8 @@ namespace ManagementNotification.db
                     {
                         while (dReader.Read())
                         {
-                            AccountID = dReader.GetInt32(0);
+                            mail = dReader.GetString(0);
                         }
-                    }
-
-                    if (AccountID != 0)
-                    {
-                        MessageBox.Show(AccountID.ToString());
-                    }
-                    else
-                    {
-                        MessageBox.Show(AccountID.ToString());
                     }
                 }
             }
@@ -779,7 +819,7 @@ namespace ManagementNotification.db
                 Console.WriteLine(exc.ToString());
                 throw exc; // Let caller assess any exception.
             }
-            return;
+            return mail;
         }
 
 ///////////////////////////SQLパラメータの設定/////////////////////////////////////////

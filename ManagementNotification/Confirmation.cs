@@ -28,13 +28,7 @@ namespace ManagementNotification.util
             InitializeComponent();
             pre = form;
 
-
             //NotificationList.loadList();
-
-            
-
-            
-            
         }
 
 
@@ -45,10 +39,11 @@ namespace ManagementNotification.util
             dataGridView1.AllowUserToAddRows = false;
 
 
-
             //CD.sortTreeView();
             DB db = new DB();
-            db.ConnectAndQuery("test@yahoo.co.jp", 1);  //ログイン時に保存したメールアドレスを使用する、未送信通知の受信は1
+
+            //ログイン時に保存したメールアドレスを使用する、未送信通知の受信は1
+            db.ConnectAndQuery("test@yahoo.co.jp", 1);  
 
             CD = new ConfirmationDenotation(treeView1);
 
