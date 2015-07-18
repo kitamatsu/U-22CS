@@ -109,7 +109,7 @@ namespace ManagementNotification.util
 
                     if (result == DialogResult.Yes)
                     {
-                        NotificationList.removeListByID(deleteId);
+                        //NotificationList.removeListByID(deleteId);
                         NotificationList.ViewListToConsole();
                     }
 
