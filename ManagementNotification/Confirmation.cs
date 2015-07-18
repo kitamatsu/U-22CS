@@ -123,5 +123,10 @@ namespace ManagementNotification.util
         {
             this.Visible = false;
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
