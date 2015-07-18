@@ -18,7 +18,7 @@ namespace ManagementNotification.db
         //Confirmationクラス、AccountCertificationクラスのインスタンス
         Confirmation con;
         AccountCertification ac;
-
+        
         // Fields, shared among methods.
         C.SqlConnection sqlConnection;
         C.SqlConnectionStringBuilder scsBuilder;
@@ -535,16 +535,18 @@ namespace ManagementNotification.db
                 using (dbCommand = this.sqlConnection.CreateCommand())
                 {
                     dbCommand.CommandText =
-                        @"select Notification.notificationId, Notification.date, Notification.title, 
-                                 Notification.body, Child.childName
-                          from   Notification inner join Child on Notification.serialID = Child.serialID
-                          where  child.accountId in(select accountId from Account where Account.email = '" + email + 
-                          "')and exists(select * from Transmit where accountId = 1 and Notification.notificationId > Transmit.notificationId)";
+                        @"select mnMobile.notificationMobile.notificationId, cast(mnMobile.notificationMobile.date as datetime) as 'datetime',
+                                 mnMobile.notificationMobile.title, mnMobile.notificationMobile.body, mnMobile.childMobile.childName
+                          from   mnMobile.notificationMobile inner join mnMobile.childMobile
+                          on     mnMobile.notificationMobile.serialID = mnMobile.childMobile.serialID
+                          where  exists(select * from Transmit inner join mnMobile.accountMobile on Transmit.accountId in 
+						  (select accountid from mnMobile.accountMobile where mnMobile.accountMobile.email = '" + email + 
+                          "') where mnMobile.notificationMobile.notificationid > Transmit.notificationId) order by mnMobile.notificationMobile.notificationId";
 
                     // [C.2] Issue the query command through the connection.
                     using (dReader = dbCommand.ExecuteReader())
                     {
-                        int maxNotificationId = 0;
+                        int transmitId = 0;
                         // [C.3] Loop through all returned rows, writing the data to the console.
                         while (dReader.Read())
                         {
@@ -565,13 +567,22 @@ namespace ManagementNotification.db
                                                                dReader.GetString(3), dReader.GetString(4));
                             //list.Add(nt);
                             NotificationList.list.Add(nt);
-                            maxNotificationId = nt.NotificationID;
+
+
+                            transmitId = dReader.GetInt32(0);
+                            
+                            
                             Console.WriteLine(sBuilder.ToString());
                         }
 
                         dReader.Close();
+                        if (transmitId != 0)
+                        {
+                            updateTransmit(transmitId, email);
+                        }
+                            
+                        
 
-                        updateTransmit(maxNotificationId);
                     }
                 }
             }
@@ -583,7 +594,7 @@ namespace ManagementNotification.db
         }
 
         //受信済みの通知をデータベースに記録
-        void updateTransmit(int receptionId)
+        void updateTransmit(int id, String email)
         {
 
             D.IDbCommand dbCommand = null;
@@ -591,7 +602,8 @@ namespace ManagementNotification.db
             dbCommand = sqlConnection.CreateCommand();
 
             // 実行する SQL コマンドを設定する
-            dbCommand.CommandText = @"update Transmit set notificationId = " + receptionId + " where accountId = 1";
+            dbCommand.CommandText = @"update Transmit set notificationId = " + id + 
+                " where accountId in (select accountId from mnMobile.accountMobile where email = '" + email + "')";
 
             //dbCommand.Connection = sqlConnection;
 
@@ -618,11 +630,13 @@ namespace ManagementNotification.db
                 using (dbCommand = this.sqlConnection.CreateCommand())
                 {
                     dbCommand.CommandText =
-                        @"select Notification.notificationId, Notification.date, Notification.title, 
-                                 Notification.body, Child.childName
-                          from   Notification inner join Child on Notification.serialID = Child.serialID
-                          where  child.accountId in(select accountId from Account where Account.email = '" + email + 
-                                 "') and exists(select * from Transmit where accountId = 1 and Notification.notificationId <= Transmit.notificationId)";
+                        @"select mnMobile.notificationMobile.notificationId, cast(mnMobile.notificationMobile.date as datetime) as 'datetime',
+                                 mnMobile.notificationMobile.title, mnMobile.notificationMobile.body, mnMobile.childMobile.childName
+                          from   mnMobile.notificationMobile inner join mnMobile.childMobile
+                          on     mnMobile.notificationMobile.serialID = mnMobile.childMobile.serialID
+                          where  exists(select * from Transmit inner join mnMobile.accountMobile on Transmit.accountId in 
+						  (select accountid from mnMobile.accountMobile where mnMobile.accountMobile.email = '" + email +
+                          "') where mnMobile.notificationMobile.notificationid <= Transmit.notificationId) order by mnMobile.notificationMobile.notificationId";
 
                     // [C.2] Issue the query command through the connection.
                     using (dReader = dbCommand.ExecuteReader())
@@ -815,7 +829,7 @@ namespace ManagementNotification.db
                 }
             }
             catch (Exception exc)
-            {
+        {
                 Console.WriteLine(exc.ToString());
                 throw exc; // Let caller assess any exception.
             }

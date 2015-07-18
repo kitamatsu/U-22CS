@@ -13,6 +13,7 @@ namespace ManagementNotification.util
 {
     public partial class Confirmation : Form
     {
+
         //ConfirmationDenotationクラスのインスタンス作成
         ConfirmationDenotation CD;
         RightDelete RD = new RightDelete();
@@ -30,16 +31,6 @@ namespace ManagementNotification.util
             pre = form;
         }
 
-        public Confirmation(Form form,String mail)
-        {
-            InitializeComponent();
-            pre = form;
-            this.email = mail;
-
-            //NotificationList.loadList();
-        }
-
-
         private void Confirmation_Load(object sender, EventArgs e)
         {
             //ツリー構造（管理名、日付）を表示するメソッドを呼び出す
@@ -47,11 +38,10 @@ namespace ManagementNotification.util
             dataGridView1.AllowUserToAddRows = false;
 
 
+
             //CD.sortTreeView();
             DB db = new DB();
-
-            //ログイン時に保存したメールアドレスを使用する、未送信通知の受信は1
-            db.ConnectAndQuery("test@yahoo.co.jp", 1);  
+            db.ConnectAndQuery(email, 1);  //ログイン時に保存したメールアドレスを使用する、未送信通知の受信は1
 
             CD = new ConfirmationDenotation(treeView1);
 
@@ -108,7 +98,7 @@ namespace ManagementNotification.util
         private void button3_Click(object sender, EventArgs e)
         {
             DB db = new DB();
-            db.ConnectAndQuery("test@yahoo.co.jp", 2);
+            db.ConnectAndQuery("tamura@yahoo.co.jp", 2);
 
             treeView1.Nodes.Clear();
             CD = new ConfirmationDenotation(treeView1);
