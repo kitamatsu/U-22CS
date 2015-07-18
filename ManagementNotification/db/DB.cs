@@ -147,7 +147,7 @@ namespace ManagementNotification.db
 
 ////////////////////Transmit追加メソッド/////////////////////////////////////////
 
-        public void ConnectAndQuery(String user, String pass)
+        public void TransmitConnectAndQuery(String user, String pass)
         {
             int connectionTimeoutSeconds = 30;  // Default of 15 seconds is too short over the Internet, sometimes.
             int maxCountTriesConnectAndQuery = 3;  // You can adjust the various retry count values.
@@ -263,7 +263,7 @@ namespace ManagementNotification.db
         } // method EstablishConnection
 
 
-        //通知用　i = 1は未送信通知、i = 2は削除済み通知の再送信
+///////////////////////通知用　i = 1は未送信通知、i = 2は削除済み通知の再送信///////////////////
         void EstablishConnection(String email, int i)
         {
             try
@@ -746,7 +746,7 @@ namespace ManagementNotification.db
                 using (com = this.sqlConnection.CreateCommand())
                 {
 
-                    com.CommandText = @"SELECT id FROM accountMobile " + 
+                    com.CommandText = @"SELECT accountid FROM mnMobile.accountMobile " + 
                                     "WHERE userName = @userName " +
                                     "AND password = @Pass";
 
@@ -768,7 +768,7 @@ namespace ManagementNotification.db
                     {
                         while(dReader.Read())
                         {
-                            
+                            accountId = dReader.GetInt32(0);
                         }
                     }
 
