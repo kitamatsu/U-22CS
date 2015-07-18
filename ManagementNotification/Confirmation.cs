@@ -19,6 +19,7 @@ namespace ManagementNotification.util
         ConfirmationDenotation CD;
         RightDelete RD = new RightDelete();
         Form pre;
+        String email;
 
 
         public Confirmation()
@@ -30,15 +31,7 @@ namespace ManagementNotification.util
         {
             InitializeComponent();
             pre = form;
-
-            //NotificationList.loadList();
-
-            
-
-            
-            
         }
-
 
         private void Confirmation_Load(object sender, EventArgs e)
         {
@@ -65,11 +58,6 @@ namespace ManagementNotification.util
             Console.Write("確認画面から閉じます");
             NotificationList.saveXML();
             Application.Exit();
-        }
-
-        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-            
         }
 
         /*
@@ -121,7 +109,13 @@ namespace ManagementNotification.util
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            MessageBox.Show(email);
+        }
+
+        //メールアドレスを取得
+        public void getEmail(String mail)
+        {
+            this.email = mail;
         }
     }
 }
