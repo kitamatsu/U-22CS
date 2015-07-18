@@ -45,6 +45,7 @@ namespace ManagementNotification
                 //データをリストに格納するメソッドを作成
 
                 Con.Show();
+                //Con.getEmail(email);
                 this.Visible = false;
             }
             else if (email.Equals(""))

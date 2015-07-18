@@ -46,7 +46,6 @@
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(230, 400);
             this.treeView1.TabIndex = 0;
-            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             this.treeView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.treeView1_MouseDown);
             // 
             // button1
@@ -57,6 +56,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "設定";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
