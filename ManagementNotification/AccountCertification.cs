@@ -25,6 +25,7 @@ namespace ManagementNotification
             Con = new Confirmation(this);
             AC = new AccountCreate(this);
             db = new DB();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -54,6 +55,13 @@ namespace ManagementNotification
                 label4.BackColor = Color.Red;
             }
             
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Re = new Reissue();
+            Re.Show();
+            this.Visible = false;
         }
     }
 }

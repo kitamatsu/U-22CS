@@ -690,6 +690,12 @@ namespace ManagementNotification.db
             }
         }
 
+        //アカウント再発行時のメールアドレスの確認
+        void checkEmail(string email)
+        {
+
+        }
+
 
 //////////////////////アカウント追加/////////////////////////////////
         void addAccount(String username,String email,String pass)
