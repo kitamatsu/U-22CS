@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ManagementNotification.db;
 
+
 namespace ManagementNotification.util
 {
     public partial class Confirmation : Form
@@ -19,6 +20,7 @@ namespace ManagementNotification.util
         RightDelete RD = new RightDelete();
         Form pre;
         String email;
+
 
         public Confirmation()
         {
@@ -41,8 +43,8 @@ namespace ManagementNotification.util
 
             //CD.sortTreeView();
             DB db = new DB();
-            db.ConnectAndQuery(email, 1);  //ログイン時に保存したメールアドレスを使用する、未送信通知の受信は1
-
+            //db.ConnectAndQuery("tamura@yahoo.co.jp", 1);  //ログイン時に保存したメールアドレスを使用する、未送信通知の受信は1
+            db.ConnectAndQuery(AccountCertification.email, 1);
             CD = new ConfirmationDenotation(treeView1);
 
         }
@@ -98,8 +100,9 @@ namespace ManagementNotification.util
         private void button3_Click(object sender, EventArgs e)
         {
             DB db = new DB();
-            db.ConnectAndQuery("tamura@yahoo.co.jp", 2);
+            //db.ConnectAndQuery("tamura@yahoo.co.jp", 2);
 
+            db.ConnectAndQuery(AccountCertification.email, 2);
             treeView1.Nodes.Clear();
             CD = new ConfirmationDenotation(treeView1);
         }
@@ -113,6 +116,11 @@ namespace ManagementNotification.util
         public void getEmail(String mail)
         {
             this.email = mail;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
