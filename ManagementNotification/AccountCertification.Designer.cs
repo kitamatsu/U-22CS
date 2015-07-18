@@ -31,8 +31,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.usernameTB = new System.Windows.Forms.TextBox();
+            this.passwordTB = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -68,19 +68,19 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "パスワード　　　：";
             // 
-            // textBox2
+            // usernameTB
             // 
-            this.textBox2.Location = new System.Drawing.Point(457, 154);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(164, 19);
-            this.textBox2.TabIndex = 4;
+            this.usernameTB.Location = new System.Drawing.Point(457, 154);
+            this.usernameTB.Name = "usernameTB";
+            this.usernameTB.Size = new System.Drawing.Size(164, 19);
+            this.usernameTB.TabIndex = 4;
             // 
-            // textBox3
+            // passwordTB
             // 
-            this.textBox3.Location = new System.Drawing.Point(457, 212);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(164, 19);
-            this.textBox3.TabIndex = 5;
+            this.passwordTB.Location = new System.Drawing.Point(457, 212);
+            this.passwordTB.Name = "passwordTB";
+            this.passwordTB.Size = new System.Drawing.Size(164, 19);
+            this.passwordTB.TabIndex = 5;
             // 
             // button1
             // 
@@ -140,8 +140,8 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.passwordTB);
+            this.Controls.Add(this.usernameTB);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -157,8 +157,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox usernameTB;
+        private System.Windows.Forms.TextBox passwordTB;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;

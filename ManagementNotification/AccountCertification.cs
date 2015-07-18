@@ -17,6 +17,7 @@ namespace ManagementNotification
         Confirmation Con;
         AccountCreate AC;
         DB db;
+        String email = "";
 
         public AccountCertification()
         {
@@ -24,9 +25,6 @@ namespace ManagementNotification
             Con = new Confirmation(this);
             AC = new AccountCreate(this);
             db = new DB();
-
-            listBox1.Text = "山口拓真";
-            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -37,8 +35,24 @@ namespace ManagementNotification
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Con.Show();
-            this.Visible = false;
+            //アカウントIDを取得する
+            email = db.LoginConnectAndQuery(usernameTB.Text, passwordTB.Text);
+
+            //アカウントIDが存在すればリストにデータを格納しページ遷移する
+            if (!email.Equals(""))
+            {
+
+                //データをリストに格納するメソッドを作成
+
+                Con.Show();
+                this.Visible = false;
+            }
+            else if (email.Equals(""))
+            {
+                label4.Text = "ユーザネーム,パスワードが一致しません。";
+                label4.BackColor = Color.Red;
+            }
+            
         }
     }
 }
