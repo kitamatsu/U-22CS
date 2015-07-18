@@ -17,7 +17,7 @@ namespace ManagementNotification
         Confirmation Con;
         AccountCreate AC;
         DB db;
-        String email = "";
+        public static String email = "";
 
         public AccountCertification()
         {
