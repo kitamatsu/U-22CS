@@ -18,7 +18,7 @@ namespace ManagementNotification
         AccountCreate AC;
         DB db;
         Reissue Re;
-        public static String email = "";
+        String email = "";
 
         public AccountCertification()
         {
@@ -37,7 +37,7 @@ namespace ManagementNotification
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //アカウントIDを取得する
+            //メールアドレスを取得する
             email = db.LoginConnectAndQuery(usernameTB.Text, passwordTB.Text);
 
             //アカウントIDが存在すればリストにデータを格納しページ遷移する

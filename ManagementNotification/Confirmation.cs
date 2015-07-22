@@ -45,7 +45,7 @@ namespace ManagementNotification.util
             //CD.sortTreeView();
             DB db = new DB();
             //db.ConnectAndQuery("tamura@yahoo.co.jp", 1);  //ログイン時に保存したメールアドレスを使用する、未送信通知の受信は1
-            db.ConnectAndQuery(AccountCertification.email, 1);
+            db.ConnectAndQuery(email, 1);
             CD = new ConfirmationDenotation(treeView1);
 
         }
@@ -103,20 +103,25 @@ namespace ManagementNotification.util
             DB db = new DB();
             //db.ConnectAndQuery("tamura@yahoo.co.jp", 2);
 
-            db.ConnectAndQuery(AccountCertification.email, 2);
+            db.ConnectAndQuery(email, 2);
             treeView1.Nodes.Clear();
             CD = new ConfirmationDenotation(treeView1);
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(email);
         }
 
         //メールアドレスを取得
         public void getEmail(String mail)
         {
             this.email = mail;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(email);
         }
 
         private void button2_Click(object sender, EventArgs e)
