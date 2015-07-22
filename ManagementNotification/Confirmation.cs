@@ -18,6 +18,7 @@ namespace ManagementNotification.util
         //ConfirmationDenotationクラスのインスタンス作成
         ConfirmationDenotation CD;
         RightDelete RD = new RightDelete();
+        AccountCertification AC;
         Form pre;
         String email;
 
@@ -116,6 +117,13 @@ namespace ManagementNotification.util
         public void getEmail(String mail)
         {
             this.email = mail;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AC = new AccountCertification();
+            AC.Show();
+            this.Visible = false;
         }
     }
 }

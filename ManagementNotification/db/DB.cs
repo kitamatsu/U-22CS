@@ -426,6 +426,242 @@ namespace ManagementNotification.db
             return email;
         } // method EstablishConnection
 
+
+        //アカウント再発行時の入力メールアドレスがあるか確認
+        public String CheckEmailConnectAndQuery(String inputEmail)
+        {
+            String email = "";
+            int connectionTimeoutSeconds = 30;  // Default of 15 seconds is too short over the Internet, sometimes.
+            int maxCountTriesConnectAndQuery = 3;  // You can adjust the various retry count values.
+            int secondsBetweenRetries = 4;  // Simple retry strategy.
+
+            // [A.1] Prepare the connection string to Azure SQL Database.
+            this.scsBuilder = new C.SqlConnectionStringBuilder();
+            // Change these values to your values.
+            this.scsBuilder["Server"] = "tcp:mbvx6h4y1y.database.windows.net,1433";
+            this.scsBuilder["User ID"] = "kj4@mbvx6h4y1y";  // @yourservername suffix sometimes.
+            this.scsBuilder["Password"] = "Sp8z5n49";
+            this.scsBuilder["Database"] = "managementnotificationdb";
+            // Leave these values as they are.
+            this.scsBuilder["Trusted_Connection"] = false;
+            this.scsBuilder["Integrated Security"] = false;
+            this.scsBuilder["Encrypt"] = true;
+            this.scsBuilder["Connection Timeout"] = connectionTimeoutSeconds;
+
+            //-------------------------------------------------------
+            // Preparations are complete.
+
+            for (int cc = 1; cc <= maxCountTriesConnectAndQuery; cc++)
+            {
+                try
+                {
+                    email = this.CheckEmailEstablishConnection(inputEmail);
+
+                }
+                catch (C.SqlException sqlExc)
+                {
+
+                    bool isTransientError;
+
+                    // [A.4] Check whether sqlExc.Number is on the whitelist of transients.
+                    isTransientError = Custom_SqlDatabaseTransientErrorDetectionStrategy
+                        .IsTransientStatic(sqlExc);
+
+                    if (isTransientError == false)  // Is a persistent error...
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine("Persistent error suffered, SqlException.Number=={0}.  Will terminate.",
+                            sqlExc.Number);
+                        Console.WriteLine(sqlExc.ToString());
+
+                        // [A.5] Either the connection attempt or the query command attempt suffered a persistent SqlException.
+                        // Break the loop, let the hopeless program end.
+                        break;
+                    }
+
+                    // [A.6] The SqlException identified a transient error from an attempt to issue a query command.
+                    // So let this method reloop and try again. However, we recommend that the new query
+                    // attempt should start at the beginning and establish a new connection.
+                    Console.WriteLine();
+                    Console.WriteLine("Transient error encountered.  SqlException.Number=={0}.  Program might retry by itself.", sqlExc.Number);
+                    Console.WriteLine("{0} = Attempts so far. Might retry.", cc);
+                    Console.WriteLine(sqlExc.Message);
+                }
+                catch (Exception exc)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Unexpected exception type caught in Main. Will terminate.");
+
+                    // [A.7] The program must end, so re-throw the unrecognized error.
+                    throw exc;
+                }
+
+                // [A.8] Throw an application exception if transient SqlExceptions caused us
+                // to exceed our self-imposed maximum count of retries.
+                if (cc > maxCountTriesConnectAndQuery)
+                {
+                    Console.WriteLine();
+                    string mesg = String.Format(
+                        "Transient errors suffered in too many retries ({0}). Will terminate.",
+                        cc - 1);
+                    Console.WriteLine(mesg);
+
+                    // [A.9] To end the program, throw a new exception of a different type.
+                    ApplicationException appExc = new ApplicationException(mesg);
+                    throw appExc;
+                }
+                // Else, can retry.
+
+                // A very simple retry strategy, a brief pause before looping.
+                T.Thread.Sleep(1000 * secondsBetweenRetries);
+            } // for cc
+            return email;
+        } // method ConnectAndQuery
+
+
+        String CheckEmailEstablishConnection(String inputEmail)
+        {
+            String email = "";
+            try
+            {
+                // [B.1] The 'using' statement will .Dispose() the connection.
+                // If you are working with a connection pool, you might want instead
+                // to merely .Close() the connection.
+                using (this.sqlConnection = new C.SqlConnection(this.scsBuilder.ToString()))
+                {
+                    // [B.2] Open a connection.
+                    sqlConnection.Open();
+                    // [B.3]
+                    email = this.checkEmail(inputEmail);
+                }
+            }
+            catch (Exception exc)
+            {
+                // [B.4] This re-throw means we discard the connection whenever
+                // any error occurs during query command, even for a transient error.
+                throw exc;  // [B.5] Let caller assess any exception, SqlException or any kind.
+            }
+            return email;
+        } // method EstablishConnection
+
+
+        //アカウント再発行
+        public String[] ReissueConnectAndQuery(String email)
+        {
+            String[] accountData = new String[2];
+            int connectionTimeoutSeconds = 30;  // Default of 15 seconds is too short over the Internet, sometimes.
+            int maxCountTriesConnectAndQuery = 3;  // You can adjust the various retry count values.
+            int secondsBetweenRetries = 4;  // Simple retry strategy.
+
+            // [A.1] Prepare the connection string to Azure SQL Database.
+            this.scsBuilder = new C.SqlConnectionStringBuilder();
+            // Change these values to your values.
+            this.scsBuilder["Server"] = "tcp:mbvx6h4y1y.database.windows.net,1433";
+            this.scsBuilder["User ID"] = "kj4@mbvx6h4y1y";  // @yourservername suffix sometimes.
+            this.scsBuilder["Password"] = "Sp8z5n49";
+            this.scsBuilder["Database"] = "managementnotificationdb";
+            // Leave these values as they are.
+            this.scsBuilder["Trusted_Connection"] = false;
+            this.scsBuilder["Integrated Security"] = false;
+            this.scsBuilder["Encrypt"] = true;
+            this.scsBuilder["Connection Timeout"] = connectionTimeoutSeconds;
+
+            //-------------------------------------------------------
+            // Preparations are complete.
+
+            for (int cc = 1; cc <= maxCountTriesConnectAndQuery; cc++)
+            {
+                try
+                {
+                    accountData = this.ReissueEstablishConnection(email);
+
+                }
+                catch (C.SqlException sqlExc)
+                {
+
+                    bool isTransientError;
+
+                    // [A.4] Check whether sqlExc.Number is on the whitelist of transients.
+                    isTransientError = Custom_SqlDatabaseTransientErrorDetectionStrategy
+                        .IsTransientStatic(sqlExc);
+
+                    if (isTransientError == false)  // Is a persistent error...
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine("Persistent error suffered, SqlException.Number=={0}.  Will terminate.",
+                            sqlExc.Number);
+                        Console.WriteLine(sqlExc.ToString());
+
+                        // [A.5] Either the connection attempt or the query command attempt suffered a persistent SqlException.
+                        // Break the loop, let the hopeless program end.
+                        break;
+                    }
+
+                    // [A.6] The SqlException identified a transient error from an attempt to issue a query command.
+                    // So let this method reloop and try again. However, we recommend that the new query
+                    // attempt should start at the beginning and establish a new connection.
+                    Console.WriteLine();
+                    Console.WriteLine("Transient error encountered.  SqlException.Number=={0}.  Program might retry by itself.", sqlExc.Number);
+                    Console.WriteLine("{0} = Attempts so far. Might retry.", cc);
+                    Console.WriteLine(sqlExc.Message);
+                }
+                catch (Exception exc)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Unexpected exception type caught in Main. Will terminate.");
+
+                    // [A.7] The program must end, so re-throw the unrecognized error.
+                    throw exc;
+                }
+
+                // [A.8] Throw an application exception if transient SqlExceptions caused us
+                // to exceed our self-imposed maximum count of retries.
+                if (cc > maxCountTriesConnectAndQuery)
+                {
+                    Console.WriteLine();
+                    string mesg = String.Format(
+                        "Transient errors suffered in too many retries ({0}). Will terminate.",
+                        cc - 1);
+                    Console.WriteLine(mesg);
+
+                    // [A.9] To end the program, throw a new exception of a different type.
+                    ApplicationException appExc = new ApplicationException(mesg);
+                    throw appExc;
+                }
+                // Else, can retry.
+
+                // A very simple retry strategy, a brief pause before looping.
+                T.Thread.Sleep(1000 * secondsBetweenRetries);
+            } // for cc
+            return accountData;
+        } // method ConnectAndQuery
+
+
+        String[] ReissueEstablishConnection(String email)
+        {
+            String[] accountData = new String[2];
+            try
+            {
+                // [B.1] The 'using' statement will .Dispose() the connection.
+                // If you are working with a connection pool, you might want instead
+                // to merely .Close() the connection.
+                using (this.sqlConnection = new C.SqlConnection(this.scsBuilder.ToString()))
+                {
+                    // [B.2] Open a connection.
+                    sqlConnection.Open();
+                    // [B.3]
+                    accountData = this.Reissue(email);
+                }
+            }
+            catch (Exception exc)
+            {
+                // [B.4] This re-throw means we discard the connection whenever
+                // any error occurs during query command, even for a transient error.
+                throw exc;  // [B.5] Let caller assess any exception, SqlException or any kind.
+            }
+            return accountData;
+        } // method EstablishConnection
+
         //通知送信のコネクション
         public void ConnectAndQuery(string email, int i)
         {
@@ -539,9 +775,8 @@ namespace ManagementNotification.db
                                  mnMobile.notificationMobile.title, mnMobile.notificationMobile.body, mnMobile.childMobile.childName
                           from   mnMobile.notificationMobile inner join mnMobile.childMobile
                           on     mnMobile.notificationMobile.serialID = mnMobile.childMobile.serialID
-                          where  exists(select * from Transmit inner join mnMobile.accountMobile on Transmit.accountId in 
-						  (select accountid from mnMobile.accountMobile where mnMobile.accountMobile.email = '" + email + 
-                          "') where mnMobile.notificationMobile.notificationid > Transmit.notificationId) order by mnMobile.notificationMobile.notificationId";
+                          where  accountId in (select accountid from mnMobile.accountMobile where mnMobile.accountMobile.email = '"
+                        + email + "' and mnMobile.accountMobile.accountid in(select accountid from Transmit where mnMobile.notificationMobile.notificationid > Transmit.notificationId)) order by mnMobile.notificationMobile.notificationId";
 
                     // [C.2] Issue the query command through the connection.
                     using (dReader = dbCommand.ExecuteReader())
@@ -634,9 +869,8 @@ namespace ManagementNotification.db
                                  mnMobile.notificationMobile.title, mnMobile.notificationMobile.body, mnMobile.childMobile.childName
                           from   mnMobile.notificationMobile inner join mnMobile.childMobile
                           on     mnMobile.notificationMobile.serialID = mnMobile.childMobile.serialID
-                          where  exists(select * from Transmit inner join mnMobile.accountMobile on Transmit.accountId in 
-						  (select accountid from mnMobile.accountMobile where mnMobile.accountMobile.email = '" + email +
-                          "') where mnMobile.notificationMobile.notificationid <= Transmit.notificationId) order by mnMobile.notificationMobile.notificationId";
+                          where  accountId in (select accountid from mnMobile.accountMobile where mnMobile.accountMobile.email = '"
+                        + email + "' and mnMobile.accountMobile.accountid in(select accountid from Transmit where mnMobile.notificationMobile.notificationid <= Transmit.notificationId)) order by mnMobile.notificationMobile.notificationId";
 
                     // [C.2] Issue the query command through the connection.
                     using (dReader = dbCommand.ExecuteReader())
@@ -691,9 +925,91 @@ namespace ManagementNotification.db
         }
 
         //アカウント再発行時のメールアドレスの確認
-        void checkEmail(string email)
+        String checkEmail(string inputEmail)
         {
+            D.IDataReader dReader = null;
+            C.SqlCommand com = new C.SqlCommand();
+            con = new Confirmation();
+            String email = "";
+            try
+            {
+                // [C.1] Use the connection to create a query command.
+                using (com = this.sqlConnection.CreateCommand())
+                {
 
+                    com.CommandText = @"SELECT email FROM mnMobile.accountMobile " +
+                                    "WHERE email = @email";
+
+                    com = new C.SqlCommand(com.CommandText, sqlConnection);
+
+                    try
+                    {
+                        AddSqlParameter(com, "@email", D.SqlDbType.NChar, inputEmail);
+
+                    }
+                    catch (C.SqlException exc)
+                    {
+                        throw exc;
+                    }
+
+                    // [C.2] Issue the query command through the connection.
+                    using (dReader = com.ExecuteReader())
+                    {
+                        while (dReader.Read())
+                        {
+                            email = dReader.GetString(0);
+                        }
+                    }
+
+                }
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.ToString());
+                throw exc; // Let caller assess any exception.
+            }
+            return email;
+        }
+
+        //アカウント再発行
+        String[] Reissue(String email){
+            D.IDataReader dReader = null;
+            C.SqlCommand com = new C.SqlCommand();
+            con = new Confirmation();
+            String[] account = new String[2];
+
+            try
+            {
+                using (com = this.sqlConnection.CreateCommand())
+                {
+                    string guidResult = System.Guid.NewGuid().ToString();
+
+                    account[0] = guidResult.Substring(0, 8);
+                    guidResult = System.Guid.NewGuid().ToString();
+                    account[1] = guidResult.Substring(0, 8);
+
+                    com.CommandText = @"UPDATE mnMobile.accountMobile SET username = '" + account[0] + 
+                        "', password = '" + account[1] + "' where email = '" + email + "'";
+
+                    com = new C.SqlCommand(com.CommandText, sqlConnection);
+
+                    using (dReader = com.ExecuteReader())
+                    {
+                        while (dReader.Read())
+                        {
+
+                        }
+                    }
+                }
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.ToString());
+                throw exc; // Let caller assess any exception.
+            }
+
+            return account;
+            
         }
 
 
