@@ -18,6 +18,7 @@ namespace ManagementNotification.util
         //ConfirmationDenotationクラスのインスタンス作成
         ConfirmationDenotation CD;
         RightDelete RD = new RightDelete();
+        AccountCertification AC;
         Form pre;
         String email;
 
@@ -84,13 +85,13 @@ namespace ManagementNotification.util
         private void treeView1_MouseDown(object sender, MouseEventArgs MouseEA)
         {
             if (MouseEA.Button == MouseButtons.Left)
-            {
+                {
                 //日付が選択されたときDataGridViewに表示する
                 CD.selectLastNode(treeView1, dataGridView1,MouseEA);
-            }
+                }
 
             if (MouseEA.Button == MouseButtons.Right)
-            {
+                {
                 RD.deleteNode(treeView1,dataGridView1,MouseEA);
 
             }
@@ -121,6 +122,13 @@ namespace ManagementNotification.util
         private void button5_Click(object sender, EventArgs e)
         {
             MessageBox.Show(email);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AC = new AccountCertification();
+            AC.Show();
+            this.Visible = false;
         }
     }
 }
