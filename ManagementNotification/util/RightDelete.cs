@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -64,7 +65,7 @@ namespace ManagementNotification.util
                         //管理名を取得
                         user = TView.SelectedNode.Text;
 
-                        DialogResult result = MessageBox.Show("管理名: " + user + "のデータを全て削除します。",
+                        DialogResult result = MessageBox.Show("管理名: " + user + " のデータを全て削除します。",
                                                               "確認", 
                                                                MessageBoxButtons.OKCancel,
                                                                MessageBoxIcon.Exclamation);
@@ -93,7 +94,7 @@ namespace ManagementNotification.util
                         //年の文字を削除する
                         SsYear = year.Substring(0, year.Length - 1);
                         
-                        DialogResult result1 = MessageBox.Show("管理名: " + user + " " +  year +
+                        DialogResult result1 = MessageBox.Show("管理名: " + user + " (" +  year + ") " + 
                                                                             "のデータを全て削除します。",
                                                                "確認",
                                                                MessageBoxButtons.OKCancel,
@@ -124,7 +125,7 @@ namespace ManagementNotification.util
                         SsMonth = month.Substring(0, month.Length - 1);
                         
 
-                        DialogResult result2 = MessageBox.Show("管理名: " + user + " " +  year + " " + month +
+                        DialogResult result2 = MessageBox.Show("管理名: " + user + " (" +  year + "/" + month + ")" +
                                                                             "のデータを全て削除します。",
                                                                "確認",
                                                                MessageBoxButtons.OKCancel,
@@ -156,7 +157,7 @@ namespace ManagementNotification.util
                         SsMonth = month.Substring(0, month.Length - 1);
                         SsDay = day.Substring(0, day.Length - 1);
 
-                        DialogResult result3 = MessageBox.Show("管理名: " + user + " " +  year + " " + month + " " + day +
+                        DialogResult result3 = MessageBox.Show("管理名: " + user + "(" +  year + "/" + month + "/" + day +")" +
                                                                             "のデータを全て削除します。",
                                                                "確認",
                                                                MessageBoxButtons.OKCancel,

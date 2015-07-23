@@ -12,7 +12,7 @@ namespace ManagementNotification.util
         //listの変数を作成
         List<Notification> RLBNlist = NotificationList.list;
 
-        //指定した管理名のListを全て削除する
+        //指定した管理名のList内のデータを全て削除する
         public void allRemoveListByNode(String user, DataGridView DGview)
         {
             for (int index = 0; index < RLBNlist.Count; index++)
@@ -26,7 +26,7 @@ namespace ManagementNotification.util
             }
         }
 
-        //指定した管理名の同じ年のListを全て削除する
+        //指定した管理名の同じ年のList内のデータを全て削除する
         public void allRemoveListByNode(String user, String year, DataGridView DGview)
         {
             for (int index = 0; index < RLBNlist.Count; index++)
@@ -41,7 +41,7 @@ namespace ManagementNotification.util
             }
         }
 
-        //指定した管理名の同じ月のListを全て削除する
+        //指定した管理名の同じ月のList内のデータを全て削除する
         public void allRemoveListByNode(String user, String year, String month, DataGridView DGview)
         {
             for (int index = 0; index < RLBNlist.Count; index++)
@@ -57,7 +57,7 @@ namespace ManagementNotification.util
             }
         }
 
-        //指定した管理名の同じ日のListを全て削除する
+        //指定した管理名の同じ日のList内のデータを全て削除する
         public void allRemoveListByNode(String user, String year, String month, String day, DataGridView DGview)
         {
             if (month.Length == 1)
@@ -70,17 +70,20 @@ namespace ManagementNotification.util
                 day = "0" + day;
             }
 
-            String date = year + "/" + month + "/" + day + " 0:00:00";
+            String strDate = year + "/" + month + "/" + day + " 0:00:00";
 
+            
             for (int index = 0; index < RLBNlist.Count; index++)
             {
-                if (RLBNlist[index].ChildName == user && RLBNlist[index].Date.Date.ToString() == date)
+                if (RLBNlist[index].ChildName == user && RLBNlist[index].Date.Date.ToString() == strDate)
                 {
-                    deleteDGViewByNode(DGview, RLBNlist[index].NotificationID);
+                    //deleteDGViewByNode(DGview, RLBNlist[index].NotificationID);
 
                     RLBNlist.Remove(RLBNlist[index]);
                 }
             }
+
+            //DGview.Rows.Clear();
         }
 
         //DataGridView上のTreeViewで選択された項目と同じ内容を削除
@@ -93,6 +96,6 @@ namespace ManagementNotification.util
                     DGView.Rows.RemoveAt(num);
                 }
             }
-        }
+        }   
     }
 }
