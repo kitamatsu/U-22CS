@@ -80,7 +80,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "Reissue";
-            this.Text = "Reissue";
+            this.Text = "アカウントの再発行";
             this.ResumeLayout(false);
             this.PerformLayout();
 

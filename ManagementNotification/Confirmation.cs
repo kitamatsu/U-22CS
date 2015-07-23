@@ -19,9 +19,9 @@ namespace ManagementNotification.util
         ConfirmationDenotation CD;
         RightDelete RD = new RightDelete();
         AccountCertification AC;
+        ChangeData CData;
         Form pre;
         String email;
-
 
         public Confirmation()
         {
@@ -128,6 +128,14 @@ namespace ManagementNotification.util
         {
             AC = new AccountCertification();
             AC.Show();
+            this.Visible = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CData = new ChangeData();
+            CData.Show();
+            CData.getEmail(email);
             this.Visible = false;
         }
     }

@@ -64,6 +64,27 @@
     <ChildName>弟</ChildName>
   </Notification>
   <Notification>
+    <NotificationID>4</NotificationID>
+    <Date>2015-07-07T09:56:16.617</Date>
+    <Title>jp.r246.twicca</Title>
+    <Body>test</Body>
+    <ChildName>testchild1</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>6</NotificationID>
+    <Date>2015-07-15T07:34:17.493</Date>
+    <Title>jp.r246.twicca</Title>
+    <Body>test</Body>
+    <ChildName>testchild1</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>7</NotificationID>
+    <Date>2015-07-15T07:35:10.523</Date>
+    <Title>com.example.hideki.managementnotification</Title>
+    <Body>test</Body>
+    <ChildName>testchild1</ChildName>
+  </Notification>
+  <Notification>
     <NotificationID>8</NotificationID>
     <Date>2015-07-15T08:00:31.687</Date>
     <Title>jp.r246.twicca</Title>
@@ -74,83 +95,6 @@
     <NotificationID>9</NotificationID>
     <Date>2015-07-15T08:17:38.203</Date>
     <Title>com.example.hideki.managementnotification</Title>
-    <Body>test</Body>
-    <ChildName>testchild1</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>10</NotificationID>
-    <Date>2015-07-15T08:19:47.37</Date>
-    <Title>com.example.hideki.managementnotification</Title>
-    <Body>test</Body>
-    <ChildName>testchild1</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>11</NotificationID>
-    <Date>2015-07-15T09:19:52.56</Date>
-    <Title>android</Title>
-    <Body>test</Body>
-    <ChildName>testchild1</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>12</NotificationID>
-    <Date>2015-07-15T09:20:05.08</Date>
-    <Title>android</Title>
-    <Body>test</Body>
-    <ChildName>testchild1</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>13</NotificationID>
-    <Date>2015-07-15T09:20:08.18</Date>
-    <Title>android</Title>
-    <Body>test</Body>
-    <ChildName>testchild1</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>14</NotificationID>
-    <Date>2015-07-15T09:20:11.027</Date>
-    <Title>android</Title>
-    <Body>test</Body>
-    <ChildName>testchild1</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>15</NotificationID>
-    <Date>2015-07-15T09:29:44.17</Date>
-    <Title>android</Title>
-    <Body>test</Body>
-    <ChildName>testchild1</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>16</NotificationID>
-    <Date>2015-07-15T09:29:48.897</Date>
-    <Title>android</Title>
-    <Body>test</Body>
-    <ChildName>testchild1</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>17</NotificationID>
-    <Date>2015-07-15T09:29:52.933</Date>
-    <Title>android</Title>
-    <Body>test</Body>
-    <ChildName>testchild1</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>18</NotificationID>
-    <Date>2015-07-15T09:29:55.597</Date>
-    <Title>android</Title>
-    <Body>test</Body>
-    <ChildName>testchild1</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>19</NotificationID>
-    <Date>2015-07-15T09:45:42.35</Date>
-    <Title>android</Title>
-    <Body>test</Body>
-    <ChildName>testchild1</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>20</NotificationID>
-    <Date>2015-07-15T09:45:57.537</Date>
-    <Title>android</Title>
     <Body>test</Body>
     <ChildName>testchild1</ChildName>
   </Notification>
@@ -169,13 +113,6 @@
     <ChildName>testchild1</ChildName>
   </Notification>
   <Notification>
-    <NotificationID>23</NotificationID>
-    <Date>2015-07-15T09:48:29.23</Date>
-    <Title>android</Title>
-    <Body>test</Body>
-    <ChildName>testchild1</ChildName>
-  </Notification>
-  <Notification>
     <NotificationID>24</NotificationID>
     <Date>2015-07-15T09:48:35.59</Date>
     <Title>android</Title>
@@ -183,43 +120,8 @@
     <ChildName>testchild1</ChildName>
   </Notification>
   <Notification>
-    <NotificationID>25</NotificationID>
-    <Date>2015-07-15T09:48:36.8</Date>
-    <Title>android</Title>
-    <Body>test</Body>
-    <ChildName>testchild1</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>26</NotificationID>
-    <Date>2015-07-15T10:02:09.657</Date>
-    <Title>android</Title>
-    <Body>test</Body>
-    <ChildName>testchild1</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>27</NotificationID>
-    <Date>2015-07-15T10:02:10.743</Date>
-    <Title>android</Title>
-    <Body>test</Body>
-    <ChildName>testchild1</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>28</NotificationID>
-    <Date>2015-07-15T10:03:16.413</Date>
-    <Title>android</Title>
-    <Body>test</Body>
-    <ChildName>testchild1</ChildName>
-  </Notification>
-  <Notification>
     <NotificationID>29</NotificationID>
     <Date>2015-07-15T10:03:17.797</Date>
-    <Title>android</Title>
-    <Body>test</Body>
-    <ChildName>testchild1</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>30</NotificationID>
-    <Date>2015-07-15T10:03:27.03</Date>
     <Title>android</Title>
     <Body>test</Body>
     <ChildName>testchild1</ChildName>
@@ -239,29 +141,8 @@
     <ChildName>testchild1</ChildName>
   </Notification>
   <Notification>
-    <NotificationID>33</NotificationID>
-    <Date>2015-07-15T10:03:40.037</Date>
-    <Title>android</Title>
-    <Body>test</Body>
-    <ChildName>testchild1</ChildName>
-  </Notification>
-  <Notification>
     <NotificationID>34</NotificationID>
     <Date>2015-07-21T05:53:45.817</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>testchild1</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>35</NotificationID>
-    <Date>2015-07-21T05:53:46.89</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>testchild1</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>36</NotificationID>
-    <Date>2015-07-21T05:55:02.993</Date>
     <Title>android</Title>
     <Body />
     <ChildName>testchild1</ChildName>
@@ -281,34 +162,6 @@
     <ChildName>testchild1</ChildName>
   </Notification>
   <Notification>
-    <NotificationID>39</NotificationID>
-    <Date>2015-07-21T05:55:18.863</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>testchild1</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>40</NotificationID>
-    <Date>2015-07-21T05:56:48.187</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>testchild1</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>41</NotificationID>
-    <Date>2015-07-21T05:57:10.997</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>testchild1</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>42</NotificationID>
-    <Date>2015-07-21T05:57:12.96</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>testchild1</ChildName>
-  </Notification>
-  <Notification>
     <NotificationID>43</NotificationID>
     <Date>2015-07-21T05:57:41.237</Date>
     <Title>android</Title>
@@ -321,453 +174,5 @@
     <Title>android</Title>
     <Body />
     <ChildName>testchild1</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>45</NotificationID>
-    <Date>2015-07-21T06:00:40.207</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>testchild1</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>46</NotificationID>
-    <Date>2015-07-21T06:00:41.117</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>testchild1</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>47</NotificationID>
-    <Date>2015-07-21T06:15:10.993</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>48</NotificationID>
-    <Date>2015-07-21T06:15:11.897</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>49</NotificationID>
-    <Date>2015-07-21T06:18:17.877</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>50</NotificationID>
-    <Date>2015-07-21T06:18:19.027</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>51</NotificationID>
-    <Date>2015-07-21T06:20:09.08</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>52</NotificationID>
-    <Date>2015-07-21T06:20:11.597</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>53</NotificationID>
-    <Date>2015-07-21T06:20:57.99</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>54</NotificationID>
-    <Date>2015-07-21T06:20:59.627</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>55</NotificationID>
-    <Date>2015-07-21T09:09:01.177</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>56</NotificationID>
-    <Date>2015-07-21T09:09:02.15</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>57</NotificationID>
-    <Date>2015-07-21T09:09:36.193</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>58</NotificationID>
-    <Date>2015-07-21T09:09:37.237</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>60</NotificationID>
-    <Date>2015-07-21T09:39:58.547</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>61</NotificationID>
-    <Date>2015-07-21T09:39:59.623</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>62</NotificationID>
-    <Date>2015-07-21T09:40:43.413</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>63</NotificationID>
-    <Date>2015-07-21T09:40:44.31</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>64</NotificationID>
-    <Date>2015-07-21T09:41:38.417</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>65</NotificationID>
-    <Date>2015-07-21T09:41:51.537</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>66</NotificationID>
-    <Date>2015-07-21T09:41:52.707</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>67</NotificationID>
-    <Date>2015-07-21T09:43:21.707</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>68</NotificationID>
-    <Date>2015-07-21T09:43:22.787</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>69</NotificationID>
-    <Date>2015-07-21T09:47:23.853</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>70</NotificationID>
-    <Date>2015-07-21T09:47:24.827</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>71</NotificationID>
-    <Date>2015-07-21T09:48:00.87</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>72</NotificationID>
-    <Date>2015-07-21T09:48:01.653</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>73</NotificationID>
-    <Date>2015-07-21T09:48:15.963</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>74</NotificationID>
-    <Date>2015-07-21T09:48:16.81</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>75</NotificationID>
-    <Date>2015-07-21T09:55:53.997</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>76</NotificationID>
-    <Date>2015-07-21T09:55:59.64</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>77</NotificationID>
-    <Date>2015-07-21T09:56:13.697</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>78</NotificationID>
-    <Date>2015-07-21T09:56:14.73</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>79</NotificationID>
-    <Date>2015-07-21T09:56:41.223</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>80</NotificationID>
-    <Date>2015-07-21T09:56:43.433</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>81</NotificationID>
-    <Date>2015-07-21T09:57:55.24</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>82</NotificationID>
-    <Date>2015-07-21T09:57:56.387</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>83</NotificationID>
-    <Date>2015-07-21T09:58:50.31</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>84</NotificationID>
-    <Date>2015-07-21T09:59:20.26</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>85</NotificationID>
-    <Date>2015-07-21T10:31:20.007</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>86</NotificationID>
-    <Date>2015-07-21T10:31:28.727</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>87</NotificationID>
-    <Date>2015-07-21T10:31:50.533</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>88</NotificationID>
-    <Date>2015-07-21T10:31:51.507</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>89</NotificationID>
-    <Date>2015-07-21T10:32:22.787</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>90</NotificationID>
-    <Date>2015-07-21T10:32:23.697</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>91</NotificationID>
-    <Date>2015-07-21T10:34:27.05</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>92</NotificationID>
-    <Date>2015-07-21T10:34:29.497</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>93</NotificationID>
-    <Date>2015-07-21T10:35:29.24</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>94</NotificationID>
-    <Date>2015-07-21T10:35:30.55</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>95</NotificationID>
-    <Date>2015-07-21T10:44:39.61</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>96</NotificationID>
-    <Date>2015-07-21T10:44:40.733</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>97</NotificationID>
-    <Date>2015-07-21T10:49:35.353</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>98</NotificationID>
-    <Date>2015-07-21T10:49:36.247</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>99</NotificationID>
-    <Date>2015-07-21T10:52:13.833</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>100</NotificationID>
-    <Date>2015-07-21T10:58:17.363</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>101</NotificationID>
-    <Date>2015-07-21T10:58:18.22</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>102</NotificationID>
-    <Date>2015-07-21T10:58:25.45</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>103</NotificationID>
-    <Date>2015-07-21T11:15:12.52</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>104</NotificationID>
-    <Date>2015-07-21T11:27:30.91</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>105</NotificationID>
-    <Date>2015-07-21T11:27:32.03</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>106</NotificationID>
-    <Date>2015-07-21T11:27:40.353</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>107</NotificationID>
-    <Date>2015-07-21T11:39:01.623</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>108</NotificationID>
-    <Date>2015-07-21T11:42:20.337</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
-  </Notification>
-  <Notification>
-    <NotificationID>109</NotificationID>
-    <Date>2015-07-21T11:42:21.597</Date>
-    <Title>android</Title>
-    <Body />
-    <ChildName>1子機</ChildName>
   </Notification>
 </ArrayOfNotification>

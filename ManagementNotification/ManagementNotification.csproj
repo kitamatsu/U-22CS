@@ -44,6 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChangeData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeData.Designer.cs">
+      <DependentUpon>ChangeData.cs</DependentUpon>
+    </Compile>
     <Compile Include="db\Custom_SqlDatabaseTransientErrorDetectionStrategy.cs" />
     <Compile Include="db\DB.cs" />
     <Compile Include="AccountCertification.cs">
@@ -96,6 +102,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AccountCreate.resx">
       <DependentUpon>AccountCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeData.resx">
+      <DependentUpon>ChangeData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

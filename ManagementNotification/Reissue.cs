@@ -45,8 +45,10 @@ namespace ManagementNotification
                 
                 MessageBox.Show("入力されたメールアドレスに再発行後のアカウント情報を送信しました。",
                                 "再発行の完了",　MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                
 
+                AC = new AccountCertification();
+                AC.Show();
+                this.Visible = false;
             }
         }
         
@@ -70,7 +72,7 @@ namespace ManagementNotification
             //MailMessageの作成
             System.Net.Mail.MailMessage msg = new System.Net.Mail.MailMessage(
                 systemEmail, email,
-                "ManagementNotification：アカウントの再発行", "仮のユーザ名：" + accountData[0] +
+                "ManagementNotification：アカウントの再発行", "仮のユーザネーム：" + accountData[0] +
                 "\r\n仮のパスワード：" + accountData[1]);
 
             System.Net.Mail.SmtpClient sc = new System.Net.Mail.SmtpClient();
