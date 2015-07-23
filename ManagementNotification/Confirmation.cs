@@ -84,13 +84,13 @@ namespace ManagementNotification.util
         private void treeView1_MouseDown(object sender, MouseEventArgs MouseEA)
         {
             if (MouseEA.Button == MouseButtons.Left)
-                {
+            {
                 //日付が選択されたときDataGridViewに表示する
                 CD.selectLastNode(treeView1, dataGridView1,MouseEA);
-                }
+            }
 
             if (MouseEA.Button == MouseButtons.Right)
-                {
+            {
                 RD.deleteNode(treeView1,dataGridView1,MouseEA);
 
             }
