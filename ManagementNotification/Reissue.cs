@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ManagementNotification.db;
+using ManagementNotification.util;
 
 namespace ManagementNotification
 {
@@ -93,6 +94,12 @@ namespace ManagementNotification
             sc.Dispose();
 
 
+        }
+
+        private void Reissue_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            NotificationList.saveXML();
+            Application.Exit();
         }
 
     }

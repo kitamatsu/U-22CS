@@ -498,7 +498,7 @@ namespace ManagementNotification.db
                 {
 
                     com.CommandText = @"DELETE FROM mnMobile.notificationMobile " +
-                                    "WHERE date < " + strdtNow;
+                                    "WHERE date < '" + strdtNow + "'";
 
                     dReader = com.ExecuteReader();
                     

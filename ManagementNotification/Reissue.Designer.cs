@@ -81,6 +81,7 @@
             this.Controls.Add(this.button1);
             this.Name = "Reissue";
             this.Text = "アカウントの再発行";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Reissue_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

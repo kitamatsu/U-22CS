@@ -227,6 +227,7 @@
             this.Controls.Add(this.label1);
             this.Name = "AccountCertification";
             this.Text = "アカウント認証画面";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AccountCertification_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

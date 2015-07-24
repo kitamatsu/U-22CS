@@ -118,5 +118,11 @@ namespace ManagementNotification
             Con.getEmail(email);
             this.Visible = false;
         }
+
+        private void ChangeData_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            NotificationList.saveXML();
+            Application.Exit();
+        }
     }
 }

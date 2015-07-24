@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ManagementNotification.db;
 
 namespace ManagementNotification
 {
@@ -16,6 +17,10 @@ namespace ManagementNotification
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            DB db = new DB();
+            db.DeleteConnectAndQuery();
+
             Application.Run(new AccountCertification());
         }
     }
