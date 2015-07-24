@@ -26,7 +26,6 @@ namespace ManagementNotification
         public void getEmail(String email)
         {
             this.email = email;
-            inputPassword.Text = this.email;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -70,14 +69,20 @@ namespace ManagementNotification
                     string newPassword = inputPassword.Text;
                     string newEmail = inputEmail.Text;
 
+                    String[] accountData = { newName, newPassword, newEmail, email };
                     if (newEmail.Length > 0)
                     {
                         if (db.CheckEmailConnectAndQuery(newEmail).Equals(""))
                         {
-                            inputPassword.Text = "ok";
+                            ChangeAccountData(accountData);
                         }else{
-                            inputPassword.Text = "ng";
+                            MessageBox.Show("入力したメールアドレスは既に登録されています。", "エラー",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
+                    }
+                    else
+                    {
+                        ChangeAccountData(accountData);
                     }
 
                 }
@@ -92,6 +97,25 @@ namespace ManagementNotification
         {
             Con = new Confirmation();
             Con.Show();
+            Con.getEmail(email);
+            this.Visible = false;
+        }
+
+
+        private void ChangeAccountData(String[] accountData)
+        {
+            db.ChangeDataConnectAndQuery(accountData);
+
+            MessageBox.Show("ユーザ情報変更が完了しました",
+                "完了", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+            if (inputEmail.Text.Length > 0)
+            {
+                email = inputEmail.Text;
+            }
+            Con = new Confirmation();
+            Con.Show();
+            Con.getEmail(email);
             this.Visible = false;
         }
     }
