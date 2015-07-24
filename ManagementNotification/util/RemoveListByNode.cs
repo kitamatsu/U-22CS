@@ -77,9 +77,11 @@ namespace ManagementNotification.util
             {
                 if (RLBNlist[index].ChildName == user && RLBNlist[index].Date.Date.ToString() == strDate)
                 {
-                    //deleteDGViewByNode(DGview, RLBNlist[index].NotificationID);
+                    deleteDGViewByNode(DGview, RLBNlist[index].NotificationID);
 
                     RLBNlist.Remove(RLBNlist[index]);
+
+                    index--;
                 }
             }
 
