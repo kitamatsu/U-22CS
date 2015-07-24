@@ -22,10 +22,13 @@ namespace ManagementNotification
 
         public AccountCertification()
         {
+            
             InitializeComponent();
             Con = new Confirmation(this);
             AC = new AccountCreate(this);
             db = new DB();
+            //通知削除
+            //db.DeleteConnectAndQuery();
             
         }
 
