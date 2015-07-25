@@ -95,5 +95,10 @@ namespace ManagementNotification
 
         }
 
+        private void Reissue_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

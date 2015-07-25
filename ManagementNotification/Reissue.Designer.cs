@@ -81,6 +81,7 @@
             this.Controls.Add(this.button1);
             this.Name = "Reissue";
             this.Text = "アカウントの再発行";
+            this.Load += new System.EventHandler(this.Reissue_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

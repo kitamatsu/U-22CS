@@ -28,7 +28,7 @@ namespace ManagementNotification
             AC = new AccountCreate(this);
             db = new DB();
             //通知削除
-            //db.DeleteConnectAndQuery();
+            db.DeleteConnectAndQuery();
             
         }
 

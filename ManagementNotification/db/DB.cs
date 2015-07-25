@@ -489,19 +489,18 @@ namespace ManagementNotification.db
             DateTimeOffset dt = DateTimeOffset.Now;
             //1か月前の月を取得する
             String strdtNow = dt.AddMonths(-1).ToString();
-            MessageBox.Show(strdtNow);
 
             try
             {
                 // [C.1] Use the connection to create a query command.
                 using (com = this.sqlConnection.CreateCommand())
                 {
-
+                    
                     com.CommandText = @"DELETE FROM mnMobile.notificationMobile " +
-                                    "WHERE date < " + strdtNow;
+                                    "WHERE date < '" + strdtNow + "'";
 
                     dReader = com.ExecuteReader();
-                    
+
                 }
             }
             catch (Exception exc)
