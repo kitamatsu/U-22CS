@@ -495,12 +495,12 @@ namespace ManagementNotification.db
                 // [C.1] Use the connection to create a query command.
                 using (com = this.sqlConnection.CreateCommand())
                 {
-                    
+
                     com.CommandText = @"DELETE FROM mnMobile.notificationMobile " +
                                     "WHERE date < '" + strdtNow + "'";
 
                     dReader = com.ExecuteReader();
-
+                    
                 }
             }
             catch (Exception exc)
@@ -1193,7 +1193,7 @@ namespace ManagementNotification.db
                           from   mnMobile.notificationMobile inner join mnMobile.childMobile
                           on     mnMobile.notificationMobile.serialID = mnMobile.childMobile.serialID
                           where  accountId in (select accountid from mnMobile.accountMobile where mnMobile.accountMobile.email = '"
-                        + email + "' and mnMobile.accountMobile.accountid in(select accountid from Transmit where mnMobile.notificationMobile.notificationid > Transmit.notificationId)) order by mnMobile.notificationMobile.notificationId";
+                        + email + "' and mnMobile.accountMobile.accountid in(select accountid from Transmit where mnMobile.notificationMobile.notificationid > Transmit.notificationId)) order by mnMobile.notificationMobile.date";
 
                     // [C.2] Issue the query command through the connection.
                     using (dReader = dbCommand.ExecuteReader())
@@ -1207,7 +1207,7 @@ namespace ManagementNotification.db
                             sBuilder.Length = 0;
                             notification.Add(sBuilder.Append(dReader.GetInt32(0)));
                             sBuilder.Append("\t");
-                            notification.Add(sBuilder.Append(dReader.GetDateTime(1)));
+                            notification.Add(sBuilder.Append(dReader.GetDateTime(1).AddHours(9)));
                             sBuilder.Append("\t");
                             notification.Add(sBuilder.Append(dReader.GetString(2)));
                             sBuilder.Append("\t");
@@ -1215,7 +1215,7 @@ namespace ManagementNotification.db
                             sBuilder.Append("\t");
                             notification.Add(sBuilder.Append(dReader.GetString(4)));
 
-                            Notification nt = new Notification(dReader.GetInt32(0), dReader.GetDateTime(1), dReader.GetString(2),
+                            Notification nt = new Notification(dReader.GetInt32(0), dReader.GetDateTime(1).AddHours(9), dReader.GetString(2),
                                                                dReader.GetString(3), dReader.GetString(4));
                             //list.Add(nt);
                             NotificationList.list.Add(nt);
@@ -1287,7 +1287,7 @@ namespace ManagementNotification.db
                           from   mnMobile.notificationMobile inner join mnMobile.childMobile
                           on     mnMobile.notificationMobile.serialID = mnMobile.childMobile.serialID
                           where  accountId in (select accountid from mnMobile.accountMobile where mnMobile.accountMobile.email = '"
-                        + email + "' and mnMobile.accountMobile.accountid in(select accountid from Transmit where mnMobile.notificationMobile.notificationid <= Transmit.notificationId)) order by mnMobile.notificationMobile.notificationId";
+                        + email + "' and mnMobile.accountMobile.accountid in(select accountid from Transmit where mnMobile.notificationMobile.notificationid <= Transmit.notificationId)) order by mnMobile.notificationMobile.date";
 
                     // [C.2] Issue the query command through the connection.
                     using (dReader = dbCommand.ExecuteReader())
@@ -1301,7 +1301,7 @@ namespace ManagementNotification.db
                             sBuilder.Length = 0;
                             notification.Add(sBuilder.Append(dReader.GetInt32(0)));
                             sBuilder.Append("\t");
-                            notification.Add(sBuilder.Append(dReader.GetDateTime(1)));
+                            notification.Add(sBuilder.Append(dReader.GetDateTime(1).AddHours(9)));
                             sBuilder.Append("\t");
                             notification.Add(sBuilder.Append(dReader.GetString(2)));
                             sBuilder.Append("\t");
@@ -1309,7 +1309,7 @@ namespace ManagementNotification.db
                             sBuilder.Append("\t");
                             notification.Add(sBuilder.Append(dReader.GetString(4)));
 
-                            Notification nt = new Notification(dReader.GetInt32(0), dReader.GetDateTime(1), dReader.GetString(2),
+                            Notification nt = new Notification(dReader.GetInt32(0), dReader.GetDateTime(1).AddHours(9), dReader.GetString(2),
                                                                dReader.GetString(3), dReader.GetString(4));
                             
                             Boolean exist = false;

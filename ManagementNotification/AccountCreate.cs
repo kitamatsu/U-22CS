@@ -1,4 +1,5 @@
 ﻿using ManagementNotification.db;
+using ManagementNotification.util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -63,6 +64,12 @@ namespace ManagementNotification
                     this.Visible = false;
                 }
             }
+        }
+
+        private void AccountCreate_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            NotificationList.saveXML();
+            Application.Exit();
         }
 
         private void button2_Click(object sender, EventArgs e)

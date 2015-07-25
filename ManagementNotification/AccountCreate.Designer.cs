@@ -262,6 +262,7 @@
             this.Controls.Add(this.userNameTB);
             this.Name = "AccountCreate";
             this.Text = "新規アカウント作成";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AccountCreate_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

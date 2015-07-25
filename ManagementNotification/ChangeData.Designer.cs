@@ -132,6 +132,7 @@
             this.Controls.Add(this.label1);
             this.Name = "ChangeData";
             this.Text = "ユーザ情報変更";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ChangeData_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

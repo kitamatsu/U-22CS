@@ -67,5 +67,11 @@ namespace ManagementNotification
             Re.Show();
             this.Visible = false;
         }
+
+        private void AccountCertification_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            NotificationList.saveXML();
+            Application.Exit();
+        }
     }
 }
