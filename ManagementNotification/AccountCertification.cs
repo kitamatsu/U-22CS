@@ -22,14 +22,15 @@ namespace ManagementNotification
 
         public AccountCertification()
         {
-            
+
             InitializeComponent();
             Con = new Confirmation(this);
             AC = new AccountCreate(this);
             db = new DB();
             //通知削除
             db.DeleteConnectAndQuery();
-            
+            this.button1.Enabled = false;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -50,7 +51,7 @@ namespace ManagementNotification
                 //データをリストに格納するメソッドを作成
                 Con.getEmail(email);
                 Con.Show();
-                
+
                 this.Visible = false;
             }
             else if (email.Equals(""))
@@ -58,7 +59,7 @@ namespace ManagementNotification
                 label4.Text = "ユーザネーム,パスワードが一致しません。";
                 label4.BackColor = Color.Red;
             }
-            
+
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -72,6 +73,11 @@ namespace ManagementNotification
         {
             NotificationList.saveXML();
             Application.Exit();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            this.button1.Enabled = true;
         }
     }
 }
