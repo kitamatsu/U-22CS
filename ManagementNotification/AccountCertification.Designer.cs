@@ -38,15 +38,16 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label1.Location = new System.Drawing.Point(116, 41);
+            this.label1.Location = new System.Drawing.Point(119, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 16);
             this.label1.TabIndex = 1;
@@ -81,6 +82,7 @@
             // 
             this.passwordTB.Location = new System.Drawing.Point(457, 212);
             this.passwordTB.Name = "passwordTB";
+            this.passwordTB.PasswordChar = '●';
             this.passwordTB.Size = new System.Drawing.Size(164, 19);
             this.passwordTB.TabIndex = 5;
             // 
@@ -123,6 +125,17 @@
             this.label4.Size = new System.Drawing.Size(267, 15);
             this.label4.TabIndex = 9;
             this.label4.Text = "ユーザネーム、パスワードを入力して下さい";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(174, 372);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(100, 16);
+            this.checkBox1.TabIndex = 11;
+            this.checkBox1.Text = "規約に同意する";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // listBox1
             // 
@@ -206,26 +219,28 @@
             "（7）ユーザーからのお問い合わせに対応するために，お問い合わせ内容や代金の請求に関する情報など当社がユーザーに対してサービスを提供するにあたって必要となる情報や，" +
                 "ユーザーのサービス利用状況，連絡先情報などを利用する目的",
             "（8）上記の利用目的に付随する目的"});
-            this.listBox1.Location = new System.Drawing.Point(38, 76);
+            this.listBox1.Location = new System.Drawing.Point(39, 52);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(235, 304);
             this.listBox1.TabIndex = 10;
             // 
-            // checkBox1
+            // textBox1
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(415, 364);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(141, 16);
-            this.checkBox1.TabIndex = 11;
-            this.checkBox1.Text = "仮のユーザ名・パスワード";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.textBox1.Location = new System.Drawing.Point(39, 154);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(235, 163);
+            this.textBox1.TabIndex = 12;
+            this.textBox1.Text = "ｈｄｓｇｆじゃｈｓｄｊｋｈｆｊかｓｄｈｆｊｋｈさｄｊｋｈｆｊかｓｈｄｊｆはｓｄｊｈｆぁｓｊｄｈｌｆｋｊｈさｄｊｋｆはｊｋｓｄｈｆｋｌじゃｈｓｄｌｋｊｆはｌｓｋｄｊ" +
+    "ｈdshfヵsdhjklfはkljsdhfjはｓｄｊｆｈヵｓｄｈｋｊｌｆはｓｄｊｈｆｌじゃｓｈｄｌｆはｌｓｄｊｆｈぁｓｄｈｆｌｊかｓｈｄｊｆｈｓだｌｊｋｈｆｋｌ" +
+    "じゃｓｄｈｆｌｋｊｈｄさｌｋｊｆｈｓｌだｊｋｈｆｌｋｊｓだｈｆｌｋｊｓｈｄｌｋ";
             // 
             // AccountCertification
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(714, 400);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.label4);
@@ -256,7 +271,8 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
