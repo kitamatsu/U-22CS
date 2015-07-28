@@ -1405,8 +1405,8 @@ namespace ManagementNotification.db
                     guidResult = System.Guid.NewGuid().ToString();
                     account[1] = guidResult.Substring(0, 8);
 
-                    com.CommandText = @"UPDATE mnMobile.accountMobile SET username = '" + account[0] + 
-                        "', password = '" + account[1] + "' where email = '" + email + "'";
+                    com.CommandText = @"UPDATE mnMobile.accountMobile SET tempusername = '" + account[0] + 
+                        "', temppassword = '" + account[1] + "' where email = '" + email + "'";
 
                     com = new C.SqlCommand(com.CommandText, sqlConnection);
 
