@@ -60,6 +60,10 @@ namespace ManagementNotification
                     db.TransmitConnectAndQuery(userNameTB.Text, passTB.Text);
 
                     //アカウント認証画面に戻る
+                    this.userNameTB.Clear();
+                    this.emailTB.Clear();
+                    this.passTB.Clear();
+                    this.passConfirmationTB.Clear();
                     pre.Show();
                     this.Visible = false;
                 }
@@ -74,8 +78,8 @@ namespace ManagementNotification
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //前のページに戻る
-            
+            pre.Show();
+            this.Visible = false;
         }
     }
 }
