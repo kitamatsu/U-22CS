@@ -41,6 +41,7 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -235,11 +236,22 @@
     "ｈdshfヵsdhjklfはkljsdhfjはｓｄｊｆｈヵｓｄｈｋｊｌｆはｓｄｊｈｆｌじゃｓｈｄｌｆはｌｓｄｊｆｈぁｓｄｈｆｌｊかｓｈｄｊｆｈｓだｌｊｋｈｆｋｌ" +
     "じゃｓｄｈｆｌｋｊｈｄさｌｋｊｆｈｓｌだｊｋｈｆｌｋｊｓだｈｆｌｋｊｓｈｄｌｋ";
             // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(442, 372);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(235, 16);
+            this.checkBox2.TabIndex = 13;
+            this.checkBox2.Text = "仮のユーザネーム・パスワードを正式利用する";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
             // AccountCertification
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(714, 400);
+            this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.listBox1);
@@ -274,5 +286,6 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.CheckBox checkBox2;
     }
 }
