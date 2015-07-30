@@ -749,4 +749,74 @@
     <Body>タイマー</Body>
     <ChildName>小島</ChildName>
   </Notification>
+  <Notification>
+    <NotificationID>256</NotificationID>
+    <Date>2015-07-29T09:19:40.35</Date>
+    <Title>com.kddi.android.email</Title>
+    <Body>　</Body>
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>257</NotificationID>
+    <Date>2015-07-29T09:19:40.353</Date>
+    <Title>com.kddi.android.email</Title>
+    <Body>　</Body>
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>258</NotificationID>
+    <Date>2015-07-29T09:19:48.907</Date>
+    <Title>com.nero.android.htc.sync</Title>
+    <Body>　</Body>
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>259</NotificationID>
+    <Date>2015-07-29T09:20:07.697</Date>
+    <Title>com.android.providers.media</Title>
+    <Body>　</Body>
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>260</NotificationID>
+    <Date>2015-07-29T11:03:31.25</Date>
+    <Title>com.htc.usage</Title>
+    <Body>　</Body>
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>261</NotificationID>
+    <Date>2015-07-29T11:04:31.767</Date>
+    <Title>com.htc.usage</Title>
+    <Body>　</Body>
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>262</NotificationID>
+    <Date>2015-07-29T12:30:54.65</Date>
+    <Title>com.kddi.android.email</Title>
+    <Body>　</Body>
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>263</NotificationID>
+    <Date>2015-07-29T12:31:56.25</Date>
+    <Title>com.kddi.android.email</Title>
+    <Body>　</Body>
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>264</NotificationID>
+    <Date>2015-07-29T12:31:57.32</Date>
+    <Title>com.kddi.android.email</Title>
+    <Body>　</Body>
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>265</NotificationID>
+    <Date>2015-07-29T14:05:31.537</Date>
+    <Title>com.htc.usage</Title>
+    <Body>　</Body>
+    <ChildName>小島</ChildName>
+  </Notification>
 </ArrayOfNotification>
