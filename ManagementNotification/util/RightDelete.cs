@@ -24,7 +24,7 @@ namespace ManagementNotification.util
             int selectRow = rowNum + 1;
 
             //メッセージボックスに選択した行を削除するか表示
-            DialogResult result = MessageBox.Show("行番号:　" + selectRow + "\r\n選択した行を削除します。",
+            DialogResult result = MessageBox.Show("選択した行を削除します。",
                                                     "削除",
                                                     MessageBoxButtons.OKCancel,
                                                     MessageBoxIcon.Exclamation);

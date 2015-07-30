@@ -18,6 +18,7 @@ namespace ManagementNotification.util
         //ConfirmationDenotationクラスのインスタンス作成
         ConfirmationDenotation CD;
         RightDelete RD = new RightDelete();
+        DB db = new DB();
         AccountCertification AC;
         ChangeData CData;
         Form pre;
@@ -40,9 +41,8 @@ namespace ManagementNotification.util
             //行を追加するオプションを非表示
             dataGridView1.AllowUserToAddRows = false;
 
-            //CD.sortTreeView();
-            DB db = new DB();
-            //db.ConnectAndQuery("tamura@yahoo.co.jp", 1);  //ログイン時に保存したメールアドレスを使用する、未送信通知の受信は1
+            //DB db = new DB();
+            //ログイン時に保存したメールアドレスを使用する、未送信通知の受信は1
             db.ConnectAndQuery(email, 1);
             CD = new ConfirmationDenotation(treeView1);
 
@@ -112,11 +112,6 @@ namespace ManagementNotification.util
             this.email = mail;
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button5_Click(object sender, EventArgs e)
         {
             MessageBox.Show(email);
@@ -135,6 +130,14 @@ namespace ManagementNotification.util
             CData.Show();
             CData.getEmail(email);
             this.Visible = false;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            //ログイン時に保存したメールアドレスを使用する、未送信通知の受信は1
+            db.ConnectAndQuery(email, 1);
+            treeView1.Nodes.Clear();
+            CD = new ConfirmationDenotation(treeView1);
         }
     }
 }

@@ -1224,7 +1224,7 @@ namespace ManagementNotification.db
                             transmitId = dReader.GetInt32(0);
                             
                             
-                            Console.WriteLine(sBuilder.ToString());
+                            //Console.WriteLine(sBuilder.ToString());
                         }
 
                         dReader.Close();
