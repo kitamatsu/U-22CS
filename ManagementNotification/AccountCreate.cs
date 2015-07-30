@@ -53,19 +53,34 @@ namespace ManagementNotification
 
                 if (result == DialogResult.OK)
                 {
-                    //DBクラスのアカウント追加メソッドを呼び出す
-                    db.ConnectAndQuery(userNameTB.Text, emailTB.Text, passTB.Text);
+                    if (!db.CheckEmailConnectAndQuery(emailTB.Text).Equals(""))
+                    {
+                        MessageBox.Show("入力したメールアドレスは既に登録されています。", "エラー",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if (!db.CheckUserNameConnectAndQuery(userNameTB.Text).Equals(""))
+                    {
+                        MessageBox.Show("入力したユーザネームは既に登録されています。", "エラー",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        //DBクラスのアカウント追加メソッドを呼び出す
+                        db.ConnectAndQuery(userNameTB.Text, emailTB.Text, passTB.Text);
 
-                    //Transmitテーブルにデータを追加
-                    db.TransmitConnectAndQuery(userNameTB.Text, passTB.Text);
+                        //Transmitテーブルにデータを追加
+                        db.TransmitConnectAndQuery(userNameTB.Text, passTB.Text);
 
-                    //アカウント認証画面に戻る
-                    this.userNameTB.Clear();
-                    this.emailTB.Clear();
-                    this.passTB.Clear();
-                    this.passConfirmationTB.Clear();
-                    pre.Show();
-                    this.Visible = false;
+                        //アカウント認証画面に戻る
+                        this.userNameTB.Clear();
+                        this.emailTB.Clear();
+                        this.passTB.Clear();
+                        this.passConfirmationTB.Clear();
+                        pre.Show();
+                        this.Visible = false;
+                    }
+
+                    
                 }
             }
         }

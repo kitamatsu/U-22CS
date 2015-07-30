@@ -41,24 +41,59 @@ namespace ManagementNotification
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //メールアドレスを取得する
-            email = db.LoginConnectAndQuery(usernameTB.Text, passwordTB.Text);
 
-            //アカウントIDが存在すればリストにデータを格納しページ遷移する
-            if (!email.Equals(""))
+            if (checkBox2.Checked)
             {
+                //仮のアカウント情報を使用する場合
 
-                //データをリストに格納するメソッドを作成
-                Con.getEmail(email);
-                Con.Show();
+                //メールアドレスを取得する
+                email = db.LoginConnectAndQuery(usernameTB.Text, passwordTB.Text, true);
 
-                this.Visible = false;
+                //アカウントIDが存在すればリストにデータを格納しページ遷移する
+                if (!email.Equals(""))
+                {
+
+                    db.DecisionTempConnectAndQuery(email);
+
+                    db.TempClearConnectAndQuery(email);
+
+                    //データをリストに格納するメソッドを作成
+                    Con.getEmail(email);
+                    Con.Show();
+
+                    this.Visible = false;
+                }
+                else if (email.Equals(""))
+                {
+                    label4.Text = "ユーザネーム,パスワードが一致しません。";
+                    label4.BackColor = Color.Red;
+                }
             }
-            else if (email.Equals(""))
+            else
             {
-                label4.Text = "ユーザネーム,パスワードが一致しません。";
-                label4.BackColor = Color.Red;
+                //メールアドレスを取得する
+                email = db.LoginConnectAndQuery(usernameTB.Text, passwordTB.Text, false);
+
+                //アカウントIDが存在すればリストにデータを格納しページ遷移する
+                if (!email.Equals(""))
+                {
+
+                    db.TempClearConnectAndQuery(email);
+
+                    //データをリストに格納するメソッドを作成
+                    Con.getEmail(email);
+                    Con.Show();
+
+                    this.Visible = false;
+                }
+                else if (email.Equals(""))
+                {
+                    label4.Text = "ユーザネーム,パスワードが一致しません。";
+                    label4.BackColor = Color.Red;
+                }
             }
+
+            
 
         }
 

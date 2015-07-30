@@ -72,18 +72,27 @@ namespace ManagementNotification
                     String[] accountData = { newName, newPassword, newEmail, email };
                     if (newEmail.Length > 0)
                     {
-                        if (db.CheckEmailConnectAndQuery(newEmail).Equals(""))
+                        if (!db.CheckEmailConnectAndQuery(newEmail).Equals(""))
                         {
-                            ChangeAccountData(accountData);
-                        }else{
                             MessageBox.Show("入力したメールアドレスは既に登録されています。", "エラー",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
                         }
+
                     }
-                    else
+
+                    if (newName.Length > 0)
                     {
-                        ChangeAccountData(accountData);
+                        if (!db.CheckUserNameConnectAndQuery(newName).Equals(""))
+                        {
+                            MessageBox.Show("入力したユーザネームは既に登録されています。", "エラー",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
                     }
+
+                    ChangeAccountData(accountData);
 
                 }
 

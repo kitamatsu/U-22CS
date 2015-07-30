@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace ManagementNotification.util
 {
@@ -27,6 +28,7 @@ namespace ManagementNotification.util
         //誰も読まない、読めないだろうから細かいコメントはなし
         public void createNodes()
         {
+
             for (int i = 0; i < NotificationList.diffNameList().Count; i++)
             {
                 Notification tree = NotificationList.list.Find(x => x.ChildName == NotificationList.diffNameList()[i]);
