@@ -46,7 +46,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label1.Location = new System.Drawing.Point(119, 24);
+            this.label1.Location = new System.Drawing.Point(154, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 16);
             this.label1.TabIndex = 1;
@@ -128,7 +128,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(232, 372);
+            this.checkBox1.Location = new System.Drawing.Point(243, 372);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(100, 16);
             this.checkBox1.TabIndex = 11;
@@ -301,7 +301,7 @@
             "などを利用する目的",
             "",
             "（8）上記の利用目的に付随する目的"});
-            this.listBox1.Location = new System.Drawing.Point(24, 52);
+            this.listBox1.Location = new System.Drawing.Point(35, 62);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(308, 304);
             this.listBox1.TabIndex = 10;
@@ -309,7 +309,7 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(442, 372);
+            this.checkBox2.Location = new System.Drawing.Point(439, 372);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(235, 16);
             this.checkBox2.TabIndex = 13;
