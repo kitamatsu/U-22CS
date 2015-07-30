@@ -44,6 +44,8 @@ namespace ManagementNotification
 
             if (checkBox2.Checked)
             {
+                //仮のアカウント情報を使用する場合
+
                 //メールアドレスを取得する
                 email = db.LoginConnectAndQuery(usernameTB.Text, passwordTB.Text, true);
 
