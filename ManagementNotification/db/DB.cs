@@ -693,7 +693,7 @@ namespace ManagementNotification.db
                 {
                     if (temp)
                     {
-                        com.CommandText = @"SELECT email FROM mnMobile.accountMobile " +
+                    com.CommandText = @"SELECT email FROM mnMobile.accountMobile " +
                                     "WHERE tempuserName = @userName " +
                                     "AND temppassword = @Pass";
                     }
@@ -703,7 +703,7 @@ namespace ManagementNotification.db
                                     "WHERE userName = @userName " +
                                     "AND password = @Pass";
                     }
-                    
+
 
                     com = new C.SqlCommand(com.CommandText, sqlConnection);
 
@@ -1639,7 +1639,7 @@ namespace ManagementNotification.db
                             transmitId = dReader.GetInt32(0);
                             
                             
-                            Console.WriteLine(sBuilder.ToString());
+                            //Console.WriteLine(sBuilder.ToString());
                         }
 
                         dReader.Close();
@@ -1783,7 +1783,7 @@ namespace ManagementNotification.db
                     catch (C.SqlException exc)
                     {
                         throw exc;
-                    }
+            }
 
                     // [C.2] Issue the query command through the connection.
                     using (dReader = com.ExecuteReader())
@@ -1792,7 +1792,7 @@ namespace ManagementNotification.db
                         {
                             userName = dReader.GetString(0);
                         }
-                    }
+        }
 
                 }
             }
