@@ -1,2 +1,822 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ArrayOfNotification xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+<ArrayOfNotification xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Notification>
+    <NotificationID>48</NotificationID>
+    <Date>2015-07-21T15:15:11.897</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>50</NotificationID>
+    <Date>2015-07-21T15:18:19.027</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>52</NotificationID>
+    <Date>2015-07-21T15:20:11.597</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>54</NotificationID>
+    <Date>2015-07-21T15:20:59.627</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>56</NotificationID>
+    <Date>2015-07-21T18:09:02.15</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>58</NotificationID>
+    <Date>2015-07-21T18:09:37.237</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>61</NotificationID>
+    <Date>2015-07-21T18:39:59.623</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>63</NotificationID>
+    <Date>2015-07-21T18:40:44.31</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>65</NotificationID>
+    <Date>2015-07-21T18:41:51.537</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>67</NotificationID>
+    <Date>2015-07-21T18:43:21.707</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>69</NotificationID>
+    <Date>2015-07-21T18:47:23.853</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>71</NotificationID>
+    <Date>2015-07-21T18:48:00.87</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>73</NotificationID>
+    <Date>2015-07-21T18:48:15.963</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>75</NotificationID>
+    <Date>2015-07-21T18:55:53.997</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>77</NotificationID>
+    <Date>2015-07-21T18:56:13.697</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>79</NotificationID>
+    <Date>2015-07-21T18:56:41.223</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>81</NotificationID>
+    <Date>2015-07-21T18:57:55.24</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>83</NotificationID>
+    <Date>2015-07-21T18:58:50.31</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>85</NotificationID>
+    <Date>2015-07-21T19:31:20.007</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>87</NotificationID>
+    <Date>2015-07-21T19:31:50.533</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>89</NotificationID>
+    <Date>2015-07-21T19:32:22.787</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>91</NotificationID>
+    <Date>2015-07-21T19:34:27.05</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>93</NotificationID>
+    <Date>2015-07-21T19:35:29.24</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>95</NotificationID>
+    <Date>2015-07-21T19:44:39.61</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>97</NotificationID>
+    <Date>2015-07-21T19:49:35.353</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>99</NotificationID>
+    <Date>2015-07-21T19:52:13.833</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>101</NotificationID>
+    <Date>2015-07-21T19:58:18.22</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>103</NotificationID>
+    <Date>2015-07-21T20:15:12.52</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>105</NotificationID>
+    <Date>2015-07-21T20:27:32.03</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>107</NotificationID>
+    <Date>2015-07-21T20:39:01.623</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>109</NotificationID>
+    <Date>2015-07-21T20:42:21.597</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>111</NotificationID>
+    <Date>2015-07-22T17:38:53.863</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>113</NotificationID>
+    <Date>2015-07-22T17:40:56.3</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>115</NotificationID>
+    <Date>2015-07-22T17:43:20.163</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>117</NotificationID>
+    <Date>2015-07-22T17:43:47.607</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>131</NotificationID>
+    <Date>2015-07-23T17:18:47.057</Date>
+    <Title>com.example.hideki.managementnotification</Title>
+    <Body>Tiker Text!</Body>
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>133</NotificationID>
+    <Date>2015-07-23T18:13:57.99</Date>
+    <Title>com.example.hideki.managementnotification</Title>
+    <Body>Tiker Text!</Body>
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>47</NotificationID>
+    <Date>2015-07-21T15:15:10.993</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>49</NotificationID>
+    <Date>2015-07-21T15:18:17.877</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>51</NotificationID>
+    <Date>2015-07-21T15:20:09.08</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>53</NotificationID>
+    <Date>2015-07-21T15:20:57.99</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>55</NotificationID>
+    <Date>2015-07-21T18:09:01.177</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>57</NotificationID>
+    <Date>2015-07-21T18:09:36.193</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>60</NotificationID>
+    <Date>2015-07-21T18:39:58.547</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>62</NotificationID>
+    <Date>2015-07-21T18:40:43.413</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>64</NotificationID>
+    <Date>2015-07-21T18:41:38.417</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>66</NotificationID>
+    <Date>2015-07-21T18:41:52.707</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>68</NotificationID>
+    <Date>2015-07-21T18:43:22.787</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>70</NotificationID>
+    <Date>2015-07-21T18:47:24.827</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>72</NotificationID>
+    <Date>2015-07-21T18:48:01.653</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>74</NotificationID>
+    <Date>2015-07-21T18:48:16.81</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>76</NotificationID>
+    <Date>2015-07-21T18:55:59.64</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>78</NotificationID>
+    <Date>2015-07-21T18:56:14.73</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>80</NotificationID>
+    <Date>2015-07-21T18:56:43.433</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>82</NotificationID>
+    <Date>2015-07-21T18:57:56.387</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>84</NotificationID>
+    <Date>2015-07-21T18:59:20.26</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>86</NotificationID>
+    <Date>2015-07-21T19:31:28.727</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>88</NotificationID>
+    <Date>2015-07-21T19:31:51.507</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>90</NotificationID>
+    <Date>2015-07-21T19:32:23.697</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>92</NotificationID>
+    <Date>2015-07-21T19:34:29.497</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>94</NotificationID>
+    <Date>2015-07-21T19:35:30.55</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>96</NotificationID>
+    <Date>2015-07-21T19:44:40.733</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>98</NotificationID>
+    <Date>2015-07-21T19:49:36.247</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>100</NotificationID>
+    <Date>2015-07-21T19:58:17.363</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>102</NotificationID>
+    <Date>2015-07-21T19:58:25.45</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>104</NotificationID>
+    <Date>2015-07-21T20:27:30.91</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>106</NotificationID>
+    <Date>2015-07-21T20:27:40.353</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>108</NotificationID>
+    <Date>2015-07-21T20:42:20.337</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>110</NotificationID>
+    <Date>2015-07-22T17:38:52.52</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>112</NotificationID>
+    <Date>2015-07-22T17:40:55.293</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>114</NotificationID>
+    <Date>2015-07-22T17:43:18.07</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>116</NotificationID>
+    <Date>2015-07-22T17:43:32.893</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>130</NotificationID>
+    <Date>2015-07-23T15:29:01.36</Date>
+    <Title>com.example.hideki.managementnotification</Title>
+    <Body>Tiker Text!</Body>
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>132</NotificationID>
+    <Date>2015-07-23T17:22:24.377</Date>
+    <Title>com.example.hideki.managementnotification</Title>
+    <Body>Tiker Text!</Body>
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>208</NotificationID>
+    <Date>2015-07-27T17:50:47.123</Date>
+    <Title>com.example.hideki.managementnotification</Title>
+    <Body>TEST通知です</Body>
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>209</NotificationID>
+    <Date>2015-07-28T13:38:21.683</Date>
+    <Title>com.kddi.android.email</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>210</NotificationID>
+    <Date>2015-07-28T13:38:58.02</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>211</NotificationID>
+    <Date>2015-07-28T13:38:59.853</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>212</NotificationID>
+    <Date>2015-07-28T13:39:12.837</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>213</NotificationID>
+    <Date>2015-07-28T13:39:14.977</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>214</NotificationID>
+    <Date>2015-07-28T13:39:29.86</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>215</NotificationID>
+    <Date>2015-07-28T13:39:31.043</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>216</NotificationID>
+    <Date>2015-07-28T13:40:03.437</Date>
+    <Title>com.example.hideki.managementnotification</Title>
+    <Body>TEST通知です</Body>
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>217</NotificationID>
+    <Date>2015-07-28T13:47:50.347</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>218</NotificationID>
+    <Date>2015-07-28T13:47:51.56</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>219</NotificationID>
+    <Date>2015-07-28T13:48:00.133</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>220</NotificationID>
+    <Date>2015-07-28T13:48:05.673</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>221</NotificationID>
+    <Date>2015-07-28T13:48:22.02</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>222</NotificationID>
+    <Date>2015-07-28T13:48:23.14</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>223</NotificationID>
+    <Date>2015-07-28T13:51:08.157</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>224</NotificationID>
+    <Date>2015-07-28T13:51:09.647</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>225</NotificationID>
+    <Date>2015-07-28T13:51:21.89</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>226</NotificationID>
+    <Date>2015-07-28T13:51:22.977</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>227</NotificationID>
+    <Date>2015-07-28T13:51:34.69</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>228</NotificationID>
+    <Date>2015-07-28T13:51:35.647</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>229</NotificationID>
+    <Date>2015-07-28T14:22:26.573</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>230</NotificationID>
+    <Date>2015-07-28T14:23:00.727</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>231</NotificationID>
+    <Date>2015-07-28T14:23:02.61</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>232</NotificationID>
+    <Date>2015-07-28T14:23:11.97</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>233</NotificationID>
+    <Date>2015-07-28T14:23:14.28</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>234</NotificationID>
+    <Date>2015-07-28T14:23:18.117</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>235</NotificationID>
+    <Date>2015-07-28T14:23:32.68</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>236</NotificationID>
+    <Date>2015-07-28T14:23:34.573</Date>
+    <Title>android</Title>
+    <Body />
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>237</NotificationID>
+    <Date>2015-07-28T14:24:17.203</Date>
+    <Title>com.example.hideki.managementnotification</Title>
+    <Body>TEST通知です</Body>
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>238</NotificationID>
+    <Date>2015-07-28T14:24:50.027</Date>
+    <Title>com.example.hideki.managementnotification</Title>
+    <Body>TEST通知です</Body>
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>239</NotificationID>
+    <Date>2015-07-28T14:27:06.657</Date>
+    <Title>com.example.hideki.managementnotification</Title>
+    <Body>TEST通知です</Body>
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>240</NotificationID>
+    <Date>2015-07-28T14:33:08.023</Date>
+    <Title>com.htc.android.worldclock</Title>
+    <Body>タイマー</Body>
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>256</NotificationID>
+    <Date>2015-07-29T09:19:40.35</Date>
+    <Title>com.kddi.android.email</Title>
+    <Body>　</Body>
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>257</NotificationID>
+    <Date>2015-07-29T09:19:40.353</Date>
+    <Title>com.kddi.android.email</Title>
+    <Body>　</Body>
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>258</NotificationID>
+    <Date>2015-07-29T09:19:48.907</Date>
+    <Title>com.nero.android.htc.sync</Title>
+    <Body>　</Body>
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>259</NotificationID>
+    <Date>2015-07-29T09:20:07.697</Date>
+    <Title>com.android.providers.media</Title>
+    <Body>　</Body>
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>260</NotificationID>
+    <Date>2015-07-29T11:03:31.25</Date>
+    <Title>com.htc.usage</Title>
+    <Body>　</Body>
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>261</NotificationID>
+    <Date>2015-07-29T11:04:31.767</Date>
+    <Title>com.htc.usage</Title>
+    <Body>　</Body>
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>262</NotificationID>
+    <Date>2015-07-29T12:30:54.65</Date>
+    <Title>com.kddi.android.email</Title>
+    <Body>　</Body>
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>263</NotificationID>
+    <Date>2015-07-29T12:31:56.25</Date>
+    <Title>com.kddi.android.email</Title>
+    <Body>　</Body>
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>264</NotificationID>
+    <Date>2015-07-29T12:31:57.32</Date>
+    <Title>com.kddi.android.email</Title>
+    <Body>　</Body>
+    <ChildName>小島</ChildName>
+  </Notification>
+  <Notification>
+    <NotificationID>265</NotificationID>
+    <Date>2015-07-29T14:05:31.537</Date>
+    <Title>com.htc.usage</Title>
+    <Body>　</Body>
+    <ChildName>小島</ChildName>
+  </Notification>
+</ArrayOfNotification>

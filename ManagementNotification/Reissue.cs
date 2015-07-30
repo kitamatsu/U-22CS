@@ -74,7 +74,8 @@ namespace ManagementNotification
             System.Net.Mail.MailMessage msg = new System.Net.Mail.MailMessage(
                 systemEmail, email,
                 "ManagementNotification：アカウントの再発行", "仮のユーザネーム：" + accountData[0] +
-                "\r\n仮のパスワード：" + accountData[1]);
+                "\r\n仮のパスワード：" + accountData[1] + "\r\n" +
+                "※このメールに心当たりのない場合は破棄してください。");
 
             System.Net.Mail.SmtpClient sc = new System.Net.Mail.SmtpClient();
             //SMTPサーバーなどを設定する
